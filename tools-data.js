@@ -279,6 +279,26 @@ window.TOOLS_DB = {
     },
     expertTip: "Usa Cloudflare DNS para gestionar tus dominios: es el registrador más barato porque vende los dominios a precio de coste mayorista."
   },
+  "hostinger": {
+    id: "hostinger",
+    category: "hosting",
+    categoryName: "4. Dónde Alojar la Web (Hosting)",
+    name: "Hostinger (Hosting Web, Dominios & Tiendas con IA)",
+    tagline: "Alojamiento web ultrarrápido con dominio gratis y creador de tiendas online asistido por IA",
+    shortDescription: "La plataforma de hosting y tiendas más popular y asequible: incluye dominio .com gratis, correo profesional y soporte 24/7.",
+    purpose: "Montar una tienda o web completa con su dominio propio en menos de 1 hora con pasarela de pago y catálogo listos.",
+    pricing: "Desde 4,74€/mes (Cupón exclusivo: 20% de Descuento)",
+    difficulty: "Muy Fácil (Asistente visual con IA sin código)",
+    recommendedReason: "Incluye todo en una cuota mínima: dominio gratis, hosting rápido, certificados SSL de por vida y 0% comisiones por venta.",
+    freeOption: {
+      name: "Cloudflare Pages (0€)",
+      url: "https://pages.cloudflare.com",
+      badge: "Gratis 0€",
+      reason: "Si solo quieres subir una página estática básica de código sin tienda.",
+      howToStart: "Despliega código estático gratis conectando tu cuenta de GitHub."
+    },
+    expertTip: "Aprovecha el 20% de descuento y el dominio gratuito que vienen incluidos en el enlace especial."
+  },
 
   // ==========================================
   // PAGOS & FACTURACIÓN (MONETIZACIÓN)
@@ -732,14 +752,17 @@ window.recommendStack = function(answers) {
       });
     }
 
-    // Paso 4: Hosting
+    // Paso 4: Hosting & Dominio
+    const isFreeOrDev = (budget === 'zero' || coding === 'developer');
     stack.steps.push({
       stepNumber: stack.steps.length + 1,
-      role: "Alojamiento en Internet",
+      role: isFreeOrDev ? "Alojamiento en Internet (Hosting)" : "Hosting Web, Dominio & Tiendas con IA",
       icon: "server",
       color: "text-emerald-400",
-      tool: window.TOOLS_DB["vercel"],
-      whyThis: "Tu web queda publicada con certificado de seguridad SSL y dominio propio con cero mantenimiento técnico."
+      tool: isFreeOrDev ? window.TOOLS_DB["vercel"] : window.TOOLS_DB["hostinger"],
+      whyThis: isFreeOrDev
+        ? "Tu web queda publicada con certificado de seguridad SSL y dominio propio con cero mantenimiento técnico."
+        : "Alojamiento ultrarrápido con dominio .com gratis incluido, creador con IA y 20% de descuento especial."
     });
 
     // Paso 5: Pagos

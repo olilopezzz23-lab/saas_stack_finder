@@ -103,6 +103,12 @@ window.AFFILIATE_CONFIG = {
   },
 
   // --- Hosting & Infraestructura ---
+  "hostinger": {
+    "name": "Hostinger",
+    "affiliateUrl": "https://www.hostinger.com/es?REFERRALCODE=BIRLOPEZOQLE",
+    "defaultUrl": "https://www.hostinger.com/es",
+    "badge": "Hosting Web + Dominio Gratis + Creador Tiendas (20% Descuento)"
+  },
   "vercel": {
     "name": "Vercel",
     "affiliateUrl": "",
