@@ -9,9 +9,9 @@ window.AFFILIATE_CONFIG = {
   // --- Constructores de Apps & Web (Frontend / Full-Stack) ---
   "lovable": {
     "name": "Lovable.dev",
-    "affiliateUrl": "", // Pega aquí tu link ej: "https://lovable.dev/?via=tu_afiliado"
+    "affiliateUrl": "https://lovable.dev/invite/QWMPR5I",
     "defaultUrl": "https://lovable.dev",
-    "badge": "Recomendado para Web Apps con IA"
+    "badge": "Recomendado para Web Apps con IA (+10 Créditos Gratis)"
   },
   "bolt": {
     "name": "Bolt.new",
