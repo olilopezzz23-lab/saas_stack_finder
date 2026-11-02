@@ -151,9 +151,9 @@ window.AFFILIATE_CONFIG = {
   // --- Automatización & Workflows ---
   "make": {
     "name": "Make.com",
-    "affiliateUrl": "",
+    "affiliateUrl": "https://www.make.com/en/register?pc=oliverlopez",
     "defaultUrl": "https://www.make.com",
-    "badge": "Flujos Visuales sin Código"
+    "badge": "Flujos Visuales sin Código (35% Comisión)"
   },
   "n8n": {
     "name": "n8n Workflows",
