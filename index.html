@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaaS Stack Finder - Descubre tu stack de herramientas ideal</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              900: '#14532d',
+            },
+            accent: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+            },
+            dark: {
+              800: '#0f172a',
+              850: '#0b1120',
+              900: '#030712',
+              950: '#02040a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(34, 197, 94, 0.4);
+      transform: translateY(-2px);
+    }
+    .glow-green {
+      box-shadow: 0 0 40px -10px rgba(34, 197, 94, 0.25);
+    }
+    .glow-accent {
+      box-shadow: 0 0 40px -10px rgba(14, 165, 233, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-dark-950 text-slate-100 min-h-screen flex flex-col selection:bg-brand-500 selection:text-dark-950 antialiased">
+
+  <!-- TOP DECORATIVE GLOW -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-64 bg-gradient-to-r from-brand-500/10 via-accent-500/15 to-purple-500/10 blur-3xl pointer-events-none -z-10"></div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="border-b border-white/5 bg-dark-900/60 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="resetQuiz()">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-500 to-accent-500 flex items-center justify-center shadow-lg shadow-brand-500/20">
+          <i data-lucide="layers" class="w-5 h-5 text-dark-950 font-bold"></i>
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-brand-400 bg-clip-text text-transparent">
+            SaaS Stack Finder
+          </span>
+          <span class="hidden sm:inline-block ml-2 text-xs font-mono px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20">v2.0</span>
+        </div>
+      </div>
+
+      <nav class="flex items-center space-x-2 sm:space-x-4">
+        <button onclick="toggleDirectoryView()" id="nav-directory-btn" class="text-xs sm:text-sm font-medium px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition flex items-center gap-1.5">
+          <i data-lucide="library" class="w-4 h-4 text-brand-400"></i>
+          <span>Directorio</span>
+        </button>
+        <button onclick="openAffiliateModal()" class="text-xs sm:text-sm font-medium px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition flex items-center gap-1.5">
+          <i data-lucide="settings" class="w-4 h-4 text-accent-400"></i>
+          <span class="hidden sm:inline">Configurar Afiliados</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 sm:py-12 flex flex-col justify-center">
+
+    <!-- HERO HEADER (Visible during Quiz) -->
+    <section id="hero-section" class="text-center mb-8 sm:mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-medium mb-4">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+        </span>
+        Recomendador Inteligente de Herramientas
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        Descubre el stack exacto para <br class="hidden sm:block">
+        <span class="bg-gradient-to-r from-brand-400 via-emerald-300 to-accent-400 bg-clip-text text-transparent">
+          crear tu proyecto online
+        </span>
+      </h1>
+      <p class="mt-3 text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+        Responde 4 preguntas y obtén las herramientas necesarias con enlaces directos: <strong>la opción recomendada</strong> y <strong>la opción 100% gratuita (0€)</strong> para empezar hoy.
+      </p>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- QUIZ CONTAINER -->
+    <!-- ========================================================================= -->
+    <section id="quiz-container" class="w-full">
+      
+      <!-- PROGRESS BAR -->
+      <div class="mb-6">
+        <div class="flex justify-between items-center text-xs font-medium text-slate-400 mb-2">
+          <span id="step-indicator" class="font-mono text-brand-400 font-bold">Paso 1 de 4</span>
+          <span id="step-title-hint" class="text-slate-300">Tipo de proyecto</span>
+        </div>
+        <div class="w-full h-2.5 bg-dark-800 rounded-full overflow-hidden p-0.5 border border-white/5">
+          <div id="progress-bar-fill" class="h-full bg-gradient-to-r from-brand-500 to-accent-500 rounded-full transition-all duration-300 w-1/4"></div>
+        </div>
+      </div>
+
+      <!-- STEP 1: ¿QUÉ QUIERES CREAR? -->
+      <div id="step-1" class="quiz-step">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 glow-green">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-8 h-8 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 font-mono font-bold text-sm">1</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">¿Qué quieres crear?</h2>
+          </div>
+
+          <div class="grid grid-cols-1 gap-3">
+            <button onclick="selectAnswer('projectType', 'webapp')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/5 text-brand-400 group-hover:bg-brand-500 group-hover:text-dark-950 transition">
+                <i data-lucide="layout" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Una aplicación web (SaaS / Dashboard)</div>
+                <div class="text-xs text-slate-400 mt-1">Plataforma web con usuarios, suscripciones, panel de control y lógica propia en el navegador.</div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
+            </button>
+
+            <button onclick="selectAnswer('projectType', 'mobile')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/5 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition">
+                <i data-lucide="smartphone" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Una aplicación móvil (iOS y Android)</div>
+                <div class="text-xs text-slate-400 mt-1">App nativa descargable desde App Store y Google Play para smartphones.</div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
+            </button>
+
+            <button onclick="selectAnswer('projectType', 'marketplace')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/5 text-amber-400 group-hover:bg-amber-500 group-hover:text-dark-950 transition">
+                <i data-lucide="store" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Un marketplace o plataforma multivendor</div>
+                <div class="text-xs text-slate-400 mt-1">Dos tipos de usuarios (compradores y vendedores / clientes y profesionales) con comisiones automáticas.</div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
+            </button>
+
+            <button onclick="selectAnswer('projectType', 'content')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/5 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition">
+                <i data-lucide="folder-kanban" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Directorio de recursos / Portal de contenidos</div>
+                <div class="text-xs text-slate-400 mt-1">Listados seleccionados con buscador y filtros, comunidad cerrada o base de conocimientos monetizada.</div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: ¿SABES PROGRAMAR? -->
+      <div id="step-2" class="quiz-step hidden">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 glow-green">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-8 h-8 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 font-mono font-bold text-sm">2</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">¿Sabes programar?</h2>
+          </div>
+
+          <div class="grid grid-cols-1 gap-3">
+            <button onclick="selectAnswer('knowsCoding', 'no')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/5 text-emerald-400 group-hover:bg-brand-500 group-hover:text-dark-950 transition">
+                <i data-lucide="wand-2" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">No, prefiero No-Code e IA</div>
+                <div class="text-xs text-slate-400 mt-1">Quiero construir visualmente o describirle a la IA lo que quiero sin tocar código.</div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
+            </button>
+
+            <button onclick="selectAnswer('knowsCoding', 'basic')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/5 text-amber-400 group-hover:bg-amber-500 group-hover:text-dark-950 transition">
+                <i data-lucide="code" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Básico / Poco (sé modificar scripts y HTML)</div>
+                <div class="text-xs text-slate-400 mt-1">Puedo entender código con ayuda de ChatGPT/Claude y hacer ajustes puntuales.</div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
+            </button>
+
+            <button onclick="selectAnswer('knowsCoding', 'yes')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/5 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-dark-950 transition">
+                <i data-lucide="terminal" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Sí, soy desarrollador / programo</div>
+                <div class="text-xs text-slate-400 mt-1">Domino frameworks como React, Next.js, Node, Python y bases de datos relacionales.</div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
+            </button>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/5 flex justify-start">
+            <button onclick="prevStep(1)" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 transition">
+              <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a la pregunta anterior
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: ¿CUÁL ES TU PRESUPUESTO? -->
+      <div id="step-3" class="quiz-step hidden">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 glow-green">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-8 h-8 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 font-mono font-bold text-sm">3</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">¿Cuál es tu presupuesto inicial?</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button onclick="selectAnswer('budget', 'zero')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-mono text-xs px-2 py-0.5 rounded bg-brand-500/10 text-brand-400 border border-brand-500/20">Bootstrap Puro</span>
+                  <i data-lucide="gift" class="w-5 h-5 text-brand-400"></i>
+                </div>
+                <div class="font-bold text-white text-lg">0 €/mes</div>
+                <div class="text-xs text-slate-400 mt-1">Solo herramientas con planes gratuitos generosos y open-source sin tarjeta.</div>
+              </div>
+            </button>
+
+            <button onclick="selectAnswer('budget', 'low')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-mono text-xs px-2 py-0.5 rounded bg-accent-500/10 text-accent-400 border border-accent-500/20">MVP Ágil</span>
+                  <i data-lucide="zap" class="w-5 h-5 text-accent-400"></i>
+                </div>
+                <div class="font-bold text-white text-lg">0 – 20 €/mes</div>
+                <div class="text-xs text-slate-400 mt-1">Gasto mínimo para dominio propio y algo de uso de IA o automatizaciones.</div>
+              </div>
+            </button>
+
+            <button onclick="selectAnswer('budget', 'mid')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-mono text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Pro Escalable</span>
+                  <i data-lucide="trending-up" class="w-5 h-5 text-purple-400"></i>
+                </div>
+                <div class="font-bold text-white text-lg">20 – 100 €/mes</div>
+                <div class="text-xs text-slate-400 mt-1">Planes de pago oficiales en plataformas No-Code para máxima velocidad.</div>
+              </div>
+            </button>
+
+            <button onclick="selectAnswer('budget', 'high')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-mono text-xs px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Empresarial</span>
+                  <i data-lucide="shield-check" class="w-5 h-5 text-amber-400"></i>
+                </div>
+                <div class="font-bold text-white text-lg">&gt; 100 €/mes</div>
+                <div class="text-xs text-slate-400 mt-1">Presupuesto holgado para infraestructura dedicada, seguridad y alta carga.</div>
+              </div>
+            </button>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/5 flex justify-start">
+            <button onclick="prevStep(2)" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 transition">
+              <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a la pregunta anterior
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: ¿NECESITAS INTELIGENCIA ARTIFICIAL? -->
+      <div id="step-4" class="quiz-step hidden">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 glow-green">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-8 h-8 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 font-mono font-bold text-sm">4</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">¿Necesitas inteligencia artificial?</h2>
+          </div>
+
+          <div class="grid grid-cols-1 gap-3">
+            <button onclick="selectAnswer('needsAI', 'core')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/5 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Sí, es el núcleo del producto</div>
+                <div class="text-xs text-slate-400 mt-1">Generación de texto/código, procesamiento de documentos, visión, transcripción o agentes autónomos.</div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
+            </button>
+
+            <button onclick="selectAnswer('needsAI', 'secondary')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/5 text-accent-400 group-hover:bg-accent-500 group-hover:text-white transition">
+                <i data-lucide="bot" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Sí, pero como apoyo secundario</div>
+                <div class="text-xs text-slate-400 mt-1">Un asistente chatbot de soporte, búsqueda inteligente de contenidos o autocompletado.</div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
+            </button>
+
+            <button onclick="selectAnswer('needsAI', 'none')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/5 text-slate-400 group-hover:bg-slate-300 group-hover:text-dark-950 transition">
+                <i data-lucide="slash" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">No, no necesito IA</div>
+                <div class="text-xs text-slate-400 mt-1">Es un software tradicional de base de datos, panel de gestión o workflow sin modelos de IA.</div>
+              </div>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
+            </button>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/5 flex justify-start">
+            <button onclick="prevStep(3)" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 transition">
+              <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a la pregunta anterior
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- RESULT VIEW (Tu Stack Recomendado) -->
+    <!-- ========================================================================= -->
+    <section id="result-container" class="hidden">
+      
+      <!-- HEADER RESULT -->
+      <div class="text-center mb-8">
+        <div id="result-badge-type" class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-mono font-bold mb-3">
+          🚀 Arquitectura Calculada
+        </div>
+        <h2 id="result-main-title" class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Tu Stack Recomendado
+        </h2>
+        <p id="result-summary-text" class="text-slate-400 text-xs sm:text-sm mt-2 max-w-2xl mx-auto leading-relaxed">
+          Aquí tienes la combinación exacta de herramientas más eficiente y económica según tus respuestas.
+        </p>
+      </div>
+
+      <!-- METRICS BADGES -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+        <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+          <div class="p-2.5 rounded-lg bg-brand-500/10 text-brand-400 border border-brand-500/20">
+            <i data-lucide="wallet" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-[11px] text-slate-400 uppercase font-mono">Coste estimado inicial</div>
+            <div id="metric-cost" class="font-bold text-white text-sm sm:text-base">0 – 20 €/mes</div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+          <div class="p-2.5 rounded-lg bg-accent-500/10 text-accent-400 border border-accent-500/20">
+            <i data-lucide="clock" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-[11px] text-slate-400 uppercase font-mono">Tiempo estimado a MVP</div>
+            <div id="metric-time" class="font-bold text-white text-sm sm:text-base">3 a 7 días</div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+          <div class="p-2.5 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">
+            <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-[11px] text-slate-400 uppercase font-mono">Curva de dificultad</div>
+            <div id="metric-complexity" class="font-bold text-white text-sm sm:text-base">Baja (100% Visual)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPLANATION NOTICE -->
+      <div class="p-4 rounded-xl bg-dark-900/80 border border-white/10 mb-6 flex items-start gap-3 text-xs text-slate-300">
+        <i data-lucide="sparkles" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+        <div>
+          <span class="font-bold text-white">Cada solución incluye 2 opciones de enlace directo:</span>
+          el botón principal verde con la <strong class="text-brand-400">Opción Recomendada Pro</strong>, y el botón secundario con <strong class="text-amber-400">la alternativa 100% Gratuita (0€)</strong> para crear tu proyecto sin pagar suscripciones.
+        </div>
+      </div>
+
+      <!-- CARDS LIST -->
+      <div id="stack-cards-container" class="space-y-5 mb-8">
+        <!-- Rendered dynamically via JS -->
+      </div>
+
+      <!-- ACTIONS BAR -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl glass-card">
+        <button onclick="resetQuiz()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-white/10 hover:border-white/20 text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition">
+          <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Volver a responder
+        </button>
+
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <button onclick="copyStackToClipboard()" id="copy-stack-btn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-500 to-accent-500 hover:opacity-95 text-dark-950 text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg shadow-brand-500/20 transition">
+            <i data-lucide="copy" class="w-4 h-4"></i> Copiar mi Stack con Enlaces
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- DIRECTORY VIEW (Explorador Completo) -->
+    <!-- ========================================================================= -->
+    <section id="directory-container" class="hidden">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i data-lucide="library" class="w-6 h-6 text-brand-400"></i> Directorio de Herramientas SaaS
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">Todas las herramientas analizadas con sus pros, alternativas y enlaces directos.</p>
+        </div>
+        <button onclick="toggleDirectoryView()" class="self-start sm:self-auto text-xs px-3 py-1.5 rounded-lg border border-white/10 hover:border-white/20 text-slate-300">
+          Volver al Quiz
+        </button>
+      </div>
+
+      <!-- CATEGORY TABS -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar text-xs font-medium">
+        <button onclick="filterDirectory('all')" class="dir-tab px-3 py-1.5 rounded-lg bg-brand-500 text-dark-950 font-bold" data-cat="all">Todas</button>
+        <button onclick="filterDirectory('app')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="app">App Builders</button>
+        <button onclick="filterDirectory('database')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="database">Base de Datos</button>
+        <button onclick="filterDirectory('ai')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="ai">IA</button>
+        <button onclick="filterDirectory('hosting')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="hosting">Hosting</button>
+        <button onclick="filterDirectory('payments')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="payments">Pagos</button>
+        <button onclick="filterDirectory('automation')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="automation">Automatización</button>
+      </div>
+
+      <div id="directory-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: GESTIÓN DE AFILIADOS (Para el dueño de la web) -->
+  <!-- ========================================================================= -->
+  <div id="affiliate-modal" class="fixed inset-0 bg-dark-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="glass-card rounded-2xl max-w-lg w-full p-6 border border-white/10 glow-accent max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div class="flex items-center gap-2">
+          <i data-lucide="link-2" class="w-5 h-5 text-accent-400"></i>
+          <h3 class="font-bold text-white text-lg">Tus Enlaces de Afiliado y Referencia</h3>
+        </div>
+        <button onclick="closeAffiliateModal()" class="text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-300 leading-relaxed mb-4">
+        Todos los botones verdes <strong>"Probar herramienta →"</strong> están preparados para dirigir a tus enlaces de referencia/afiliado para que ganes comisiones.
+      </p>
+
+      <div class="p-3 rounded-xl bg-dark-900 border border-white/5 mb-4 text-xs font-mono text-slate-300">
+        <span class="text-accent-400 font-bold">Archivo de configuración:</span><br>
+        <code>saas-stack-finder/affiliate-config.js</code>
+      </div>
+
+      <p class="text-xs text-slate-400 mb-4">
+        Simplemente abre ese archivo y escribe tus enlaces en cada herramienta (ej: <code>"affiliateUrl": "https://lovable.dev/?via=tu_usuario"</code>). Si dejas el campo vacío, se dirigirá a la web oficial de forma limpia.
+      </p>
+
+      <div class="flex justify-end pt-2">
+        <button onclick="closeAffiliateModal()" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-400 text-dark-950 font-bold text-xs">
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div>SaaS Stack Finder — Creado para emprendedores e Indie Hackers</div>
+      <div class="flex items-center gap-4">
+        <span>100% Gratuito y Open Source</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="affiliate-config.js"></script>
+  <script src="tools-data.js"></script>
+
+  <script>
+    // ESTADO DEL QUIZ
+    const state = {
+      step: 1,
+      answers: {
+        projectType: null,
+        knowsCoding: null,
+        budget: null,
+        needsAI: null
+      },
+      currentRecommended: null
+    };
+
+    // Inicializar iconos de Lucide
+    function refreshIcons() {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      refreshIcons();
+    });
+
+    // Seleccionar respuesta y avanzar
+    function selectAnswer(key, value) {
+      state.answers[key] = value;
+
+      if (state.step < 4) {
+        goToStep(state.step + 1);
+      } else {
+        showResults();
+      }
+    }
+
+    function goToStep(stepNum) {
+      state.step = stepNum;
+      
+      // Ocultar todos los steps
+      for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById(`step-${i}`);
+        if (el) el.classList.add("hidden");
+      }
+
+      // Mostrar step actual
+      const current = document.getElementById(`step-${stepNum}`);
+      if (current) current.classList.remove("hidden");
+
+      // Actualizar progress bar
+      const fill = document.getElementById("progress-bar-fill");
+      const indicator = document.getElementById("step-indicator");
+      const hint = document.getElementById("step-title-hint");
+
+      const hints = {
+        1: "Tipo de proyecto",
+        2: "Nivel de programación",
+        3: "Presupuesto disponible",
+        4: "Inteligencia artificial"
+      };
+
+      if (fill) fill.style.width = `${(stepNum / 4) * 100}%`;
+      if (indicator) indicator.innerText = `Paso ${stepNum} de 4`;
+      if (hint) hint.innerText = hints[stepNum] || "";
+
+      refreshIcons();
+    }
+
+    function prevStep(stepNum) {
+      goToStep(stepNum);
+    }
+
+    // Calcular y mostrar resultados ultra diferenciados
+    function showResults() {
+      const rec = window.recommendStack(state.answers);
+      state.currentRecommended = rec;
+
+      // Ocultar Quiz y Hero
+      document.getElementById("quiz-container").classList.add("hidden");
+      document.getElementById("hero-section").classList.add("hidden");
+
+      // Mostrar Resultados
+      const resContainer = document.getElementById("result-container");
+      resContainer.classList.remove("hidden");
+
+      // Títulos dinámicos según el tipo de proyecto elegido
+      document.getElementById("result-main-title").innerText = rec.title;
+      document.getElementById("result-badge-type").innerText = rec.badgeType;
+      document.getElementById("result-summary-text").innerText = rec.meta.summary;
+
+      // Actualizar Métricas
+      document.getElementById("metric-cost").innerText = rec.meta.estimatedCost;
+      document.getElementById("metric-time").innerText = rec.meta.timeToMvp;
+      document.getElementById("metric-complexity").innerText = rec.meta.complexity;
+
+      // Renderizar tarjetas por cada paso
+      const cardsWrapper = document.getElementById("stack-cards-container");
+      cardsWrapper.innerHTML = "";
+
+      rec.steps.forEach(stepItem => {
+        const tool = stepItem.tool;
+        if (!tool) return;
+
+        const toolUrl = window.getToolUrl(tool.id);
+        const freeUrl = tool.freeOption ? tool.freeOption.url : '#';
+
+        const card = document.createElement("div");
+        card.className = "glass-card rounded-2xl p-5 sm:p-6 transition hover:border-brand-500/40 relative";
+
+        card.innerHTML = `
+          <div>
+            <!-- HEADER DE LA TARJETA -->
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-400 font-mono text-xs font-bold flex items-center justify-center border border-brand-500/30">
+                  ${stepItem.stepNumber}
+                </span>
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
+                  ${stepItem.role}
+                </span>
+              </div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-brand-500/10 text-brand-400 border border-brand-500/20">
+                ${tool.pricing.split('/')[0]}
+              </span>
+            </div>
+
+            <!-- CUERPO PRINCIPAL -->
+            <div class="flex flex-col sm:flex-row items-start justify-between gap-4">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center ${stepItem.color} shrink-0 mt-0.5 shadow-inner">
+                  <i data-lucide="${stepItem.icon}" class="w-6 h-6"></i>
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    ${tool.name}
+                  </h3>
+                  <p class="text-xs text-slate-400 mt-0.5 font-medium">${tool.tagline}</p>
+
+                  <!-- EXPLICACIÓN CORTA -->
+                  <p class="text-xs sm:text-sm text-slate-300 mt-2.5 leading-relaxed">
+                    <strong class="text-white">¿Qué es?</strong> ${tool.shortDescription}
+                  </p>
+
+                  <!-- PARA QUÉ SIRVE -->
+                  <p class="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
+                    <strong class="text-brand-400">¿Para qué sirve en tu proyecto?</strong> ${tool.purpose}
+                  </p>
+
+                  <!-- CONSEJO EXPERTO -->
+                  ${tool.expertTip ? `
+                    <div class="mt-2 text-xs text-amber-300/90 flex items-center gap-1.5">
+                      <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
+                      <span><strong>Truco pro:</strong> ${tool.expertTip}</span>
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+            </div>
+
+            <!-- CAJA DE ACCIONES: ENLACE RECOMENDADO + ENLACE 100% GRATIS -->
+            <div class="mt-5 pt-4 border-t border-white/5 grid grid-cols-1 sm:grid-cols-2 gap-3 items-stretch">
+              
+              <!-- BOTÓN RECOMENDADO / AFILIADO -->
+              <div class="p-3 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
+                <div class="text-[11px] text-slate-400 mb-1.5 flex items-center justify-between">
+                  <span class="font-bold text-brand-400 flex items-center gap-1">
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Opción Recomendada:
+                  </span>
+                  <span class="text-slate-500 font-mono text-[10px]">Rápida</span>
+                </div>
+                <div class="text-xs font-semibold text-white mb-2">${tool.name}</div>
+                <a href="${toolUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full px-3 py-2 rounded-lg bg-brand-500 hover:bg-brand-400 text-dark-950 font-bold text-xs transition shadow-sm group">
+                  <span>Probar ${tool.name.split(' ')[0]}</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </a>
+              </div>
+
+              <!-- BOTÓN LA QUE USARÍA YO 100% GRATIS (0€) -->
+              <div class="p-3 rounded-xl bg-dark-900 border border-white/10 flex flex-col justify-between">
+                <div class="text-[11px] text-slate-400 mb-1.5 flex items-center justify-between">
+                  <span class="font-bold text-amber-400 flex items-center gap-1">
+                    <i data-lucide="gift" class="w-3.5 h-3.5"></i> Opción Gratis (0€):
+                  </span>
+                  <span class="text-emerald-400 font-mono text-[10px] font-bold">0 €/mes</span>
+                </div>
+                <div class="text-xs text-slate-200 mb-2 truncate">
+                  <strong class="text-white">${tool.freeOption ? tool.freeOption.name : 'Alternativa Open Source'}</strong>
+                </div>
+                <a href="${freeUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white font-semibold text-xs transition border border-white/10 group">
+                  <span>Usar Opción Gratis (0€)</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-400 group-hover:text-white"></i>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        `;
+
+        cardsWrapper.appendChild(card);
+      });
+
+      refreshIcons();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Reiniciar Quiz
+    function resetQuiz() {
+      state.step = 1;
+      state.answers = { projectType: null, knowsCoding: null, budget: null, needsAI: null };
+      state.currentRecommended = null;
+
+      document.getElementById("result-container").classList.add("hidden");
+      document.getElementById("directory-container").classList.add("hidden");
+      document.getElementById("hero-section").classList.remove("hidden");
+      document.getElementById("quiz-container").classList.remove("hidden");
+
+      goToStep(1);
+    }
+
+    // Copiar stack con enlaces directos al portapapeles
+    function copyStackToClipboard() {
+      if (!state.currentRecommended) return;
+      const rec = state.currentRecommended;
+
+      let text = `🚀 MI STACK RECOMENDADO (${rec.title})\n\n`;
+      text += `💰 Presupuesto estimado: ${rec.meta.estimatedCost}\n`;
+      text += `⏱️ Tiempo a MVP: ${rec.meta.timeToMvp}\n`;
+      text += `🎯 Dificultad: ${rec.meta.complexity}\n\n`;
+      text += `HERRAMIENTAS CON ENLACES DIRECTOS:\n`;
+
+      rec.steps.forEach(s => {
+        const toolUrl = window.getToolUrl(s.tool.id);
+        const freeUrl = s.tool.freeOption ? s.tool.freeOption.url : '';
+        text += `\n[Paso ${s.stepNumber}] ${s.role}:\n`;
+        text += `  • Recomendada: ${s.tool.name} → ${toolUrl}\n`;
+        if (s.tool.freeOption) {
+          text += `  • Opción 100% Gratis (0€): ${s.tool.freeOption.name} → ${freeUrl}\n`;
+        }
+      });
+
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById("copy-stack-btn");
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i> ¡Copiado con enlaces!`;
+        btn.classList.add("bg-emerald-400");
+        refreshIcons();
+
+        setTimeout(() => {
+          btn.innerHTML = originalHtml;
+          btn.classList.remove("bg-emerald-400");
+          refreshIcons();
+        }, 2500);
+      });
+    }
+
+    // Modal de Afiliados
+    function openAffiliateModal() {
+      document.getElementById("affiliate-modal").classList.remove("hidden");
+      refreshIcons();
+    }
+    function closeAffiliateModal() {
+      document.getElementById("affiliate-modal").classList.add("hidden");
+    }
+
+    // Directorio de Herramientas
+    function toggleDirectoryView() {
+      const dir = document.getElementById("directory-container");
+      const quiz = document.getElementById("quiz-container");
+      const res = document.getElementById("result-container");
+      const hero = document.getElementById("hero-section");
+
+      if (dir.classList.contains("hidden")) {
+        quiz.classList.add("hidden");
+        res.classList.add("hidden");
+        hero.classList.add("hidden");
+        dir.classList.remove("hidden");
+        renderDirectory('all');
+      } else {
+        dir.classList.add("hidden");
+        if (state.currentRecommended) {
+          res.classList.remove("hidden");
+        } else {
+          hero.classList.remove("hidden");
+          quiz.classList.remove("hidden");
+        }
+      }
+      refreshIcons();
+    }
+
+    function filterDirectory(cat) {
+      document.querySelectorAll(".dir-tab").forEach(tab => {
+        if (tab.getAttribute("data-cat") === cat) {
+          tab.className = "dir-tab px-3 py-1.5 rounded-lg bg-brand-500 text-dark-950 font-bold";
+        } else {
+          tab.className = "dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white";
+        }
+      });
+      renderDirectory(cat);
+    }
+
+    function renderDirectory(category) {
+      const grid = document.getElementById("directory-cards-grid");
+      grid.innerHTML = "";
+
+      const tools = Object.values(window.TOOLS_DB);
+      const filtered = category === 'all' ? tools : tools.filter(t => t.category === category);
+
+      filtered.forEach(tool => {
+        const toolUrl = window.getToolUrl(tool.id);
+        const card = document.createElement("div");
+        card.className = "glass-card rounded-xl p-5 flex flex-col justify-between";
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-400 border border-white/10">
+                ${tool.categoryName}
+              </span>
+              <span class="text-[11px] font-semibold text-brand-400">
+                ${tool.pricing.split('/')[0]}
+              </span>
+            </div>
+
+            <h3 class="font-bold text-white text-base">${tool.name}</h3>
+            <p class="text-xs text-slate-400 mt-1">${tool.shortDescription}</p>
+
+            ${tool.freeOption ? `
+              <div class="mt-3 text-[11px] text-slate-400 pt-2 border-t border-white/5 flex items-center justify-between">
+                <span><strong class="text-amber-400">Alt gratis:</strong> ${tool.freeOption.name}</span>
+                <a href="${tool.freeOption.url}" target="_blank" rel="noopener noreferrer" class="text-accent-400 hover:underline">Ver gratis →</a>
+              </div>
+            ` : ''}
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">${tool.difficulty}</span>
+            <a href="${toolUrl}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-400 hover:text-brand-300 flex items-center gap-1">
+              Probar herramienta →
+            </a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      refreshIcons();
+    }
+  </script>
+</body>
+</html>
