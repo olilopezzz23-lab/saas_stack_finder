@@ -59,11 +59,11 @@ window.TOOLS_DB = {
     difficulty: "Media (Lógica relacional)",
     recommendedReason: "Los marketplaces requieren roles distintos (cliente vs proveedor) y lógica compleja; Bubble es la única herramienta no-code probada para esto.",
     freeOption: {
-      name: "Medusa.js + Next.js (Open Source)",
-      url: "https://medusajs.com",
+      name: "Vercel Commerce (Next.js Open Source)",
+      url: "https://github.com/vercel/commerce",
       badge: "Gratis 0€",
-      reason: "Motor de comercio y marketplace modular de código abierto libre de royalties.",
-      howToStart: "Descarga el template de marketplace en GitHub y despliégalo gratis en Vercel."
+      reason: "Plantilla oficial de tienda y marketplace en código abierto con 0€ de coste en Vercel.",
+      howToStart: "Haz un 'Fork' del repositorio oficial en GitHub y despliégalo gratis en Vercel con 1 clic."
     },
     expertTip: "Conecta Stripe Connect en Bubble para transferir el dinero automáticamente al vendedor y quedarte tu comisión de plataforma."
   },
@@ -120,7 +120,7 @@ window.TOOLS_DB = {
     recommendedReason: "Cero limitaciones técnicas. Si sabes programar, construir sobre Next.js te garantiza no tener que migrar nunca.",
     freeOption: {
       name: "Vite + React SPA",
-      url: "https://vitejs.dev",
+      url: "https://vite.dev",
       badge: "Gratis 0€",
       reason: "La forma más ligera y rápida de compilar una aplicación web en el cliente.",
       howToStart: "Ejecuta 'npm create vite@latest' en tu terminal y selecciona la plantilla de React."
@@ -228,7 +228,7 @@ window.TOOLS_DB = {
     recommendedReason: "Cualquier plugin de Make, Bubble, FlutterFlow o Next.js viene preparado de fábrica para funcionar con OpenAI.",
     freeOption: {
       name: "Groq Cloud (LPU)",
-      url: "https://groq.com",
+      url: "https://console.groq.com",
       badge: "Gratis 0€",
       reason: "Inferencia ultrarrápida gratuita con modelos Llama 3 a más de 500 tokens por segundo.",
       howToStart: "Regístrate en console.groq.com, saca tu API Key gratuita y úsala como reemplazo directo de OpenAI."
@@ -399,8 +399,8 @@ window.TOOLS_DB = {
     difficulty: "Fácil y visual",
     recommendedReason: "Es mucho más potente y hasta 5 veces más barato que Zapier. El estándar para automatizaciones SaaS.",
     freeOption: {
-      name: "n8n Community (Autoalojado)",
-      url: "https://n8n.io",
+      name: "n8n Community (Open Source en GitHub)",
+      url: "https://github.com/n8n-io/n8n",
       badge: "Gratis 0€",
       reason: "Ejecuciones y operaciones ilimitadas sin pagar cuotas mensuales.",
       howToStart: "Instala n8n en tu ordenador con 'npx n8n' o en un servidor propio para tener automatizaciones gratis."
@@ -419,8 +419,8 @@ window.TOOLS_DB = {
     difficulty: "Intermedio",
     recommendedReason: "Si tu proyecto requiere agentes inteligentes con memoria y acceso a herramientas, n8n es la plataforma más avanzada.",
     freeOption: {
-      name: "100% Gratuito en Local o VPS",
-      url: "https://n8n.io",
+      name: "100% Gratuito en Local o VPS (GitHub)",
+      url: "https://github.com/n8n-io/n8n",
       badge: "Gratis 0€",
       reason: "Código abierto con licencia justa y sin límite de flujos.",
       howToStart: "Ejecuta 'npx n8n' en tu terminal y abre http://localhost:5678 en tu navegador."
