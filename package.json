@@ -1,0 +1,30 @@
+{
+  "name": "saas-stack-finder",
+  "version": "2.0.0",
+  "description": "Una web interactiva gratuita diseñada para ayudar a cualquier persona (técnica o no técnica) a descubrir el stack exacto de herramientas que necesita para crear su proyecto online o SaaS respondiendo 4 preguntas simples.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olilopezzz23-lab/saas_stack_finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olilopezzz23-lab/saas_stack_finder/issues"
+  },
+  "homepage": "https://github.com/olilopezzz23-lab/saas_stack_finder#readme",
+  "devDependencies": {
+    "vite": "^8.3.5"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
