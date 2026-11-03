@@ -33,9 +33,9 @@ window.AFFILIATE_CONFIG = {
   },
   "softr": {
     "name": "Softr.io",
-    "affiliateUrl": "",
+    "affiliateUrl": "https://get.softr.io/cfe86xq44b0j",
     "defaultUrl": "https://www.softr.io",
-    "badge": "El más rápido para Directorios y Portales"
+    "badge": "El más rápido para Directorios y Portales (25% Comisión)"
   },
   "nextjs": {
     "name": "Next.js",
