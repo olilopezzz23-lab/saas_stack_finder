@@ -36,14 +36,28 @@ Una web interactiva gratuita diseñada para ayudar a cualquier persona (técnica
 6. **Copiar Stack con 1 Clic**:
    - Los usuarios pueden copiar su arquitectura en formato texto/markdown para guardarlo o compartirlo.
 
+7. **📊 Vercel Web Analytics & Speed Insights**:
+   - Integrado con `@vercel/analytics` y `@vercel/speed-insights`
+   - Seguimiento automático de visitas y rendimiento
+   - Sin impacto en la privacidad del usuario
+   - Funciona automáticamente al desplegar en Vercel
+
 ---
 
 ## 🚀 Cómo abrir la web localmente
 
-### Opción 1: Doble Clic (Inmediato)
+### Opción 1: Modo Desarrollo con Vite (Recomendado)
+Instala las dependencias y ejecuta el servidor de desarrollo:
+```bash
+npm install
+npm run dev
+```
+La aplicación se abrirá automáticamente en `http://localhost:3000`.
+
+### Opción 2: Doble Clic (Inmediato)
 Simplemente haz doble clic en el archivo [`index.html`](./index.html) o en [`abrir_web.bat`](./abrir_web.bat). Se abrirá directamente en Google Chrome o Microsoft Edge.
 
-### Opción 2: Servidor local (Opcional)
+### Opción 3: Servidor local (Python)
 Desde la terminal:
 ```bash
 cd saas-stack-finder
@@ -51,13 +65,27 @@ python -m http.server 3000
 ```
 Y abre `http://localhost:3000` en tu navegador.
 
+### 🏗️ Build para Producción
+Para generar los archivos optimizados para producción:
+```bash
+npm run build
+```
+Los archivos compilados estarán en la carpeta `dist/`.
+
 ---
 
 ## 🌐 Cómo publicarlo gratis en Internet (en 2 minutos)
 
-Al ser una aplicación web estática (HTML + CSS + JavaScript puro):
-1. **Cloudflare Pages / Vercel / Netlify**: Arrastra y suelta la carpeta `saas-stack-finder` y tendrás tu web con dominio SSL gratuito y coste 0€ de por vida.
-2. **GitHub Pages**: Sube los archivos a un repositorio y activa Pages en la configuración.
+Al ser una aplicación web estática (HTML + CSS + JavaScript):
+1. **Vercel (Recomendado)**: 
+   - Conecta tu repositorio de GitHub
+   - Vercel detectará automáticamente Vite
+   - Configuración automática: `npm run build` → carpeta `dist/`
+   - Incluye **Vercel Web Analytics** y **Speed Insights** de forma nativa
+2. **Cloudflare Pages / Netlify**: 
+   - Configura el comando de build: `npm run build`
+   - Directorio de publicación: `dist`
+3. **GitHub Pages**: Sube los archivos compilados de `dist/` o configura GitHub Actions para el build automático.
 
 ---
 
