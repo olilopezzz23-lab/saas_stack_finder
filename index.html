@@ -92,13 +92,9 @@
       </div>
 
       <nav class="flex items-center space-x-2 sm:space-x-4">
-        <button onclick="toggleDirectoryView()" id="nav-directory-btn" class="text-xs sm:text-sm font-medium px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition flex items-center gap-1.5">
+        <button onclick="toggleDirectoryView()" id="nav-directory-btn" class="text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-lg text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition flex items-center gap-1.5">
           <i data-lucide="library" class="w-4 h-4 text-brand-400"></i>
-          <span>Directorio</span>
-        </button>
-        <button onclick="openAffiliateModal()" class="text-xs sm:text-sm font-medium px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition flex items-center gap-1.5">
-          <i data-lucide="settings" class="w-4 h-4 text-accent-400"></i>
-          <span class="hidden sm:inline">Configurar Afiliados</span>
+          <span>Directorio de Herramientas</span>
         </button>
       </nav>
     </div>
@@ -433,20 +429,53 @@
       <!-- LEAD CAPTURE: Plantillas Gratis de Automatización -->
       <div class="my-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-brand-950/40 via-dark-900 to-accent-950/30 border border-brand-500/30 relative overflow-hidden shadow-2xl">
         <div class="absolute -right-12 -top-12 w-48 h-48 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <div class="text-left max-w-xl">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-mono font-semibold mb-3 border border-brand-500/30">
-              <i data-lucide="gift" class="w-3.5 h-3.5"></i> Recursos Gratuitos
+              <i data-lucide="gift" class="w-3.5 h-3.5"></i> Recursos y Blueprints Gratuitos
             </span>
             <h3 class="text-xl sm:text-2xl font-extrabold text-white leading-tight">
               ¿Quieres recibir plantillas de automatizaciones gratis para tu proyecto?
             </h3>
             <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-              Recibe blueprints listos de Make, flujos de Stripe y prompts para programar con IA en tu bandeja de entrada. Deja tu correo:
+              Te enviamos directamente a tu correo los 3 flujos listos para importar con 1 solo clic en Make:
             </p>
+
+            <!-- 3 PLANTILLAS CONCRETAS -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-4">
+              <div class="p-2.5 rounded-xl bg-dark-950/80 border border-white/10 flex items-start gap-2">
+                <span class="p-1 rounded bg-amber-500/10 text-amber-400 mt-0.5">
+                  <i data-lucide="bell" class="w-3.5 h-3.5"></i>
+                </span>
+                <div class="text-[11px] leading-snug">
+                  <strong class="text-white block font-medium">Alertas de Ventas</strong>
+                  <span class="text-slate-400">Aviso a Telegram al cobrar en Stripe</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-dark-950/80 border border-white/10 flex items-start gap-2">
+                <span class="p-1 rounded bg-brand-500/10 text-brand-400 mt-0.5">
+                  <i data-lucide="mail-check" class="w-3.5 h-3.5"></i>
+                </span>
+                <div class="text-[11px] leading-snug">
+                  <strong class="text-white block font-medium">Bienvenida Auto</strong>
+                  <span class="text-slate-400">Email personalizado al nuevo usuario</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-dark-950/80 border border-white/10 flex items-start gap-2">
+                <span class="p-1 rounded bg-accent-500/10 text-accent-400 mt-0.5">
+                  <i data-lucide="table" class="w-3.5 h-3.5"></i>
+                </span>
+                <div class="text-[11px] leading-snug">
+                  <strong class="text-white block font-medium">Sincro Sheets</strong>
+                  <span class="text-slate-400">Guarda leads en Google Sheets 24/7</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="w-full md:w-auto md:min-w-[340px]">
+          <div class="w-full lg:w-auto lg:min-w-[340px]">
             <form id="lead-form" onsubmit="handleLeadSubmit(event)" class="space-y-2">
               <div class="flex flex-col sm:flex-row gap-2">
                 <input 
@@ -461,12 +490,12 @@
                   id="lead-submit-btn"
                   class="px-5 py-3 rounded-xl bg-brand-500 hover:bg-brand-400 text-dark-950 font-extrabold text-sm whitespace-nowrap flex items-center justify-center gap-2 transition shadow-lg shadow-brand-500/20"
                 >
-                  <span>Enviar</span>
+                  <span>Enviar gratis</span>
                   <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </button>
               </div>
               <p id="lead-status-msg" class="text-xs text-brand-300 font-medium text-center sm:text-left hidden">
-                ✅ ¡Listo! Te avisaremos con nuevas plantillas y recursos.
+                ✅ ¡Listo! Te avisaremos con los blueprints y nuevas plantillas.
               </p>
             </form>
           </div>
@@ -505,7 +534,7 @@
       </div>
 
       <!-- CATEGORY TABS -->
-      <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar text-xs font-medium">
+      <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-4 no-scrollbar text-xs font-medium">
         <button onclick="filterDirectory('all')" class="dir-tab px-3 py-1.5 rounded-lg bg-brand-500 text-dark-950 font-bold" data-cat="all">Todas</button>
         <button onclick="filterDirectory('app')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="app">App Builders</button>
         <button onclick="filterDirectory('database')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="database">Base de Datos</button>
@@ -513,6 +542,18 @@
         <button onclick="filterDirectory('hosting')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="hosting">Hosting</button>
         <button onclick="filterDirectory('payments')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="payments">Pagos</button>
         <button onclick="filterDirectory('automation')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="automation">Automatización</button>
+      </div>
+
+      <!-- SEARCH INPUT IN DIRECTORY -->
+      <div class="relative mb-6">
+        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+        <input 
+          type="text" 
+          id="dir-search-input" 
+          oninput="handleDirectorySearch(this.value)"
+          placeholder="Buscar herramienta por nombre, función o tecnología (ej: hosting, IA, Stripe, Telegram, Next.js)..." 
+          class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-dark-900/90 border border-white/10 focus:border-brand-500 focus:outline-none text-white text-xs placeholder:text-slate-500 transition shadow-inner"
+        />
       </div>
 
       <div id="directory-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -582,6 +623,9 @@
       <div>SaaS Stack Finder — Creado para emprendedores e Indie Hackers</div>
       <div class="flex items-center gap-4">
         <span>100% Gratuito y Open Source</span>
+        <button onclick="openAffiliateModal()" title="Panel de control (Atajo: Ctrl + Shift + A)" class="text-slate-600 hover:text-slate-400 transition text-[11px] flex items-center gap-1">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> <span>Panel Admin</span>
+        </button>
       </div>
     </div>
   </footer>
@@ -856,7 +900,10 @@
       document.getElementById("affiliate-modal").classList.add("hidden");
     }
 
-    // Directorio de Herramientas
+    // Directorio de Herramientas con Búsqueda en Tiempo Real
+    let currentDirCategory = 'all';
+    let currentDirSearch = '';
+
     function toggleDirectoryView() {
       const dir = document.getElementById("directory-container");
       const quiz = document.getElementById("quiz-container");
@@ -868,7 +915,11 @@
         res.classList.add("hidden");
         hero.classList.add("hidden");
         dir.classList.remove("hidden");
-        renderDirectory('all');
+        currentDirCategory = 'all';
+        currentDirSearch = '';
+        const searchInput = document.getElementById("dir-search-input");
+        if (searchInput) searchInput.value = '';
+        renderDirectory('all', '');
       } else {
         dir.classList.add("hidden");
         if (state.currentRecommended) {
@@ -882,6 +933,7 @@
     }
 
     function filterDirectory(cat) {
+      currentDirCategory = cat;
       document.querySelectorAll(".dir-tab").forEach(tab => {
         if (tab.getAttribute("data-cat") === cat) {
           tab.className = "dir-tab px-3 py-1.5 rounded-lg bg-brand-500 text-dark-950 font-bold";
@@ -889,15 +941,43 @@
           tab.className = "dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white";
         }
       });
-      renderDirectory(cat);
+      renderDirectory(currentDirCategory, currentDirSearch);
     }
 
-    function renderDirectory(category) {
+    function handleDirectorySearch(query) {
+      currentDirSearch = (query || '').toLowerCase().trim();
+      renderDirectory(currentDirCategory, currentDirSearch);
+    }
+
+    function renderDirectory(category, searchQuery = '') {
       const grid = document.getElementById("directory-cards-grid");
       grid.innerHTML = "";
 
       const tools = Object.values(window.TOOLS_DB);
-      const filtered = category === 'all' ? tools : tools.filter(t => t.category === category);
+      let filtered = category === 'all' ? tools : tools.filter(t => t.category === category);
+
+      if (searchQuery) {
+        filtered = filtered.filter(t => {
+          const matchName = t.name.toLowerCase().includes(searchQuery);
+          const matchTag = (t.tagline || '').toLowerCase().includes(searchQuery);
+          const matchDesc = (t.shortDescription || '').toLowerCase().includes(searchQuery);
+          const matchPurpose = (t.purpose || '').toLowerCase().includes(searchQuery);
+          const matchFree = t.freeOption ? (t.freeOption.name.toLowerCase().includes(searchQuery) || (t.freeOption.reason || '').toLowerCase().includes(searchQuery)) : false;
+          return matchName || matchTag || matchDesc || matchPurpose || matchFree;
+        });
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-1 sm:col-span-2 text-center py-12 px-4 glass-card rounded-2xl border border-white/5">
+            <i data-lucide="search-x" class="w-8 h-8 text-slate-500 mx-auto mb-2"></i>
+            <p class="text-sm font-semibold text-slate-300">No se encontraron herramientas con "${searchQuery}"</p>
+            <p class="text-xs text-slate-500 mt-1">Prueba con términos como 'hosting', 'ia', 'pagos', 'stripe', 'make' o 'base de datos'.</p>
+          </div>
+        `;
+        refreshIcons();
+        return;
+      }
 
       filtered.forEach(tool => {
         const toolUrl = window.getToolUrl(tool.id);
@@ -1004,6 +1084,14 @@
         alert("Error al exportar correos: " + err.message);
       }
     }
+
+    // Atajo de teclado para abrir el Panel Admin (Ctrl + Shift + A o Cmd + Shift + A)
+    document.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        openAffiliateModal();
+      }
+    });
   </script>
 </body>
 </html>
