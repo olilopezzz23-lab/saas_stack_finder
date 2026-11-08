@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SaaS Stack Finder - Descubre tu stack de herramientas ideal</title>
+  <title>Generador de YouTube Shorts con IA - Prueba Gratis y Acceso de por Vida $10</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -38,1065 +38,395 @@
   </script>
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Vercel Web Analytics & Speed Insights -->
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .font-mono {
-      font-family: 'JetBrains Mono', monospace;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .glass-card {
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(14px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .glass-card-hover:hover {
-      border-color: rgba(34, 197, 94, 0.4);
-      transform: translateY(-2px);
+    .glow-cyan {
+      box-shadow: 0 0 50px -10px rgba(56, 189, 248, 0.28);
     }
     .glow-green {
-      box-shadow: 0 0 40px -10px rgba(34, 197, 94, 0.25);
-    }
-    .glow-accent {
-      box-shadow: 0 0 40px -10px rgba(14, 165, 233, 0.25);
+      box-shadow: 0 0 50px -10px rgba(34, 197, 94, 0.28);
     }
   </style>
 </head>
-<body class="bg-dark-950 text-slate-100 min-h-screen flex flex-col selection:bg-brand-500 selection:text-dark-950 antialiased">
+<body class="bg-dark-950 text-slate-100 min-h-screen flex flex-col selection:bg-accent-500 selection:text-dark-950 antialiased">
 
   <!-- TOP DECORATIVE GLOW -->
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-64 bg-gradient-to-r from-brand-500/10 via-accent-500/15 to-purple-500/10 blur-3xl pointer-events-none -z-10"></div>
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-80 bg-gradient-to-r from-accent-500/15 via-emerald-500/15 to-purple-500/10 blur-3xl pointer-events-none -z-10"></div>
 
-  <!-- NAVIGATION BAR -->
-  <header class="border-b border-white/5 bg-dark-900/60 backdrop-blur-md sticky top-0 z-40">
+  <!-- HEADER -->
+  <header class="border-b border-white/5 bg-dark-900/70 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-      <div class="flex items-center space-x-3 cursor-pointer" onclick="resetQuiz()">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-500 to-accent-500 flex items-center justify-center shadow-lg shadow-brand-500/20">
-          <i data-lucide="layers" class="w-5 h-5 text-dark-950 font-bold"></i>
+      <a href="/" class="flex items-center space-x-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-accent-500 to-brand-500 flex items-center justify-center shadow-lg shadow-accent-500/20 group-hover:scale-105 transition">
+          <i data-lucide="video" class="w-5 h-5 text-dark-950 font-bold"></i>
         </div>
         <div>
-          <span class="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-brand-400 bg-clip-text text-transparent">
-            SaaS Stack Finder
+          <span class="text-base sm:text-lg font-black tracking-tight text-white flex items-center gap-2">
+            Shorts AI Factory
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-accent-500/10 text-accent-400 border border-accent-500/20 font-bold">LIFETIME DEAL</span>
           </span>
-          <span class="hidden sm:inline-block ml-2 text-xs font-mono px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20">v2.0</span>
         </div>
-      </div>
+      </a>
 
-      <nav class="flex items-center space-x-2 sm:space-x-3">
-        <a href="/shorts" class="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg text-white bg-gradient-to-r from-sky-500 to-emerald-400 hover:opacity-95 shadow-md shadow-sky-500/20 transition flex items-center gap-1.5">
-          <i data-lucide="video" class="w-4 h-4 text-dark-950 font-black"></i>
-          <span>Generador Shorts IA</span>
-          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-dark-950/40 text-amber-300 font-black">$10</span>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="/stack-finder" class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition flex items-center gap-1.5">
+          <i data-lucide="layers" class="w-4 h-4 text-brand-400"></i>
+          <span>Recomendador de Herramientas</span>
         </a>
-        <button onclick="toggleDirectoryView()" id="nav-directory-btn" class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition flex items-center gap-1.5">
-          <i data-lucide="library" class="w-4 h-4 text-brand-400"></i>
-          <span>Directorio</span>
-        </button>
-      </nav>
+        <a href="#prueba-gratis" class="hidden sm:inline-flex text-xs font-bold px-3.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500 hover:text-dark-950 transition items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Prueba Gratis
+        </a>
+        <a href="#oferta-10" class="text-xs font-black px-3.5 py-2 rounded-xl bg-gradient-to-r from-accent-500 to-brand-500 text-dark-950 shadow-lg shadow-accent-500/20 hover:opacity-95 transition flex items-center gap-1.5">
+          Comprar ($10)
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- MAIN WRAPPER -->
-  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 sm:py-12 flex flex-col justify-center">
+  <!-- MAIN HERO SECTION -->
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-10 sm:py-16 space-y-16">
 
-    <!-- HERO HEADER (Visible during Quiz) -->
-    <section id="hero-section" class="text-center mb-8 sm:mb-10">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-medium mb-4">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
-        </span>
-        Recomendador Inteligente de Herramientas
+    <!-- HERO -->
+    <section class="text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-500/10 border border-accent-500/25 text-accent-400 text-xs font-bold">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        OFERTA DE LANZAMIENTO · ACCESO DE POR VIDA
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-        Descubre el stack exacto para <br class="hidden sm:block">
-        <span class="bg-gradient-to-r from-brand-400 via-emerald-300 to-accent-400 bg-clip-text text-transparent">
-          crear tu proyecto online
+
+      <h1 class="text-3xl sm:text-6xl font-black text-white tracking-tight leading-tight">
+        Automatiza tus YouTube Shorts con IA <br class="hidden sm:block">
+        <span class="bg-gradient-to-r from-accent-400 via-teal-300 to-brand-400 bg-clip-text text-transparent">
+          y Retención Viral Garantizada
         </span>
       </h1>
-      <p class="mt-3 text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
-        Responde 4 preguntas y obtén las herramientas necesarias con enlaces directos: <strong>la opción recomendada</strong> y <strong>la opción 100% gratuita (0€)</strong> para empezar hoy.
+
+      <p class="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        Crea vídeos verticales 9:16 en alta calidad (1080x1920) con ganchos de 0-2 segundos, guiones magnéticos, gráficos dinámicos y <strong>subida automática programada a YouTube todos los días</strong>.
       </p>
+
+      <!-- BOTONES DE ACCION RÁPIDA -->
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#prueba-gratis" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-500 to-emerald-400 text-dark-950 font-black text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-xl shadow-brand-500/25 hover:scale-105 transition">
+          <i data-lucide="play-circle" class="w-5 h-5"></i> Solicitar Prueba Gratis
+        </a>
+        <a href="#oferta-10" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-900 border border-white/15 hover:border-accent-400 text-white font-bold text-sm flex items-center justify-center gap-2 hover:bg-slate-800 transition">
+          <i data-lucide="tag" class="w-5 h-5 text-accent-400"></i> Comprar App de por Vida · $10 USD
+        </a>
+      </div>
+
+      <div class="flex items-center justify-center gap-6 text-xs text-slate-400 pt-2 flex-wrap">
+        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Sin suscripciones mensuales</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Renderizado 1080x1920 MP4</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Subida automática a YouTube</span>
+      </div>
     </section>
 
-    <!-- ========================================================================= -->
-    <!-- QUIZ CONTAINER -->
-    <!-- ========================================================================= -->
-    <section id="quiz-container" class="w-full">
-      
-      <!-- PROGRESS BAR -->
-      <div class="mb-6">
-        <div class="flex justify-between items-center text-xs font-medium text-slate-400 mb-2">
-          <span id="step-indicator" class="font-mono text-brand-400 font-bold">Paso 1 de 4</span>
-          <span id="step-title-hint" class="text-slate-300">Tipo de proyecto</span>
-        </div>
-        <div class="w-full h-2.5 bg-dark-800 rounded-full overflow-hidden p-0.5 border border-white/5">
-          <div id="progress-bar-fill" class="h-full bg-gradient-to-r from-brand-500 to-accent-500 rounded-full transition-all duration-300 w-1/4"></div>
-        </div>
-      </div>
-
-      <!-- STEP 1: ¿QUÉ QUIERES CREAR? -->
-      <div id="step-1" class="quiz-step">
-        <div class="glass-card rounded-2xl p-6 sm:p-8 glow-green">
-          <div class="flex items-center gap-3 mb-6">
-            <span class="w-8 h-8 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 font-mono font-bold text-sm">1</span>
-            <h2 class="text-xl sm:text-2xl font-bold text-white">¿Qué quieres crear?</h2>
+    <!-- DEMOSTRACIÓN VISUAL / VISTA PREVIA -->
+    <section class="glass-card rounded-3xl p-6 sm:p-10 glow-cyan">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- TEXTO CARACTERÍSTICAS -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-block px-3 py-1 rounded-lg bg-sky-500/10 text-sky-400 text-xs font-bold font-mono">
+            ¿CÓMO FUNCIONA EL GENERADOR?
           </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
+            Diseñado para conseguir visitas y retener la atención del espectador
+          </h2>
 
-          <div class="grid grid-cols-1 gap-3">
-            <button onclick="selectAnswer('projectType', 'webapp')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
-              <div class="p-3 rounded-lg bg-white/5 text-brand-400 group-hover:bg-brand-500 group-hover:text-dark-950 transition">
-                <i data-lucide="layout" class="w-6 h-6"></i>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/70 border border-white/5">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="zap" class="w-4 h-4"></i>
               </div>
-              <div class="flex-1">
-                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Una aplicación web (SaaS / Dashboard)</div>
-                <div class="text-xs text-slate-400 mt-1">Plataforma web con usuarios, suscripciones, panel de control y lógica propia en el navegador.</div>
-              </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
-            </button>
-
-            <button onclick="selectAnswer('projectType', 'mobile')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
-              <div class="p-3 rounded-lg bg-white/5 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition">
-                <i data-lucide="smartphone" class="w-6 h-6"></i>
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Una aplicación móvil (iOS y Android)</div>
-                <div class="text-xs text-slate-400 mt-1">App nativa descargable desde App Store y Google Play para smartphones.</div>
-              </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
-            </button>
-
-            <button onclick="selectAnswer('projectType', 'marketplace')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
-              <div class="p-3 rounded-lg bg-white/5 text-amber-400 group-hover:bg-amber-500 group-hover:text-dark-950 transition">
-                <i data-lucide="store" class="w-6 h-6"></i>
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Un marketplace o plataforma multivendor</div>
-                <div class="text-xs text-slate-400 mt-1">Dos tipos de usuarios (compradores y vendedores / clientes y profesionales) con comisiones automáticas.</div>
-              </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
-            </button>
-
-            <button onclick="selectAnswer('projectType', 'content')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
-              <div class="p-3 rounded-lg bg-white/5 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition">
-                <i data-lucide="folder-kanban" class="w-6 h-6"></i>
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Directorio de recursos / Portal de contenidos</div>
-                <div class="text-xs text-slate-400 mt-1">Listados seleccionados con buscador y filtros, comunidad cerrada o base de conocimientos monetizada.</div>
-              </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 2: ¿SABES PROGRAMAR? -->
-      <div id="step-2" class="quiz-step hidden">
-        <div class="glass-card rounded-2xl p-6 sm:p-8 glow-green">
-          <div class="flex items-center gap-3 mb-6">
-            <span class="w-8 h-8 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 font-mono font-bold text-sm">2</span>
-            <h2 class="text-xl sm:text-2xl font-bold text-white">¿Sabes programar?</h2>
-          </div>
-
-          <div class="grid grid-cols-1 gap-3">
-            <button onclick="selectAnswer('knowsCoding', 'no')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
-              <div class="p-3 rounded-lg bg-white/5 text-emerald-400 group-hover:bg-brand-500 group-hover:text-dark-950 transition">
-                <i data-lucide="wand-2" class="w-6 h-6"></i>
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">No, prefiero No-Code e IA</div>
-                <div class="text-xs text-slate-400 mt-1">Quiero construir visualmente o describirle a la IA lo que quiero sin tocar código.</div>
-              </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
-            </button>
-
-            <button onclick="selectAnswer('knowsCoding', 'basic')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
-              <div class="p-3 rounded-lg bg-white/5 text-amber-400 group-hover:bg-amber-500 group-hover:text-dark-950 transition">
-                <i data-lucide="code" class="w-6 h-6"></i>
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Básico / Poco (sé modificar scripts y HTML)</div>
-                <div class="text-xs text-slate-400 mt-1">Puedo entender código con ayuda de ChatGPT/Claude y hacer ajustes puntuales.</div>
-              </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
-            </button>
-
-            <button onclick="selectAnswer('knowsCoding', 'yes')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
-              <div class="p-3 rounded-lg bg-white/5 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-dark-950 transition">
-                <i data-lucide="terminal" class="w-6 h-6"></i>
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Sí, soy desarrollador / programo</div>
-                <div class="text-xs text-slate-400 mt-1">Domino frameworks como React, Next.js, Node, Python y bases de datos relacionales.</div>
-              </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
-            </button>
-          </div>
-
-          <div class="mt-6 pt-4 border-t border-white/5 flex justify-start">
-            <button onclick="prevStep(1)" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 transition">
-              <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a la pregunta anterior
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 3: ¿CUÁL ES TU PRESUPUESTO? -->
-      <div id="step-3" class="quiz-step hidden">
-        <div class="glass-card rounded-2xl p-6 sm:p-8 glow-green">
-          <div class="flex items-center gap-3 mb-6">
-            <span class="w-8 h-8 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 font-mono font-bold text-sm">3</span>
-            <h2 class="text-xl sm:text-2xl font-bold text-white">¿Cuál es tu presupuesto inicial?</h2>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <button onclick="selectAnswer('budget', 'zero')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between mb-2">
-                  <span class="font-mono text-xs px-2 py-0.5 rounded bg-brand-500/10 text-brand-400 border border-brand-500/20">Bootstrap Puro</span>
-                  <i data-lucide="gift" class="w-5 h-5 text-brand-400"></i>
-                </div>
-                <div class="font-bold text-white text-lg">0 €/mes</div>
-                <div class="text-xs text-slate-400 mt-1">Solo herramientas con planes gratuitos generosos y open-source sin tarjeta.</div>
+                <h3 class="text-sm font-bold text-white">Ganchos Iniciales Ultra Rápidos (0-2s)</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Estructuras psicológicas probadas que frenan el swipe y disparan el porcentaje de visualización.</p>
               </div>
-            </button>
+            </div>
 
-            <button onclick="selectAnswer('budget', 'low')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex flex-col justify-between">
+            <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/70 border border-white/5">
+              <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="film" class="w-4 h-4"></i>
+              </div>
               <div>
-                <div class="flex items-center justify-between mb-2">
-                  <span class="font-mono text-xs px-2 py-0.5 rounded bg-accent-500/10 text-accent-400 border border-accent-500/20">MVP Ágil</span>
-                  <i data-lucide="zap" class="w-5 h-5 text-accent-400"></i>
-                </div>
-                <div class="font-bold text-white text-lg">0 – 20 €/mes</div>
-                <div class="text-xs text-slate-400 mt-1">Gasto mínimo para dominio propio y algo de uso de IA o automatizaciones.</div>
+                <h3 class="text-sm font-bold text-white">Producción Remotion Vertical (1080x1920)</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Motion graphics, gráficos animados, transiciones cinemáticas y voz neuronal ultra realista.</p>
               </div>
-            </button>
+            </div>
 
-            <button onclick="selectAnswer('budget', 'mid')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex flex-col justify-between">
+            <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/70 border border-white/5">
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+              </div>
               <div>
-                <div class="flex items-center justify-between mb-2">
-                  <span class="font-mono text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Pro Escalable</span>
-                  <i data-lucide="trending-up" class="w-5 h-5 text-purple-400"></i>
-                </div>
-                <div class="font-bold text-white text-lg">20 – 100 €/mes</div>
-                <div class="text-xs text-slate-400 mt-1">Planes de pago oficiales en plataformas No-Code para máxima velocidad.</div>
-              </div>
-            </button>
-
-            <button onclick="selectAnswer('budget', 'high')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-2">
-                  <span class="font-mono text-xs px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Empresarial</span>
-                  <i data-lucide="shield-check" class="w-5 h-5 text-amber-400"></i>
-                </div>
-                <div class="font-bold text-white text-lg">&gt; 100 €/mes</div>
-                <div class="text-xs text-slate-400 mt-1">Presupuesto holgado para infraestructura dedicada, seguridad y alta carga.</div>
-              </div>
-            </button>
-          </div>
-
-          <div class="mt-6 pt-4 border-t border-white/5 flex justify-start">
-            <button onclick="prevStep(2)" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 transition">
-              <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a la pregunta anterior
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 4: ¿NECESITAS INTELIGENCIA ARTIFICIAL? -->
-      <div id="step-4" class="quiz-step hidden">
-        <div class="glass-card rounded-2xl p-6 sm:p-8 glow-green">
-          <div class="flex items-center gap-3 mb-6">
-            <span class="w-8 h-8 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 font-mono font-bold text-sm">4</span>
-            <h2 class="text-xl sm:text-2xl font-bold text-white">¿Necesitas inteligencia artificial?</h2>
-          </div>
-
-          <div class="grid grid-cols-1 gap-3">
-            <button onclick="selectAnswer('needsAI', 'core')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
-              <div class="p-3 rounded-lg bg-white/5 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition">
-                <i data-lucide="sparkles" class="w-6 h-6"></i>
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Sí, es el núcleo del producto</div>
-                <div class="text-xs text-slate-400 mt-1">Generación de texto/código, procesamiento de documentos, visión, transcripción o agentes autónomos.</div>
-              </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
-            </button>
-
-            <button onclick="selectAnswer('needsAI', 'secondary')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
-              <div class="p-3 rounded-lg bg-white/5 text-accent-400 group-hover:bg-accent-500 group-hover:text-white transition">
-                <i data-lucide="bot" class="w-6 h-6"></i>
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">Sí, pero como apoyo secundario</div>
-                <div class="text-xs text-slate-400 mt-1">Un asistente chatbot de soporte, búsqueda inteligente de contenidos o autocompletado.</div>
-              </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
-            </button>
-
-            <button onclick="selectAnswer('needsAI', 'none')" class="option-btn text-left p-4 rounded-xl border border-white/10 hover:border-brand-500/60 bg-dark-900/60 hover:bg-brand-500/5 transition group flex items-start gap-4">
-              <div class="p-3 rounded-lg bg-white/5 text-slate-400 group-hover:bg-slate-300 group-hover:text-dark-950 transition">
-                <i data-lucide="slash" class="w-6 h-6"></i>
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-white group-hover:text-brand-400 transition text-base">No, no necesito IA</div>
-                <div class="text-xs text-slate-400 mt-1">Es un software tradicional de base de datos, panel de gestión o workflow sin modelos de IA.</div>
-              </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 group-hover:text-brand-400 transition mt-3"></i>
-            </button>
-          </div>
-
-          <div class="mt-6 pt-4 border-t border-white/5 flex justify-start">
-            <button onclick="prevStep(3)" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 transition">
-              <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a la pregunta anterior
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- RESULT VIEW (Tu Stack Recomendado) -->
-    <!-- ========================================================================= -->
-    <section id="result-container" class="hidden">
-      
-      <!-- HEADER RESULT -->
-      <div class="text-center mb-8">
-        <div id="result-badge-type" class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-mono font-bold mb-3">
-          🚀 Arquitectura Calculada
-        </div>
-        <h2 id="result-main-title" class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Tu Stack Recomendado
-        </h2>
-        <p id="result-summary-text" class="text-slate-400 text-xs sm:text-sm mt-2 max-w-2xl mx-auto leading-relaxed">
-          Aquí tienes la combinación exacta de herramientas más eficiente y económica según tus respuestas.
-        </p>
-      </div>
-
-      <!-- METRICS BADGES -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
-        <div class="glass-card rounded-xl p-4 flex items-center gap-3">
-          <div class="p-2.5 rounded-lg bg-brand-500/10 text-brand-400 border border-brand-500/20">
-            <i data-lucide="wallet" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <div class="text-[11px] text-slate-400 uppercase font-mono">Coste estimado inicial</div>
-            <div id="metric-cost" class="font-bold text-white text-sm sm:text-base">0 – 20 €/mes</div>
-          </div>
-        </div>
-
-        <div class="glass-card rounded-xl p-4 flex items-center gap-3">
-          <div class="p-2.5 rounded-lg bg-accent-500/10 text-accent-400 border border-accent-500/20">
-            <i data-lucide="clock" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <div class="text-[11px] text-slate-400 uppercase font-mono">Tiempo estimado a MVP</div>
-            <div id="metric-time" class="font-bold text-white text-sm sm:text-base">3 a 7 días</div>
-          </div>
-        </div>
-
-        <div class="glass-card rounded-xl p-4 flex items-center gap-3">
-          <div class="p-2.5 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">
-            <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <div class="text-[11px] text-slate-400 uppercase font-mono">Curva de dificultad</div>
-            <div id="metric-complexity" class="font-bold text-white text-sm sm:text-base">Baja (100% Visual)</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- EXPLANATION NOTICE -->
-      <div class="p-4 rounded-xl bg-dark-900/80 border border-white/10 mb-6 flex items-start gap-3 text-xs text-slate-300">
-        <i data-lucide="sparkles" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
-        <div>
-          <span class="font-bold text-white">Cada solución incluye 2 opciones de enlace directo:</span>
-          el botón principal verde con la <strong class="text-brand-400">Opción Recomendada Pro</strong>, y el botón secundario con <strong class="text-amber-400">la alternativa 100% Gratuita (0€)</strong> para crear tu proyecto sin pagar suscripciones.
-        </div>
-      </div>
-
-      <!-- CARDS LIST -->
-      <div id="stack-cards-container" class="space-y-5 mb-8">
-        <!-- Rendered dynamically via JS -->
-      </div>
-
-      <!-- LEAD CAPTURE: Plantillas Gratis de Automatización -->
-      <div class="my-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-brand-950/40 via-dark-900 to-accent-950/30 border border-brand-500/30 relative overflow-hidden shadow-2xl">
-        <div class="absolute -right-12 -top-12 w-48 h-48 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-          <div class="text-left max-w-xl">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-mono font-semibold mb-3 border border-brand-500/30">
-              <i data-lucide="gift" class="w-3.5 h-3.5"></i> Recursos y Blueprints Gratuitos
-            </span>
-            <h3 class="text-xl sm:text-2xl font-extrabold text-white leading-tight">
-              ¿Quieres recibir plantillas de automatizaciones gratis para tu proyecto?
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-              Te enviamos directamente a tu correo los 3 flujos listos para importar con 1 solo clic en Make:
-            </p>
-
-            <!-- 3 PLANTILLAS CONCRETAS -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-4">
-              <div class="p-2.5 rounded-xl bg-dark-950/80 border border-white/10 flex items-start gap-2">
-                <span class="p-1 rounded bg-amber-500/10 text-amber-400 mt-0.5">
-                  <i data-lucide="bell" class="w-3.5 h-3.5"></i>
-                </span>
-                <div class="text-[11px] leading-snug">
-                  <strong class="text-white block font-medium">Alertas de Ventas</strong>
-                  <span class="text-slate-400">Aviso a Telegram al cobrar en Stripe</span>
-                </div>
-              </div>
-
-              <div class="p-2.5 rounded-xl bg-dark-950/80 border border-white/10 flex items-start gap-2">
-                <span class="p-1 rounded bg-brand-500/10 text-brand-400 mt-0.5">
-                  <i data-lucide="mail-check" class="w-3.5 h-3.5"></i>
-                </span>
-                <div class="text-[11px] leading-snug">
-                  <strong class="text-white block font-medium">Bienvenida Auto</strong>
-                  <span class="text-slate-400">Email personalizado al nuevo usuario</span>
-                </div>
-              </div>
-
-              <div class="p-2.5 rounded-xl bg-dark-950/80 border border-white/10 flex items-start gap-2">
-                <span class="p-1 rounded bg-accent-500/10 text-accent-400 mt-0.5">
-                  <i data-lucide="table" class="w-3.5 h-3.5"></i>
-                </span>
-                <div class="text-[11px] leading-snug">
-                  <strong class="text-white block font-medium">Sincro Sheets</strong>
-                  <span class="text-slate-400">Guarda leads en Google Sheets 24/7</span>
-                </div>
+                <h3 class="text-sm font-bold text-white">Piloto Automático a YouTube (12:00 diaria)</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Tú eliges la hora y el sistema crea, renderiza y publica el vídeo en tu canal sin que toques nada.</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="w-full lg:w-auto lg:min-w-[340px]">
-            <form id="lead-form" onsubmit="handleLeadSubmit(event)" class="space-y-2">
-              <div class="flex flex-col sm:flex-row gap-2">
-                <input 
-                  type="email" 
-                  id="lead-email-input"
-                  required
-                  placeholder="Tu correo electrónico..." 
-                  class="w-full px-4 py-3 rounded-xl bg-dark-950/90 border border-white/15 focus:border-brand-500 focus:outline-none text-white text-sm placeholder:text-slate-500 transition"
-                />
-                <button 
-                  type="submit" 
-                  id="lead-submit-btn"
-                  class="px-5 py-3 rounded-xl bg-brand-500 hover:bg-brand-400 text-dark-950 font-extrabold text-sm whitespace-nowrap flex items-center justify-center gap-2 transition shadow-lg shadow-brand-500/20"
-                >
-                  <span>Enviar gratis</span>
-                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
+        <!-- MOCKUP DEL VÍDEO VERTICAL -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div class="relative w-[240px] aspect-[9/16] rounded-3xl overflow-hidden border-2 border-accent-400/40 shadow-2xl bg-slate-900 flex flex-col justify-between p-4 text-center">
+            <div class="flex items-center justify-between text-[10px] text-slate-400 font-mono">
+              <span class="flex items-center gap-1 text-emerald-400 font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> 1080x1920</span>
+              <span>60 FPS</span>
+            </div>
+
+            <div class="space-y-3 py-6">
+              <div class="w-12 h-12 rounded-2xl bg-accent-500/20 border border-accent-500/30 text-accent-400 flex items-center justify-center mx-auto">
+                <i data-lucide="play" class="w-6 h-6 fill-accent-400"></i>
               </div>
-              <p id="lead-status-msg" class="text-xs text-brand-300 font-medium text-center sm:text-left hidden">
-                ✅ ¡Listo! Te avisaremos con los blueprints y nuevas plantillas.
-              </p>
-            </form>
+              <div class="text-xs font-black text-white px-2 leading-snug">
+                "El monopolio de los ferrocarriles está a punto de estallar"
+              </div>
+              <div class="inline-block px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-black border border-amber-500/30">
+                🔥 88% Tasa de Retención
+              </div>
+            </div>
+
+            <div class="text-[10px] text-slate-400 border-t border-white/10 pt-2 flex items-center justify-between">
+              <span>YouTube Shorts</span>
+              <span class="text-sky-400 font-bold">Descarga MP4</span>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- ACTIONS BAR -->
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl glass-card">
-        <button onclick="resetQuiz()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-white/10 hover:border-white/20 text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition">
-          <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Volver a responder
-        </button>
-
-        <div class="flex items-center gap-2 w-full sm:w-auto">
-          <button onclick="copyStackToClipboard()" id="copy-stack-btn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-500 to-accent-500 hover:opacity-95 text-dark-950 text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg shadow-brand-500/20 transition">
-            <i data-lucide="copy" class="w-4 h-4"></i> Copiar mi Stack con Enlaces
-          </button>
-        </div>
-      </div>
-
     </section>
 
-    <!-- ========================================================================= -->
-    <!-- DIRECTORY VIEW (Explorador Completo) -->
-    <!-- ========================================================================= -->
-    <section id="directory-container" class="hidden">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-        <div>
-          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-            <i data-lucide="library" class="w-6 h-6 text-brand-400"></i> Directorio de Herramientas SaaS
-          </h2>
-          <p class="text-xs text-slate-400 mt-1">Todas las herramientas analizadas con sus pros, alternativas y enlaces directos.</p>
+    <!-- NICHOS DISPONIBLES -->
+    <section class="space-y-6">
+      <div class="text-center space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Nichos Listos o 100% Personalizados</h2>
+        <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
+          El generador funciona con noticias y fuentes especializadas según tu canal o modelo de negocio:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="glass-card rounded-2xl p-5 space-y-3 hover:border-accent-400/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center">
+            <i data-lucide="globe" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">Geoeconomía y Logística</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Comercio exterior, rutas marítimas, semiconductores, crisis del Canal de Suez y cadenas de suministro globales.</p>
         </div>
-        <button onclick="toggleDirectoryView()" class="self-start sm:self-auto text-xs px-3 py-1.5 rounded-lg border border-white/10 hover:border-white/20 text-slate-300">
-          Volver al Quiz
-        </button>
-      </div>
 
-      <!-- CATEGORY TABS -->
-      <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-4 no-scrollbar text-xs font-medium">
-        <button onclick="filterDirectory('all')" class="dir-tab px-3 py-1.5 rounded-lg bg-brand-500 text-dark-950 font-bold" data-cat="all">Todas</button>
-        <button onclick="filterDirectory('app')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="app">App Builders</button>
-        <button onclick="filterDirectory('database')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="database">Base de Datos</button>
-        <button onclick="filterDirectory('ai')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="ai">IA</button>
-        <button onclick="filterDirectory('hosting')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="hosting">Hosting</button>
-        <button onclick="filterDirectory('payments')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="payments">Pagos</button>
-        <button onclick="filterDirectory('automation')" class="dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white" data-cat="automation">Automatización</button>
-      </div>
+        <div class="glass-card rounded-2xl p-5 space-y-3 hover:border-accent-400/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center">
+            <i data-lucide="cpu" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">SaaS, Tech e IA</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Nuevas startups, herramientas de Inteligencia Artificial, tendencias de software y estrategias de fundadores.</p>
+        </div>
 
-      <!-- SEARCH INPUT IN DIRECTORY -->
-      <div class="relative mb-6">
-        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-        <input 
-          type="text" 
-          id="dir-search-input" 
-          oninput="handleDirectorySearch(this.value)"
-          placeholder="Buscar herramienta por nombre, función o tecnología (ej: hosting, IA, Stripe, Telegram, Next.js)..." 
-          class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-dark-900/90 border border-white/10 focus:border-brand-500 focus:outline-none text-white text-xs placeholder:text-slate-500 transition shadow-inner"
-        />
+        <div class="glass-card rounded-2xl p-5 space-y-3 hover:border-accent-400/40 transition">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+            <i data-lucide="shield-alert" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">Ciberseguridad y OSINT</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Ataques informáticos recientes, filtraciones de datos, vulnerabilidades zero-day y privacidad digital.</p>
+        </div>
       </div>
+    </section>
 
-      <div id="directory-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <!-- Rendered dynamically via JS -->
+    <!-- SECCIÓN 1: PRUEBA GRATIS -->
+    <section id="prueba-gratis" class="glass-card rounded-3xl p-6 sm:p-10 border-emerald-500/30 glow-green">
+      <div class="max-w-2xl mx-auto text-center space-y-6">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold font-mono">
+          <i data-lucide="gift" class="w-3.5 h-3.5"></i> PASO 1: PRUÉBALO SIN COSTE
+        </div>
+
+        <h2 class="text-2xl sm:text-4xl font-black text-white">
+          Solicita tus Shorts de Prueba Gratis
+        </h2>
+
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Antes de decidir nada, comprueba tú mismo la calidad visual, la voz neuronal y la retención del guion. Te generamos <strong>algunos vídeos de muestra completamente gratis</strong> adaptados a tu temática.
+        </p>
+
+        <form id="free-demo-form" onsubmit="solicitarPruebaGratis(event)" class="space-y-4 text-left bg-dark-900/80 p-5 rounded-2xl border border-white/5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">Tu Nombre</label>
+              <input type="text" id="demo-nombre" required placeholder="Ej: Carlos Gómez" class="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-white/10 text-xs text-white focus:border-emerald-400 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">WhatsApp o Email</label>
+              <input type="text" id="demo-contacto" required placeholder="Para enviarte los vídeos" class="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-white/10 text-xs text-white focus:border-emerald-400 focus:outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">¿De qué temática o nicho quieres los Shorts?</label>
+            <input type="text" id="demo-nicho" required placeholder="Ej: Geopolítica, finanzas, tecnología, o dime tu canal" class="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-white/10 text-xs text-white focus:border-emerald-400 focus:outline-none" />
+          </div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:opacity-95 text-dark-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 transition">
+            <i data-lucide="send" class="w-4 h-4"></i> Enviar y Recibir Shorts Gratis por WhatsApp
+          </button>
+        </form>
+
+        <div id="demo-success-msg" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+          🎉 ¡Solicitud recibida! Te escribiremos en breve con tus Shorts de prueba listos para revisar.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: OFERTA LIFETIME $10 -->
+    <section id="oferta-10" class="glass-card rounded-3xl p-6 sm:p-10 border-accent-500/40 glow-cyan relative overflow-hidden">
+      <div class="absolute -top-12 -right-12 w-48 h-48 bg-accent-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-2xl mx-auto text-center space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-500/10 border border-accent-500/30 text-accent-400 text-xs font-bold font-mono">
+          <i data-lucide="crown" class="w-4 h-4 text-amber-400"></i> PASO 2: QUÉDATE LA APP DE POR VIDA
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-black text-white">
+          La Aplicación Completa por solo <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 via-sky-300 to-brand-400">
+            $10 USD (Pago Único)
+          </span>
+        </h2>
+
+        <p class="text-slate-300 text-sm leading-relaxed max-w-lg mx-auto">
+          Olvídate de pagar suscripciones mensuales de $49 o $99 al mes. Consigue acceso perpetuo a todo el sistema por el precio simbólico de lanzamiento.
+        </p>
+
+        <!-- TARJETA DE PRECIO -->
+        <div class="bg-dark-900/90 rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6 text-left max-w-md mx-auto shadow-2xl">
+          <div class="flex items-baseline justify-between border-b border-white/10 pb-4">
+            <div>
+              <span class="text-3xl sm:text-4xl font-black text-white">$10</span>
+              <span class="text-xs text-slate-400 font-semibold uppercase">USD · De Por Vida</span>
+            </div>
+            <div class="text-right">
+              <span class="line-through text-xs text-slate-500 font-bold">$99 USD</span>
+              <div class="text-[10px] font-black text-emerald-400 uppercase">90% DESCUENTO</div>
+            </div>
+          </div>
+
+          <!-- LISTA DE CARACTERÍSTICAS -->
+          <ul class="space-y-3 text-xs text-slate-300 font-medium">
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+              <span><strong>Generación Ilimitada</strong> de Shorts en formato 9:16 (1080x1920)</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+              <span><strong>Motor IA de Storytelling</strong> con ganchos iniciales y bucles</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+              <span><strong>Subida Automática a YouTube</strong> diaria a la hora que elijas</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+              <span><strong>Panel Web Intuitivo</strong> para usar desde tu PC o móvil</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+              <span><strong>Soporte para instalación</strong> y configuración en 5 minutos</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+              <span><strong>0 suscripciones recurrentes</strong> (un solo pago para siempre)</span>
+            </li>
+          </ul>
+
+          <!-- BOTÓN COMPRA / CONTACTO DIRECTO -->
+          <button onclick="comprarApp10()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-accent-500 via-sky-400 to-brand-500 hover:opacity-95 text-dark-950 font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-accent-500/30 transition transform hover:scale-[1.02]">
+            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Comprar Acceso de por Vida ($10)
+          </button>
+
+          <p class="text-[11px] text-center text-slate-400">
+            Entrega inmediata por WhatsApp o Email tras la confirmación.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="text-xl sm:text-2xl font-bold text-center text-white">Preguntas Frecuentes</h2>
+
+      <div class="space-y-3">
+        <details class="glass-card rounded-2xl p-4 text-xs group cursor-pointer">
+          <summary class="font-bold text-white flex items-center justify-between">
+            ¿Cómo funciona la prueba gratis de Shorts?
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-slate-400 mt-2 leading-relaxed">
+            Rellenas el formulario con tu temática y te generamos algunos vídeos de muestra para que revises la calidad del guion, la música, la voz y el montaje visual antes de pagar nada.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-4 text-xs group cursor-pointer">
+          <summary class="font-bold text-white flex items-center justify-between">
+            ¿Realmente es un pago único de $10 de por vida?
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-slate-400 mt-2 leading-relaxed">
+            Sí. Es una oferta especial de lanzamiento. Pagas $10 una única vez y recibes la aplicación completa y su configuración sin cuotas mensuales ni costes ocultos.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-4 text-xs group cursor-pointer">
+          <summary class="font-bold text-white flex items-center justify-between">
+            ¿Cómo se conecta con YouTube?
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-slate-400 mt-2 leading-relaxed">
+            A través de la API oficial de Google OAuth. Se autoriza con 1 solo clic desde tu navegador de forma 100% segura y privada (tus credenciales nunca salen de tu ordenador).
+          </p>
+        </details>
       </div>
     </section>
 
   </main>
 
-  <!-- ========================================================================= -->
-  <!-- MODAL: GESTIÓN DE AFILIADOS (Para el dueño de la web) -->
-  <!-- ========================================================================= -->
-  <div id="affiliate-modal" class="fixed inset-0 bg-dark-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="glass-card rounded-2xl max-w-lg w-full p-6 border border-white/10 glow-accent max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
-        <div class="flex items-center gap-2">
-          <i data-lucide="link-2" class="w-5 h-5 text-accent-400"></i>
-          <h3 class="font-bold text-white text-lg">Tus Enlaces de Afiliado y Referencia</h3>
-        </div>
-        <button onclick="closeAffiliateModal()" class="text-slate-400 hover:text-white">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <p class="text-xs text-slate-300 leading-relaxed mb-4">
-        Todos los botones verdes <strong>"Probar herramienta →"</strong> están preparados para dirigir a tus enlaces de referencia/afiliado para que ganes comisiones.
-      </p>
-
-      <div class="p-3 rounded-xl bg-dark-900 border border-white/5 mb-4 text-xs font-mono text-slate-300">
-        <span class="text-accent-400 font-bold">Archivo de configuración:</span><br>
-        <code>saas-stack-finder/affiliate-config.js</code>
-      </div>
-
-      <!-- SECCIÓN LEADS CAPTURADOS -->
-      <div class="p-3.5 rounded-xl bg-brand-500/10 border border-brand-500/20 mb-4">
-        <div class="flex items-center justify-between mb-1.5">
-          <span class="text-xs font-bold text-white flex items-center gap-1.5">
-            <i data-lucide="mail" class="w-4 h-4 text-brand-400"></i> Emails de Usuarios Capturados:
-          </span>
-          <span id="lead-count-badge" class="font-mono text-xs font-bold text-brand-400 bg-brand-500/20 px-2 py-0.5 rounded">
-            0 correos
-          </span>
-        </div>
-        <p class="text-[11px] text-slate-400 mb-2">
-          Correos de personas interesadas en recibir plantillas de automatizaciones:
-        </p>
-        <button onclick="exportLeadsCSV()" class="w-full py-1.5 rounded-lg bg-dark-900 border border-white/10 hover:border-brand-500/40 text-brand-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition">
-          <i data-lucide="download" class="w-3.5 h-3.5"></i> Descargar lista de correos (.CSV)
-        </button>
-      </div>
-
-      <p class="text-xs text-slate-400 mb-4">
-        Simplemente abre ese archivo y escribe tus enlaces en cada herramienta (ej: <code>"affiliateUrl": "https://lovable.dev/?via=tu_usuario"</code>). Si dejas el campo vacío, se dirigirá a la web oficial de forma limpia.
-      </p>
-
-      <div class="flex justify-end pt-2">
-        <button onclick="closeAffiliateModal()" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-400 text-dark-950 font-bold text-xs">
-          Entendido
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- FOOTER -->
-  <footer class="border-t border-white/5 py-6 text-center text-xs text-slate-500">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div>SaaS Stack Finder — Creado para emprendedores e Indie Hackers</div>
-      <div class="flex items-center gap-4">
-        <span>100% Gratuito y Open Source</span>
-        <button onclick="openAffiliateModal()" title="Panel de control (Atajo: Ctrl + Shift + A)" class="text-slate-600 hover:text-slate-400 transition text-[11px] flex items-center gap-1">
-          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> <span>Panel Admin</span>
-        </button>
+  <footer class="border-t border-white/5 bg-dark-900/60 py-8 text-center text-xs text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="font-bold text-white">Shorts AI Factory</span> · Potenciado por SaaS Stack Finder
+      </div>
+      <div>
+        Prueba Gratis · Acceso de por Vida $10 USD
       </div>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
-  <script src="affiliate-config.js"></script>
-  <script src="tools-data.js"></script>
-
   <script>
-    // ESTADO DEL QUIZ
-    const state = {
-      step: 1,
-      answers: {
-        projectType: null,
-        knowsCoding: null,
-        budget: null,
-        needsAI: null
-      },
-      currentRecommended: null
-    };
-
-    // Inicializar iconos de Lucide
-    function refreshIcons() {
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
-      refreshIcons();
+      if (window.lucide) lucide.createIcons();
     });
 
-    // Seleccionar respuesta y avanzar
-    function selectAnswer(key, value) {
-      state.answers[key] = value;
-
-      if (state.step < 4) {
-        goToStep(state.step + 1);
-      } else {
-        showResults();
-      }
-    }
-
-    function goToStep(stepNum) {
-      state.step = stepNum;
-      
-      // Ocultar todos los steps
-      for (let i = 1; i <= 4; i++) {
-        const el = document.getElementById(`step-${i}`);
-        if (el) el.classList.add("hidden");
-      }
-
-      // Mostrar step actual
-      const current = document.getElementById(`step-${stepNum}`);
-      if (current) current.classList.remove("hidden");
-
-      // Actualizar progress bar
-      const fill = document.getElementById("progress-bar-fill");
-      const indicator = document.getElementById("step-indicator");
-      const hint = document.getElementById("step-title-hint");
-
-      const hints = {
-        1: "Tipo de proyecto",
-        2: "Nivel de programación",
-        3: "Presupuesto disponible",
-        4: "Inteligencia artificial"
-      };
-
-      if (fill) fill.style.width = `${(stepNum / 4) * 100}%`;
-      if (indicator) indicator.innerText = `Paso ${stepNum} de 4`;
-      if (hint) hint.innerText = hints[stepNum] || "";
-
-      refreshIcons();
-    }
-
-    function prevStep(stepNum) {
-      goToStep(stepNum);
-    }
-
-    // Calcular y mostrar resultados ultra diferenciados
-    function showResults() {
-      const rec = window.recommendStack(state.answers);
-      state.currentRecommended = rec;
-
-      // Ocultar Quiz y Hero
-      document.getElementById("quiz-container").classList.add("hidden");
-      document.getElementById("hero-section").classList.add("hidden");
-
-      // Mostrar Resultados
-      const resContainer = document.getElementById("result-container");
-      resContainer.classList.remove("hidden");
-
-      // Títulos dinámicos según el tipo de proyecto elegido
-      document.getElementById("result-main-title").innerText = rec.title;
-      document.getElementById("result-badge-type").innerText = rec.badgeType;
-      document.getElementById("result-summary-text").innerText = rec.meta.summary;
-
-      // Actualizar Métricas
-      document.getElementById("metric-cost").innerText = rec.meta.estimatedCost;
-      document.getElementById("metric-time").innerText = rec.meta.timeToMvp;
-      document.getElementById("metric-complexity").innerText = rec.meta.complexity;
-
-      // Renderizar tarjetas por cada paso
-      const cardsWrapper = document.getElementById("stack-cards-container");
-      cardsWrapper.innerHTML = "";
-
-      rec.steps.forEach(stepItem => {
-        const tool = stepItem.tool;
-        if (!tool) return;
-
-        const toolUrl = window.getToolUrl(tool.id);
-        const freeUrl = tool.freeOption ? tool.freeOption.url : '#';
-
-        const card = document.createElement("div");
-        card.className = "glass-card rounded-2xl p-5 sm:p-6 transition hover:border-brand-500/40 relative";
-
-        card.innerHTML = `
-          <div>
-            <!-- HEADER DE LA TARJETA -->
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-400 font-mono text-xs font-bold flex items-center justify-center border border-brand-500/30">
-                  ${stepItem.stepNumber}
-                </span>
-                <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
-                  ${stepItem.role}
-                </span>
-              </div>
-              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-brand-500/10 text-brand-400 border border-brand-500/20">
-                ${tool.pricing.split('/')[0]}
-              </span>
-            </div>
-
-            <!-- CUERPO PRINCIPAL -->
-            <div class="flex flex-col sm:flex-row items-start justify-between gap-4">
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center ${stepItem.color} shrink-0 mt-0.5 shadow-inner">
-                  <i data-lucide="${stepItem.icon}" class="w-6 h-6"></i>
-                </div>
-
-                <div>
-                  <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                    ${tool.name}
-                  </h3>
-                  <p class="text-xs text-slate-400 mt-0.5 font-medium">${tool.tagline}</p>
-
-                  <!-- EXPLICACIÓN CORTA -->
-                  <p class="text-xs sm:text-sm text-slate-300 mt-2.5 leading-relaxed">
-                    <strong class="text-white">¿Qué es?</strong> ${tool.shortDescription}
-                  </p>
-
-                  <!-- PARA QUÉ SIRVE -->
-                  <p class="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
-                    <strong class="text-brand-400">¿Para qué sirve en tu proyecto?</strong> ${tool.purpose}
-                  </p>
-
-                  <!-- CONSEJO EXPERTO -->
-                  ${tool.expertTip ? `
-                    <div class="mt-2 text-xs text-amber-300/90 flex items-center gap-1.5">
-                      <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
-                      <span><strong>Truco pro:</strong> ${tool.expertTip}</span>
-                    </div>
-                  ` : ''}
-                </div>
-              </div>
-            </div>
-
-            <!-- CAJA DE ACCIONES: ENLACE RECOMENDADO + ENLACE 100% GRATIS -->
-            <div class="mt-5 pt-4 border-t border-white/5 grid grid-cols-1 sm:grid-cols-2 gap-3 items-stretch">
-              
-              <!-- BOTÓN RECOMENDADO / AFILIADO -->
-              <div class="p-3 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
-                <div class="text-[11px] text-slate-400 mb-1.5 flex items-center justify-between">
-                  <span class="font-bold text-brand-400 flex items-center gap-1">
-                    <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Opción Recomendada:
-                  </span>
-                  <span class="text-slate-500 font-mono text-[10px]">Rápida</span>
-                </div>
-                <div class="text-xs font-semibold text-white mb-2">${tool.name}</div>
-                <a href="${toolUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full px-3 py-2 rounded-lg bg-brand-500 hover:bg-brand-400 text-dark-950 font-bold text-xs transition shadow-sm group">
-                  <span>Probar ${tool.name.split(' ')[0]}</span>
-                  <i data-lucide="arrow-up-right" class="w-4 h-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                </a>
-              </div>
-
-              <!-- BOTÓN LA QUE USARÍA YO 100% GRATIS (0€) -->
-              <div class="p-3 rounded-xl bg-dark-900 border border-white/10 flex flex-col justify-between">
-                <div class="text-[11px] text-slate-400 mb-1.5 flex items-center justify-between">
-                  <span class="font-bold text-amber-400 flex items-center gap-1">
-                    <i data-lucide="gift" class="w-3.5 h-3.5"></i> Opción Gratis (0€):
-                  </span>
-                  <span class="text-emerald-400 font-mono text-[10px] font-bold">0 €/mes</span>
-                </div>
-                <div class="text-xs text-slate-200 mb-2 truncate">
-                  <strong class="text-white">${tool.freeOption ? tool.freeOption.name : 'Alternativa Open Source'}</strong>
-                </div>
-                <a href="${freeUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white font-semibold text-xs transition border border-white/10 group">
-                  <span>Usar Opción Gratis (0€)</span>
-                  <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-400 group-hover:text-white"></i>
-                </a>
-              </div>
-
-            </div>
-
-          </div>
-        `;
-
-        cardsWrapper.appendChild(card);
-      });
-
-      refreshIcons();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    // Reiniciar Quiz
-    function resetQuiz() {
-      state.step = 1;
-      state.answers = { projectType: null, knowsCoding: null, budget: null, needsAI: null };
-      state.currentRecommended = null;
-
-      document.getElementById("result-container").classList.add("hidden");
-      document.getElementById("directory-container").classList.add("hidden");
-      document.getElementById("hero-section").classList.remove("hidden");
-      document.getElementById("quiz-container").classList.remove("hidden");
-
-      goToStep(1);
-    }
-
-    // Copiar stack con enlaces directos al portapapeles
-    function copyStackToClipboard() {
-      if (!state.currentRecommended) return;
-      const rec = state.currentRecommended;
-
-      let text = `🚀 MI STACK RECOMENDADO (${rec.title})\n\n`;
-      text += `💰 Presupuesto estimado: ${rec.meta.estimatedCost}\n`;
-      text += `⏱️ Tiempo a MVP: ${rec.meta.timeToMvp}\n`;
-      text += `🎯 Dificultad: ${rec.meta.complexity}\n\n`;
-      text += `HERRAMIENTAS CON ENLACES DIRECTOS:\n`;
-
-      rec.steps.forEach(s => {
-        const toolUrl = window.getToolUrl(s.tool.id);
-        const freeUrl = s.tool.freeOption ? s.tool.freeOption.url : '';
-        text += `\n[Paso ${s.stepNumber}] ${s.role}:\n`;
-        text += `  • Recomendada: ${s.tool.name} → ${toolUrl}\n`;
-        if (s.tool.freeOption) {
-          text += `  • Opción 100% Gratis (0€): ${s.tool.freeOption.name} → ${freeUrl}\n`;
-        }
-      });
-
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById("copy-stack-btn");
-        const originalHtml = btn.innerHTML;
-        btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i> ¡Copiado con enlaces!`;
-        btn.classList.add("bg-emerald-400");
-        refreshIcons();
-
-        setTimeout(() => {
-          btn.innerHTML = originalHtml;
-          btn.classList.remove("bg-emerald-400");
-          refreshIcons();
-        }, 2500);
-      });
-    }
-
-    // Modal de Afiliados
-    function openAffiliateModal() {
-      document.getElementById("affiliate-modal").classList.remove("hidden");
-      updateLeadCount();
-      refreshIcons();
-    }
-    function closeAffiliateModal() {
-      document.getElementById("affiliate-modal").classList.add("hidden");
-    }
-
-    // Directorio de Herramientas con Búsqueda en Tiempo Real
-    let currentDirCategory = 'all';
-    let currentDirSearch = '';
-
-    function toggleDirectoryView() {
-      const dir = document.getElementById("directory-container");
-      const quiz = document.getElementById("quiz-container");
-      const res = document.getElementById("result-container");
-      const hero = document.getElementById("hero-section");
-
-      if (dir.classList.contains("hidden")) {
-        quiz.classList.add("hidden");
-        res.classList.add("hidden");
-        hero.classList.add("hidden");
-        dir.classList.remove("hidden");
-        currentDirCategory = 'all';
-        currentDirSearch = '';
-        const searchInput = document.getElementById("dir-search-input");
-        if (searchInput) searchInput.value = '';
-        renderDirectory('all', '');
-      } else {
-        dir.classList.add("hidden");
-        if (state.currentRecommended) {
-          res.classList.remove("hidden");
-        } else {
-          hero.classList.remove("hidden");
-          quiz.classList.remove("hidden");
-        }
-      }
-      refreshIcons();
-    }
-
-    function filterDirectory(cat) {
-      currentDirCategory = cat;
-      document.querySelectorAll(".dir-tab").forEach(tab => {
-        if (tab.getAttribute("data-cat") === cat) {
-          tab.className = "dir-tab px-3 py-1.5 rounded-lg bg-brand-500 text-dark-950 font-bold";
-        } else {
-          tab.className = "dir-tab px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white";
-        }
-      });
-      renderDirectory(currentDirCategory, currentDirSearch);
-    }
-
-    function handleDirectorySearch(query) {
-      currentDirSearch = (query || '').toLowerCase().trim();
-      renderDirectory(currentDirCategory, currentDirSearch);
-    }
-
-    function renderDirectory(category, searchQuery = '') {
-      const grid = document.getElementById("directory-cards-grid");
-      grid.innerHTML = "";
-
-      const tools = Object.values(window.TOOLS_DB);
-      let filtered = category === 'all' ? tools : tools.filter(t => t.category === category);
-
-      if (searchQuery) {
-        filtered = filtered.filter(t => {
-          const matchName = t.name.toLowerCase().includes(searchQuery);
-          const matchTag = (t.tagline || '').toLowerCase().includes(searchQuery);
-          const matchDesc = (t.shortDescription || '').toLowerCase().includes(searchQuery);
-          const matchPurpose = (t.purpose || '').toLowerCase().includes(searchQuery);
-          const matchFree = t.freeOption ? (t.freeOption.name.toLowerCase().includes(searchQuery) || (t.freeOption.reason || '').toLowerCase().includes(searchQuery)) : false;
-          return matchName || matchTag || matchDesc || matchPurpose || matchFree;
-        });
-      }
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `
-          <div class="col-span-1 sm:col-span-2 text-center py-12 px-4 glass-card rounded-2xl border border-white/5">
-            <i data-lucide="search-x" class="w-8 h-8 text-slate-500 mx-auto mb-2"></i>
-            <p class="text-sm font-semibold text-slate-300">No se encontraron herramientas con "${searchQuery}"</p>
-            <p class="text-xs text-slate-500 mt-1">Prueba con términos como 'hosting', 'ia', 'pagos', 'stripe', 'make' o 'base de datos'.</p>
-          </div>
-        `;
-        refreshIcons();
-        return;
-      }
-
-      filtered.forEach(tool => {
-        const toolUrl = window.getToolUrl(tool.id);
-        const card = document.createElement("div");
-        card.className = "glass-card rounded-xl p-5 flex flex-col justify-between";
-
-        card.innerHTML = `
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-400 border border-white/10">
-                ${tool.categoryName}
-              </span>
-              <span class="text-[11px] font-semibold text-brand-400">
-                ${tool.pricing.split('/')[0]}
-              </span>
-            </div>
-
-            <h3 class="font-bold text-white text-base">${tool.name}</h3>
-            <p class="text-xs text-slate-400 mt-1">${tool.shortDescription}</p>
-
-            ${tool.freeOption ? `
-              <div class="mt-3 text-[11px] text-slate-400 pt-2 border-t border-white/5 flex items-center justify-between">
-                <span><strong class="text-amber-400">Alt gratis:</strong> ${tool.freeOption.name}</span>
-                <a href="${tool.freeOption.url}" target="_blank" rel="noopener noreferrer" class="text-accent-400 hover:underline">Ver gratis →</a>
-              </div>
-            ` : ''}
-          </div>
-
-          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
-            <span class="text-[11px] text-slate-500">${tool.difficulty}</span>
-            <a href="${toolUrl}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-400 hover:text-brand-300 flex items-center gap-1">
-              Probar herramienta →
-            </a>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-
-      refreshIcons();
-    }
-
-    // Captura de Leads / Emails para Plantillas Gratis
-    function handleLeadSubmit(e) {
+    function solicitarPruebaGratis(e) {
       e.preventDefault();
-      const input = document.getElementById("lead-email-input");
-      const msg = document.getElementById("lead-status-msg");
-      const btn = document.getElementById("lead-submit-btn");
-      const email = input.value.trim();
+      const nombre = document.getElementById("demo-nombre").value;
+      const contacto = document.getElementById("demo-contacto").value;
+      const nicho = document.getElementById("demo-nicho").value;
 
-      if (!email || !email.includes("@")) return;
-
-      try {
-        const stored = JSON.parse(localStorage.getItem("saas_leads") || "[]");
-        stored.push({
-          email: email,
-          date: new Date().toLocaleDateString('es-ES'),
-          time: new Date().toLocaleTimeString('es-ES'),
-          stack: state.currentRecommended ? state.currentRecommended.title : "General"
-        });
-        localStorage.setItem("saas_leads", JSON.stringify(stored));
-      } catch (err) {
-        console.error("Error saving lead:", err);
-      }
-
-      input.disabled = true;
-      btn.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-dark-950"></i> ¡Guardado!`;
-      btn.classList.remove("bg-brand-500", "hover:bg-brand-400");
-      btn.classList.add("bg-emerald-400");
-      msg.classList.remove("hidden");
-      refreshIcons();
+      const mensaje = `Hola! Quiero solicitar mi prueba gratis de Shorts.%0A%0A- Nombre: ${encodeURIComponent(nombre)}%0A- Contacto: ${encodeURIComponent(contacto)}%0A- Temática/Nicho: ${encodeURIComponent(nicho)}%0A%0A¿Podrías enviarme los vídeos de muestra?`;
+      
+      // Abrir WhatsApp con el mensaje preformateado
+      window.open(`https://wa.me/?text=${mensaje}`, "_blank");
+      document.getElementById("demo-success-msg").classList.remove("hidden");
     }
 
-    function updateLeadCount() {
-      try {
-        const stored = JSON.parse(localStorage.getItem("saas_leads") || "[]");
-        const badge = document.getElementById("lead-count-badge");
-        if (badge) {
-          badge.innerText = `${stored.length} ${stored.length === 1 ? 'correo' : 'correos'}`;
-        }
-      } catch (_) {}
+    function comprarApp10() {
+      const mensaje = `Hola! Quiero comprar la aplicación completa de generación automática de Shorts con la oferta de $10 USD de por vida.%0A%0A¿Cómo realizo el pago para recibir el acceso?`;
+      window.open(`https://wa.me/?text=${mensaje}`, "_blank");
     }
-
-    function exportLeadsCSV() {
-      try {
-        const stored = JSON.parse(localStorage.getItem("saas_leads") || "[]");
-        if (stored.length === 0) {
-          alert("Aún no tienes correos capturados. Cuando los usuarios de tus Shorts lo dejen, aparecerán aquí.");
-          return;
-        }
-
-        let csv = "Email,Fecha,Hora,Tipo de Proyecto\n";
-        stored.forEach(item => {
-          csv += `"${item.email}","${item.date}","${item.time}","${item.stack}"\n`;
-        });
-
-        const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `leads_plantillas_saas_${new Date().toISOString().slice(0, 10)}.csv`;
-        a.click();
-        URL.revokeObjectURL(url);
-      } catch (err) {
-        alert("Error al exportar correos: " + err.message);
-      }
-    }
-
-    // Atajo de teclado para abrir el Panel Admin (Ctrl + Shift + A o Cmd + Shift + A)
-    document.addEventListener("keydown", (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
-        e.preventDefault();
-        openAffiliateModal();
-      }
-    });
   </script>
+
 </body>
 </html>
