@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generador de YouTube Shorts con IA - Prueba Gratis y Acceso de por Vida $10</title>
+  <title>AutoShorts.ai · El Generador de Shorts, TikToks y Reels con IA (Silicon Valley Edition)</title>
+  <meta name="description" content="Automatiza la creación de vídeos verticales en 9:16 para YouTube Shorts, TikTok e Instagram Reels con IA. Prueba gratis y quédate la app de por vida por $10.">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -12,25 +13,20 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              400: '#4ade80',
-              500: '#22c55e',
-              600: '#16a34a',
-              900: '#14532d',
-            },
-            accent: {
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-            },
-            dark: {
-              800: '#0f172a',
-              850: '#0b1120',
-              900: '#030712',
-              950: '#02040a',
+            sv: {
+              black: '#030509',
+              darker: '#060a12',
+              card: '#0b1120',
+              border: 'rgba(255, 255, 255, 0.08)',
+              cyan: '#38bdf8',
+              emerald: '#10b981',
+              violet: '#8b5cf6',
+              accent: '#00f2fe'
             }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
           }
         }
       }
@@ -39,352 +35,476 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .glass-card {
-      background: rgba(15, 23, 42, 0.78);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+    
+    body {
+      background-color: #030509;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
     }
-    .glow-cyan {
-      box-shadow: 0 0 50px -10px rgba(56, 189, 248, 0.28);
+
+    /* Silicon Valley Grid Pattern */
+    .sv-grid {
+      background-size: 48px 48px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
     }
-    .glow-green {
-      box-shadow: 0 0 50px -10px rgba(34, 197, 94, 0.28);
+
+    .sv-glass {
+      background: rgba(11, 17, 32, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .sv-glow-card {
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sv-glow-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -15px rgba(56, 189, 248, 0.15);
+    }
+
+    .sv-glow-button {
+      box-shadow: 0 0 35px -5px rgba(56, 189, 248, 0.35);
+      transition: all 0.25s ease;
+    }
+    .sv-glow-button:hover {
+      box-shadow: 0 0 45px 0px rgba(56, 189, 248, 0.55);
+      transform: scale(1.02);
+    }
+
+    .gradient-text-sv {
+      background: linear-gradient(135deg, #ffffff 10%, #94a3b8 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-text-cyan {
+      background: linear-gradient(135deg, #38bdf8 0%, #2dd4bf 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 </head>
-<body class="bg-dark-950 text-slate-100 min-h-screen flex flex-col selection:bg-accent-500 selection:text-dark-950 antialiased">
+<body class="sv-grid min-h-screen flex flex-col selection:bg-sky-500 selection:text-slate-950 antialiased relative">
 
-  <!-- TOP DECORATIVE GLOW -->
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-80 bg-gradient-to-r from-accent-500/15 via-emerald-500/15 to-purple-500/10 blur-3xl pointer-events-none -z-10"></div>
+  <!-- TOP BACKGROUND LIGHT FLARES (Silicon Valley Aesthetic) -->
+  <div class="fixed top-[-100px] left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-gradient-to-tr from-sky-600/20 via-cyan-400/15 to-emerald-500/10 blur-[130px] pointer-events-none -z-10"></div>
+  <div class="fixed top-[450px] right-[-150px] w-[500px] h-[500px] bg-purple-600/10 blur-[150px] pointer-events-none -z-10"></div>
 
-  <!-- HEADER -->
-  <header class="border-b border-white/5 bg-dark-900/70 backdrop-blur-md sticky top-0 z-40">
+  <!-- NAVIGATION BAR (Minimalist Silicon Valley) -->
+  <header class="border-b border-white/[0.07] bg-[#030509]/80 backdrop-blur-xl sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      
+      <!-- LOGO -->
       <a href="/" class="flex items-center space-x-3 group">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-accent-500 to-brand-500 flex items-center justify-center shadow-lg shadow-accent-500/20 group-hover:scale-105 transition">
-          <i data-lucide="video" class="w-5 h-5 text-dark-950 font-bold"></i>
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 via-cyan-400 to-emerald-400 flex items-center justify-center shadow-lg shadow-sky-500/20 group-hover:scale-105 transition">
+          <i data-lucide="sparkles" class="w-5 h-5 text-slate-950 font-black"></i>
         </div>
-        <div>
-          <span class="text-base sm:text-lg font-black tracking-tight text-white flex items-center gap-2">
-            Shorts AI Factory
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-accent-500/10 text-accent-400 border border-accent-500/20 font-bold">LIFETIME DEAL</span>
+        <div class="flex items-center gap-2">
+          <span class="text-lg font-black tracking-tight text-white font-mono">
+            AutoShorts<span class="text-sky-400">.ai</span>
+          </span>
+          <span class="hidden sm:inline-flex text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-white/5 text-slate-300 border border-white/10 uppercase tracking-widest">
+            v3.5 SV
           </span>
         </div>
       </a>
 
-      <div class="flex items-center gap-2 sm:gap-3">
-        <a href="/stack-finder" class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition flex items-center gap-1.5">
-          <i data-lucide="layers" class="w-4 h-4 text-brand-400"></i>
-          <span>Recomendador de Herramientas</span>
+      <!-- PLATFORM PILLS -->
+      <div class="hidden md:flex items-center gap-2 text-[11px] font-mono font-bold text-slate-300 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/5">
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-red-500/10 text-red-400 border border-red-500/20">
+          <i data-lucide="youtube" class="w-3.5 h-3.5"></i> YouTube Shorts
+        </span>
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-pink-500/10 text-pink-400 border border-pink-500/20">
+          <i data-lucide="music-2" class="w-3.5 h-3.5"></i> TikTok
+        </span>
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">
+          <i data-lucide="instagram" class="w-3.5 h-3.5"></i> Instagram Reels
+        </span>
+      </div>
+
+      <!-- NAV ACTIONS -->
+      <div class="flex items-center gap-3">
+        <a href="#prueba-gratis" class="text-xs font-bold text-slate-300 hover:text-white px-3 py-1.5 rounded-lg hover:bg-white/5 transition flex items-center gap-1.5">
+          <i data-lucide="gift" class="w-3.5 h-3.5 text-emerald-400"></i> Prueba Gratis
         </a>
-        <a href="#prueba-gratis" class="hidden sm:inline-flex text-xs font-bold px-3.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500 hover:text-dark-950 transition items-center gap-1.5">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Prueba Gratis
-        </a>
-        <a href="#oferta-10" class="text-xs font-black px-3.5 py-2 rounded-xl bg-gradient-to-r from-accent-500 to-brand-500 text-dark-950 shadow-lg shadow-accent-500/20 hover:opacity-95 transition flex items-center gap-1.5">
-          Comprar ($10)
+        <a href="#oferta-10" class="text-xs font-black px-4 py-2 rounded-xl bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400 text-slate-950 sv-glow-button flex items-center gap-1.5">
+          <span>Comprar App</span>
+          <span class="px-1.5 py-0.5 bg-slate-950/20 rounded font-mono text-[10px]">$10 USD</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- MAIN HERO SECTION -->
-  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-10 sm:py-16 space-y-16">
+  <!-- HERO SECTION -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-12 sm:py-20 space-y-24">
 
-    <!-- HERO -->
-    <section class="text-center space-y-6">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-500/10 border border-accent-500/25 text-accent-400 text-xs font-bold">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        OFERTA DE LANZAMIENTO · ACCESO DE POR VIDA
+    <!-- HERO HEADER -->
+    <section class="text-center space-y-6 max-w-4xl mx-auto">
+      
+      <!-- BADGE -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full sv-glass border border-sky-500/30 text-sky-400 text-xs font-mono font-bold tracking-wider">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-400"></span>
+        </span>
+        MOTOR DE VÍDEOS VERTICALES 9:16 DE ALTA RETENCIÓN
       </div>
 
-      <h1 class="text-3xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-        Automatiza tus YouTube Shorts con IA <br class="hidden sm:block">
-        <span class="bg-gradient-to-r from-accent-400 via-teal-300 to-brand-400 bg-clip-text text-transparent">
-          y Retención Viral Garantizada
+      <!-- TITLE -->
+      <h1 class="text-4xl sm:text-7xl font-black text-white tracking-tight leading-[1.08]">
+        Crea y Domina en <br>
+        <span class="gradient-text-cyan">
+          YouTube Shorts, TikTok y Reels
         </span>
+        <br>
+        <span class="text-2xl sm:text-4xl font-extrabold text-slate-300">en Piloto Automático con IA</span>
       </h1>
 
-      <p class="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
-        Crea vídeos verticales 9:16 en alta calidad (1080x1920) con ganchos de 0-2 segundos, guiones magnéticos, gráficos dinámicos y <strong>subida automática programada a YouTube todos los días</strong>.
+      <!-- SUBTITLE -->
+      <p class="text-slate-400 text-base sm:text-xl max-w-2xl mx-auto leading-relaxed font-normal">
+        Genera guiones psicológicos con ganchos de <span class="text-white font-semibold">0-2 segundos</span>, voz neuronal realista, animaciones Remotion 1080x1920 y subida automática.
       </p>
 
-      <!-- BOTONES DE ACCION RÁPIDA -->
-      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#prueba-gratis" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-500 to-emerald-400 text-dark-950 font-black text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-xl shadow-brand-500/25 hover:scale-105 transition">
-          <i data-lucide="play-circle" class="w-5 h-5"></i> Solicitar Prueba Gratis
+      <!-- CTA BUTTONS -->
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#prueba-gratis" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-300 text-slate-950 font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-emerald-500/20 hover:scale-105 transition">
+          <i data-lucide="play-circle" class="w-5 h-5"></i> Solicitar Prueba Gratis (Sin Tarjeta)
         </a>
-        <a href="#oferta-10" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-900 border border-white/15 hover:border-accent-400 text-white font-bold text-sm flex items-center justify-center gap-2 hover:bg-slate-800 transition">
-          <i data-lucide="tag" class="w-5 h-5 text-accent-400"></i> Comprar App de por Vida · $10 USD
+        <a href="#oferta-10" class="w-full sm:w-auto px-8 py-4 rounded-xl sv-glass border border-white/15 hover:border-sky-400/50 text-white font-bold text-sm flex items-center justify-center gap-2 sv-glow-card">
+          <i data-lucide="zap" class="w-5 h-5 text-sky-400"></i> Comprar la App · $10 de por Vida
         </a>
       </div>
 
-      <div class="flex items-center justify-center gap-6 text-xs text-slate-400 pt-2 flex-wrap">
-        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Sin suscripciones mensuales</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Renderizado 1080x1920 MP4</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Subida automática a YouTube</span>
-      </div>
-    </section>
-
-    <!-- DEMOSTRACIÓN VISUAL / VISTA PREVIA -->
-    <section class="glass-card rounded-3xl p-6 sm:p-10 glow-cyan">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <!-- TEXTO CARACTERÍSTICAS -->
-        <div class="lg:col-span-7 space-y-6">
-          <div class="inline-block px-3 py-1 rounded-lg bg-sky-500/10 text-sky-400 text-xs font-bold font-mono">
-            ¿CÓMO FUNCIONA EL GENERADOR?
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
-            Diseñado para conseguir visitas y retener la atención del espectador
-          </h2>
-
-          <div class="space-y-4">
-            <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/70 border border-white/5">
-              <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="zap" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <h3 class="text-sm font-bold text-white">Ganchos Iniciales Ultra Rápidos (0-2s)</h3>
-                <p class="text-xs text-slate-400 mt-0.5">Estructuras psicológicas probadas que frenan el swipe y disparan el porcentaje de visualización.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/70 border border-white/5">
-              <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="film" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <h3 class="text-sm font-bold text-white">Producción Remotion Vertical (1080x1920)</h3>
-                <p class="text-xs text-slate-400 mt-0.5">Motion graphics, gráficos animados, transiciones cinemáticas y voz neuronal ultra realista.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/70 border border-white/5">
-              <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="calendar" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <h3 class="text-sm font-bold text-white">Piloto Automático a YouTube (12:00 diaria)</h3>
-                <p class="text-xs text-slate-400 mt-0.5">Tú eliges la hora y el sistema crea, renderiza y publica el vídeo en tu canal sin que toques nada.</p>
-              </div>
-            </div>
-          </div>
+      <!-- SOCIAL PROOF / METRICS -->
+      <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-center border-t border-white/5 pt-8">
+        <div>
+          <div class="text-2xl sm:text-3xl font-black text-white font-mono">1080x1920</div>
+          <div class="text-[11px] text-slate-400 uppercase font-semibold">Formato Vertical 9:16</div>
         </div>
-
-        <!-- MOCKUP DEL VÍDEO VERTICAL -->
-        <div class="lg:col-span-5 flex flex-col items-center justify-center">
-          <div class="relative w-[240px] aspect-[9/16] rounded-3xl overflow-hidden border-2 border-accent-400/40 shadow-2xl bg-slate-900 flex flex-col justify-between p-4 text-center">
-            <div class="flex items-center justify-between text-[10px] text-slate-400 font-mono">
-              <span class="flex items-center gap-1 text-emerald-400 font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> 1080x1920</span>
-              <span>60 FPS</span>
-            </div>
-
-            <div class="space-y-3 py-6">
-              <div class="w-12 h-12 rounded-2xl bg-accent-500/20 border border-accent-500/30 text-accent-400 flex items-center justify-center mx-auto">
-                <i data-lucide="play" class="w-6 h-6 fill-accent-400"></i>
-              </div>
-              <div class="text-xs font-black text-white px-2 leading-snug">
-                "El monopolio de los ferrocarriles está a punto de estallar"
-              </div>
-              <div class="inline-block px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-black border border-amber-500/30">
-                🔥 88% Tasa de Retención
-              </div>
-            </div>
-
-            <div class="text-[10px] text-slate-400 border-t border-white/10 pt-2 flex items-center justify-between">
-              <span>YouTube Shorts</span>
-              <span class="text-sky-400 font-bold">Descarga MP4</span>
-            </div>
-          </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-black text-sky-400 font-mono">0 - 2s</div>
+          <div class="text-[11px] text-slate-400 uppercase font-semibold">Ganchos Anti-Swipe</div>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">3 en 1</div>
+          <div class="text-[11px] text-slate-400 uppercase font-semibold">Shorts · TikTok · Reels</div>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-black text-amber-400 font-mono">$10</div>
+          <div class="text-[11px] text-slate-400 uppercase font-semibold">Pago Único Lifetime</div>
         </div>
       </div>
     </section>
 
-    <!-- NICHOS DISPONIBLES -->
+    <!-- LAS 3 PLATAFORMAS (Bento Grid Silicon Valley) -->
     <section class="space-y-6">
       <div class="text-center space-y-2">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Nichos Listos o 100% Personalizados</h2>
-        <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
-          El generador funciona con noticias y fuentes especializadas según tu canal o modelo de negocio:
+        <div class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest">ECOSISTEMA MULTIPLATAFORMA</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Un solo vídeo. Tres algoritmos conquistados.</h2>
+        <p class="text-sm text-slate-400 max-w-xl mx-auto">
+          La app formatea y optimiza el contenido visual para que funcione con el algoritmo específico de cada red social:
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="glass-card rounded-2xl p-5 space-y-3 hover:border-accent-400/40 transition">
-          <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center">
-            <i data-lucide="globe" class="w-5 h-5"></i>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- YOUTUBE SHORTS -->
+        <div class="sv-glass rounded-3xl p-6 sm:p-8 space-y-5 sv-glow-card border-red-500/20">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400">
+              <i data-lucide="youtube" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">API OFICIAL</span>
           </div>
-          <h3 class="text-base font-bold text-white">Geoeconomía y Logística</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Comercio exterior, rutas marítimas, semiconductores, crisis del Canal de Suez y cadenas de suministro globales.</p>
+          <div>
+            <h3 class="text-xl font-bold text-white">YouTube Shorts</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+              Subida automática y programada directa a tu canal. Generación de títulos con `#Shorts`, descripciones optimizadas para SEO y etiquetas de alta búsqueda.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2 font-medium border-t border-white/5 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Programación diaria a las 12:00</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Autorización Google OAuth 1-clic</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Métricas y fuentes verificadas</li>
+          </ul>
         </div>
 
-        <div class="glass-card rounded-2xl p-5 space-y-3 hover:border-accent-400/40 transition">
-          <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center">
-            <i data-lucide="cpu" class="w-5 h-5"></i>
+        <!-- TIKTOK -->
+        <div class="sv-glass rounded-3xl p-6 sm:p-8 space-y-5 sv-glow-card border-pink-500/20">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400">
+              <i data-lucide="music-2" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-pink-500/10 text-pink-400 border border-pink-500/20">MÁXIMO ENGAGEMENT</span>
           </div>
-          <h3 class="text-base font-bold text-white">SaaS, Tech e IA</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Nuevas startups, herramientas de Inteligencia Artificial, tendencias de software y estrategias de fundadores.</p>
+          <div>
+            <h3 class="text-xl font-bold text-white">TikTok</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+              Edición rápida pensada para frenar el dedo del usuario. Ganchos emocionales en el primer segundo, subtítulos dinámicos de colores y ritmo sin silencios vacíos.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2 font-medium border-t border-white/5 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Retención de swipe inmediata</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Motion graphics y zoom cinético</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Formato listo para publicar en la app</li>
+          </ul>
         </div>
 
-        <div class="glass-card rounded-2xl p-5 space-y-3 hover:border-accent-400/40 transition">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
-            <i data-lucide="shield-alert" class="w-5 h-5"></i>
+        <!-- INSTAGRAM REELS -->
+        <div class="sv-glass rounded-3xl p-6 sm:p-8 space-y-5 sv-glow-card border-purple-500/20">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+              <i data-lucide="instagram" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">ESTÉTICA PREMIUM</span>
           </div>
-          <h3 class="text-base font-bold text-white">Ciberseguridad y OSINT</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Ataques informáticos recientes, filtraciones de datos, vulnerabilidades zero-day y privacidad digital.</p>
+          <div>
+            <h3 class="text-xl font-bold text-white">Instagram Reels</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+              Diseño visual impecable para potenciar tu marca personal o corporativa. Ideal para captar seguidores de alto valor en nichos de negocio, tecnología o finanzas.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2 font-medium border-t border-white/5 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Tipografía moderna de alta nitidez</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Bucle perfecto de inicio a final</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Exportación rápida en MP4 1080p</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NICHOS INDUSTRIALES -->
+    <section class="sv-glass rounded-3xl p-8 sm:p-12 border-white/10 relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <div class="inline-block px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-mono font-bold">
+            ARQUITECTURA DE IA Y STORYTELLING
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+            ¿Por qué estos vídeos consiguen retención masiva?
+          </h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            La mayoría de creadores fallan porque tardan 5 segundos en explicar el tema. Nuestro generador utiliza la regla de Silicon Valley de retención de atención:
+          </p>
+          <div class="space-y-3 pt-2">
+            <div class="p-4 rounded-2xl bg-[#060a12] border border-white/5 flex items-start gap-3">
+              <span class="text-sky-400 font-mono font-black text-sm">01</span>
+              <div>
+                <strong class="text-white text-xs block">Gancho de Curiosidad Extrema (0-2 seg)</strong>
+                <span class="text-slate-400 text-xs">Frena el scroll instantáneamente con una pregunta o dato chocante.</span>
+              </div>
+            </div>
+            <div class="p-4 rounded-2xl bg-[#060a12] border border-white/5 flex items-start gap-3">
+              <span class="text-cyan-400 font-mono font-black text-sm">02</span>
+              <div>
+                <strong class="text-white text-xs block">Micro-Ganchos cada 4 Segundos</strong>
+                <span class="text-slate-400 text-xs">Cambios visuales, gráficos dinámicos y métricas que mantienen el cerebro enganchado.</span>
+              </div>
+            </div>
+            <div class="p-4 rounded-2xl bg-[#060a12] border border-white/5 flex items-start gap-3">
+              <span class="text-emerald-400 font-mono font-black text-sm">03</span>
+              <div>
+                <strong class="text-white text-xs block">Conclusión con Bucle Infinito</strong>
+                <span class="text-slate-400 text-xs">La última frase enlaza directamente con el inicio para que el usuario repita el vídeo sin notarlo.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VISUAL DEL MÓVIL 9:16 -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="w-[260px] aspect-[9/16] rounded-[36px] p-3.5 bg-gradient-to-b from-slate-700 via-slate-900 to-black border-4 border-slate-700 shadow-2xl relative">
+            <div class="w-full h-full rounded-[26px] bg-[#030509] overflow-hidden flex flex-col justify-between p-4 border border-white/10 relative">
+              <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+                <span class="flex items-center gap-1 text-emerald-400 font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> LIVE DEMO</span>
+                <span>9:16 HD</span>
+              </div>
+
+              <div class="text-center space-y-3 py-6">
+                <div class="w-14 h-14 rounded-2xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center mx-auto text-sky-400 shadow-lg shadow-sky-500/20">
+                  <i data-lucide="play" class="w-7 h-7 fill-sky-400"></i>
+                </div>
+                <div class="text-xs font-black text-white px-1 leading-snug">
+                  "El monopolio ferroviario en EE.UU. está a punto de explotar"
+                </div>
+                <div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-black font-mono">
+                  🔥 92.4% Retención
+                </div>
+              </div>
+
+              <div class="space-y-1.5 text-[10px] text-slate-400 border-t border-white/10 pt-3">
+                <div class="flex justify-between font-mono">
+                  <span>YouTube · TikTok · Reels</span>
+                  <span class="text-sky-400 font-bold">1080p MP4</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN 1: PRUEBA GRATIS -->
-    <section id="prueba-gratis" class="glass-card rounded-3xl p-6 sm:p-10 border-emerald-500/30 glow-green">
+    <!-- SECCIÓN: PRUEBA GRATIS (SOLICITAR SHORTS GRATIS) -->
+    <section id="prueba-gratis" class="sv-glass rounded-3xl p-8 sm:p-12 border-emerald-500/30 relative overflow-hidden">
       <div class="max-w-2xl mx-auto text-center space-y-6">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold font-mono">
-          <i data-lucide="gift" class="w-3.5 h-3.5"></i> PASO 1: PRUÉBALO SIN COSTE
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
+          <i data-lucide="gift" class="w-4 h-4"></i> PASO 1: SOLICITA TU PRUEBA GRATIS
         </div>
 
-        <h2 class="text-2xl sm:text-4xl font-black text-white">
-          Solicita tus Shorts de Prueba Gratis
+        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          Prueba el Generador Gratis <br>
+          <span class="gradient-text-cyan">Sin Compromiso Ni Tarjetas</span>
         </h2>
 
-        <p class="text-slate-300 text-sm leading-relaxed">
-          Antes de decidir nada, comprueba tú mismo la calidad visual, la voz neuronal y la retención del guion. Te generamos <strong>algunos vídeos de muestra completamente gratis</strong> adaptados a tu temática.
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Te enviamos <strong>algunos Shorts o Reels de muestra completamente gratis</strong> adaptados a tu nicho o canal para que compruebes la calidad antes de decidir nada.
         </p>
 
-        <form id="free-demo-form" onsubmit="solicitarPruebaGratis(event)" class="space-y-4 text-left bg-dark-900/80 p-5 rounded-2xl border border-white/5">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <form onsubmit="solicitarPruebaGratis(event)" class="space-y-4 text-left bg-[#060a12] p-6 rounded-2xl border border-white/10 shadow-xl">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">Tu Nombre</label>
-              <input type="text" id="demo-nombre" required placeholder="Ej: Carlos Gómez" class="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-white/10 text-xs text-white focus:border-emerald-400 focus:outline-none" />
+              <label class="block text-[11px] font-mono font-bold text-slate-300 uppercase mb-1.5">Tu Nombre</label>
+              <input type="text" id="demo-nombre" required placeholder="Ej: Carlos" class="w-full px-4 py-3 rounded-xl bg-[#030509] border border-white/10 text-xs text-white focus:border-emerald-400 focus:outline-none transition" />
             </div>
             <div>
-              <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">WhatsApp o Email</label>
-              <input type="text" id="demo-contacto" required placeholder="Para enviarte los vídeos" class="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-white/10 text-xs text-white focus:border-emerald-400 focus:outline-none" />
+              <label class="block text-[11px] font-mono font-bold text-slate-300 uppercase mb-1.5">WhatsApp o Email</label>
+              <input type="text" id="demo-contacto" required placeholder="Para enviarte los vídeos" class="w-full px-4 py-3 rounded-xl bg-[#030509] border border-white/10 text-xs text-white focus:border-emerald-400 focus:outline-none transition" />
             </div>
           </div>
 
           <div>
-            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">¿De qué temática o nicho quieres los Shorts?</label>
-            <input type="text" id="demo-nicho" required placeholder="Ej: Geopolítica, finanzas, tecnología, o dime tu canal" class="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-white/10 text-xs text-white focus:border-emerald-400 focus:outline-none" />
+            <label class="block text-[11px] font-mono font-bold text-slate-300 uppercase mb-1.5">¿Qué temática tiene tu canal o cuenta? (YouTube / TikTok / IG)</label>
+            <input type="text" id="demo-nicho" required placeholder="Ej: Geopolítica, SaaS, finanzas, motivación, ciberseguridad..." class="w-full px-4 py-3 rounded-xl bg-[#030509] border border-white/10 text-xs text-white focus:border-emerald-400 focus:outline-none transition" />
           </div>
 
-          <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:opacity-95 text-dark-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 transition">
-            <i data-lucide="send" class="w-4 h-4"></i> Enviar y Recibir Shorts Gratis por WhatsApp
+          <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 hover:opacity-95 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-emerald-500/20 transition transform hover:scale-[1.01]">
+            <i data-lucide="send" class="w-4 h-4"></i> Solicitar Mis Shorts Gratis por WhatsApp
           </button>
         </form>
 
         <div id="demo-success-msg" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
-          🎉 ¡Solicitud recibida! Te escribiremos en breve con tus Shorts de prueba listos para revisar.
+          🎉 ¡Solicitud lista! Se ha preparado tu mensaje de WhatsApp con todos los datos.
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN 2: OFERTA LIFETIME $10 -->
-    <section id="oferta-10" class="glass-card rounded-3xl p-6 sm:p-10 border-accent-500/40 glow-cyan relative overflow-hidden">
-      <div class="absolute -top-12 -right-12 w-48 h-48 bg-accent-500/15 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- SECCIÓN: OFERTA LIFETIME $10 (PAGO ÚNICO) -->
+    <section id="oferta-10" class="sv-glass rounded-3xl p-8 sm:p-14 border-sky-500/40 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-72 h-72 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="max-w-2xl mx-auto text-center space-y-6">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-500/10 border border-accent-500/30 text-accent-400 text-xs font-bold font-mono">
-          <i data-lucide="crown" class="w-4 h-4 text-amber-400"></i> PASO 2: QUÉDATE LA APP DE POR VIDA
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-mono font-bold">
+          <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i> OFERTA LIFETIME DEAL · PAGO ÚNICO
         </div>
 
-        <h2 class="text-3xl sm:text-5xl font-black text-white">
+        <h2 class="text-3xl sm:text-6xl font-black text-white tracking-tight">
           La Aplicación Completa por solo <br>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 via-sky-300 to-brand-400">
-            $10 USD (Pago Único)
-          </span>
+          <span class="gradient-text-cyan">$10 USD de por Vida</span>
         </h2>
 
-        <p class="text-slate-300 text-sm leading-relaxed max-w-lg mx-auto">
-          Olvídate de pagar suscripciones mensuales de $49 o $99 al mes. Consigue acceso perpetuo a todo el sistema por el precio simbólico de lanzamiento.
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-lg mx-auto">
+          Sin pagar $50 o $100 al mes como en otras herramientas. Llévate la aplicación de generación y subida automática por un precio simbólico de lanzamiento.
         </p>
 
-        <!-- TARJETA DE PRECIO -->
-        <div class="bg-dark-900/90 rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6 text-left max-w-md mx-auto shadow-2xl">
-          <div class="flex items-baseline justify-between border-b border-white/10 pb-4">
+        <!-- TARJETA DE PRECIO SILICON VALLEY -->
+        <div class="bg-[#060a12] rounded-3xl p-8 border border-white/10 space-y-6 text-left max-w-md mx-auto shadow-2xl relative">
+          
+          <div class="flex items-baseline justify-between border-b border-white/10 pb-5">
             <div>
-              <span class="text-3xl sm:text-4xl font-black text-white">$10</span>
-              <span class="text-xs text-slate-400 font-semibold uppercase">USD · De Por Vida</span>
+              <div class="text-4xl sm:text-5xl font-black text-white font-mono">$10</div>
+              <div class="text-xs text-sky-400 font-mono font-bold uppercase tracking-wider mt-1">USD · ACCESO PERPETUO</div>
             </div>
             <div class="text-right">
-              <span class="line-through text-xs text-slate-500 font-bold">$99 USD</span>
-              <div class="text-[10px] font-black text-emerald-400 uppercase">90% DESCUENTO</div>
+              <span class="line-through text-xs text-slate-500 font-mono font-bold">$99 USD</span>
+              <div class="text-[10px] font-black text-emerald-400 uppercase font-mono px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 mt-1">90% OFF</div>
             </div>
           </div>
 
           <!-- LISTA DE CARACTERÍSTICAS -->
-          <ul class="space-y-3 text-xs text-slate-300 font-medium">
-            <li class="flex items-center gap-2.5">
+          <ul class="space-y-3.5 text-xs text-slate-300 font-medium">
+            <li class="flex items-center gap-3">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span><strong>Generación Ilimitada</strong> de Shorts en formato 9:16 (1080x1920)</span>
+              <span><strong>Generación Ilimitada</strong> en 1080x1920 (9:16)</span>
             </li>
-            <li class="flex items-center gap-2.5">
+            <li class="flex items-center gap-3">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span><strong>Motor IA de Storytelling</strong> con ganchos iniciales y bucles</span>
+              <span><strong>Para YouTube Shorts, TikTok y Reels</strong></span>
             </li>
-            <li class="flex items-center gap-2.5">
+            <li class="flex items-center gap-3">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span><strong>Subida Automática a YouTube</strong> diaria a la hora que elijas</span>
+              <span><strong>Subida Automática a YouTube</strong> a la hora que elijas</span>
             </li>
-            <li class="flex items-center gap-2.5">
+            <li class="flex items-center gap-3">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span><strong>Panel Web Intuitivo</strong> para usar desde tu PC o móvil</span>
+              <span><strong>Panel Web Intuitivo</strong> accesible desde PC o móvil</span>
             </li>
-            <li class="flex items-center gap-2.5">
+            <li class="flex items-center gap-3">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span><strong>Soporte para instalación</strong> y configuración en 5 minutos</span>
+              <span><strong>Guiones virales con IA</strong> con ganchos anti-swipe</span>
             </li>
-            <li class="flex items-center gap-2.5">
+            <li class="flex items-center gap-3">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span><strong>0 suscripciones recurrentes</strong> (un solo pago para siempre)</span>
+              <span><strong>0 suscripciones mensuales</strong> (licencia para siempre)</span>
             </li>
           </ul>
 
-          <!-- BOTÓN COMPRA / CONTACTO DIRECTO -->
-          <button onclick="comprarApp10()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-accent-500 via-sky-400 to-brand-500 hover:opacity-95 text-dark-950 font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-accent-500/30 transition transform hover:scale-[1.02]">
-            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Comprar Acceso de por Vida ($10)
+          <!-- BOTÓN COMPRA DIRECTA -->
+          <button onclick="comprarApp10()" class="w-full py-4 rounded-xl bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400 hover:opacity-95 text-slate-950 font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 sv-glow-button transition">
+            <i data-lucide="zap" class="w-4 h-4"></i> Comprar App de por Vida ($10)
           </button>
 
-          <p class="text-[11px] text-center text-slate-400">
-            Entrega inmediata por WhatsApp o Email tras la confirmación.
+          <p class="text-[11px] text-center text-slate-400 font-mono">
+            Entrega inmediata por WhatsApp / Email
           </p>
         </div>
+
       </div>
     </section>
 
-    <!-- PREGUNTAS FRECUENTES -->
+    <!-- FAQ -->
     <section class="space-y-6 max-w-3xl mx-auto">
-      <h2 class="text-xl sm:text-2xl font-bold text-center text-white">Preguntas Frecuentes</h2>
+      <div class="text-center space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Preguntas Frecuentes</h2>
+      </div>
 
       <div class="space-y-3">
-        <details class="glass-card rounded-2xl p-4 text-xs group cursor-pointer">
+        <details class="sv-glass rounded-2xl p-5 text-xs group cursor-pointer border border-white/5">
           <summary class="font-bold text-white flex items-center justify-between">
-            ¿Cómo funciona la prueba gratis de Shorts?
+            ¿Cómo pido los Shorts de prueba gratis?
             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition"></i>
           </summary>
-          <p class="text-slate-400 mt-2 leading-relaxed">
-            Rellenas el formulario con tu temática y te generamos algunos vídeos de muestra para que revises la calidad del guion, la música, la voz y el montaje visual antes de pagar nada.
+          <p class="text-slate-400 mt-2.5 leading-relaxed">
+            Rellenas el formulario de arriba con tu temática y te generamos algunos vídeos de muestra sin coste para que evalúes la calidad de la voz, el guion y el montaje antes de comprar.
           </p>
         </details>
 
-        <details class="glass-card rounded-2xl p-4 text-xs group cursor-pointer">
+        <details class="sv-glass rounded-2xl p-5 text-xs group cursor-pointer border border-white/5">
           <summary class="font-bold text-white flex items-center justify-between">
-            ¿Realmente es un pago único de $10 de por vida?
+            ¿Los vídeos sirven para TikTok, Reels y Shorts a la vez?
             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition"></i>
           </summary>
-          <p class="text-slate-400 mt-2 leading-relaxed">
-            Sí. Es una oferta especial de lanzamiento. Pagas $10 una única vez y recibes la aplicación completa y su configuración sin cuotas mensuales ni costes ocultos.
+          <p class="text-slate-400 mt-2.5 leading-relaxed">
+            Sí. El formato vertical 9:16 (1080x1920) en MP4 es exactamente el estándar requerido por las tres plataformas. Además, la subida a YouTube Shorts se hace automáticamente a diario.
           </p>
         </details>
 
-        <details class="glass-card rounded-2xl p-4 text-xs group cursor-pointer">
+        <details class="sv-glass rounded-2xl p-5 text-xs group cursor-pointer border border-white/5">
           <summary class="font-bold text-white flex items-center justify-between">
-            ¿Cómo se conecta con YouTube?
+            ¿Hay alguna cuota mensual o oculta?
             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition"></i>
           </summary>
-          <p class="text-slate-400 mt-2 leading-relaxed">
-            A través de la API oficial de Google OAuth. Se autoriza con 1 solo clic desde tu navegador de forma 100% segura y privada (tus credenciales nunca salen de tu ordenador).
+          <p class="text-slate-400 mt-2.5 leading-relaxed">
+            No. Pagas $10 USD una sola vez y recibes la aplicación para usarla de por vida sin recurrencias ni cobros sorpresa.
           </p>
         </details>
       </div>
@@ -392,14 +512,15 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-white/5 bg-dark-900/60 py-8 text-center text-xs text-slate-400">
+  <!-- FOOTER SILICON VALLEY -->
+  <footer class="border-t border-white/[0.07] bg-[#030509]/90 py-10 text-center text-xs text-slate-400">
     <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>
-        <span class="font-bold text-white">Shorts AI Factory</span> · Potenciado por SaaS Stack Finder
+      <div class="flex items-center gap-2">
+        <span class="font-mono font-bold text-white">AutoShorts.ai</span>
+        <span class="text-slate-400">· Silicon Valley Edition</span>
       </div>
-      <div>
-        Prueba Gratis · Acceso de por Vida $10 USD
+      <div class="text-slate-400 font-mono text-[11px]">
+        YouTube Shorts · TikTok · Instagram Reels · $10 Lifetime
       </div>
     </div>
   </footer>
@@ -415,15 +536,14 @@
       const contacto = document.getElementById("demo-contacto").value;
       const nicho = document.getElementById("demo-nicho").value;
 
-      const mensaje = `Hola! Quiero solicitar mi prueba gratis de Shorts.%0A%0A- Nombre: ${encodeURIComponent(nombre)}%0A- Contacto: ${encodeURIComponent(contacto)}%0A- Temática/Nicho: ${encodeURIComponent(nicho)}%0A%0A¿Podrías enviarme los vídeos de muestra?`;
+      const mensaje = `Hola! Quiero solicitar mi prueba gratis de Shorts para YouTube, TikTok y Reels.%0A%0A- Nombre: ${encodeURIComponent(nombre)}%0A- Contacto: ${encodeURIComponent(contacto)}%0A- Nicho / Cuenta: ${encodeURIComponent(nicho)}%0A%0A¿Podrías enviarme los vídeos de muestra?`;
       
-      // Abrir WhatsApp con el mensaje preformateado
       window.open(`https://wa.me/?text=${mensaje}`, "_blank");
       document.getElementById("demo-success-msg").classList.remove("hidden");
     }
 
     function comprarApp10() {
-      const mensaje = `Hola! Quiero comprar la aplicación completa de generación automática de Shorts con la oferta de $10 USD de por vida.%0A%0A¿Cómo realizo el pago para recibir el acceso?`;
+      const mensaje = `Hola! Quiero comprar la aplicación completa de generación de Shorts para YouTube, TikTok e Instagram Reels por $10 USD de por vida.%0A%0A¿Cómo realizo el pago para recibir el acceso?`;
       window.open(`https://wa.me/?text=${mensaje}`, "_blank");
     }
   </script>
