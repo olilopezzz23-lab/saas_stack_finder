@@ -91,10 +91,15 @@
         </div>
       </div>
 
-      <nav class="flex items-center space-x-2 sm:space-x-4">
-        <button onclick="toggleDirectoryView()" id="nav-directory-btn" class="text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-lg text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition flex items-center gap-1.5">
+      <nav class="flex items-center space-x-2 sm:space-x-3">
+        <a href="/shorts" class="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg text-white bg-gradient-to-r from-sky-500 to-emerald-400 hover:opacity-95 shadow-md shadow-sky-500/20 transition flex items-center gap-1.5">
+          <i data-lucide="video" class="w-4 h-4 text-dark-950 font-black"></i>
+          <span>Generador Shorts IA</span>
+          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-dark-950/40 text-amber-300 font-black">$10</span>
+        </a>
+        <button onclick="toggleDirectoryView()" id="nav-directory-btn" class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition flex items-center gap-1.5">
           <i data-lucide="library" class="w-4 h-4 text-brand-400"></i>
-          <span>Directorio de Herramientas</span>
+          <span>Directorio</span>
         </button>
       </nav>
     </div>
