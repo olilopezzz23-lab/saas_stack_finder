@@ -1159,17 +1159,77 @@
 
     function seleccionarNichoCheckout(nicho) {
       nichoSeleccionadoPago = nicho;
+      
+      const cardGeo = document.getElementById("card-nicho-geo");
+      const cardCyber = document.getElementById("card-nicho-cyber");
+      const cardViral = document.getElementById("card-nicho-viral");
+      const statusBox = document.getElementById("checkout-nicho-status-box");
+      const btnContinuar = document.getElementById("btn-continuar-pago");
+      const btnText = document.getElementById("btn-continuar-pago-text");
+
+      const radioGeo = document.getElementById("radio-nicho-geo");
+      const radioCyber = document.getElementById("radio-nicho-cyber");
+      const radioViral = document.getElementById("radio-nicho-viral");
+
+      const baseInactive = "flex items-center gap-3 p-4 rounded-2xl bg-white/[0.02] border border-white/10 cursor-pointer transition";
+
+      if (nicho === "Geopolítica" || nicho === "Geoeconomía") {
+        nichoSeleccionadoPago = "Geopolítica y Geoeconomía";
+        if (radioGeo) radioGeo.checked = true;
+        if (cardGeo) cardGeo.className = "flex items-center gap-3 p-4 rounded-2xl bg-sky-950/40 border-2 border-sky-400 cursor-pointer shadow-lg shadow-sky-500/10 transition";
+        if (cardCyber) cardCyber.className = baseInactive + " hover:border-amber-500/40";
+        if (cardViral) cardViral.className = baseInactive + " hover:border-amber-500/40";
+
+        if (statusBox) statusBox.classList.add("hidden");
+        if (btnContinuar) {
+          btnContinuar.className = "w-full py-4 rounded-xl bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-95 shadow-xl transition cursor-pointer";
+          btnContinuar.disabled = false;
+        }
+        if (btnText) btnText.innerText = "Continuar al Pago ($10 USD)";
+      } else {
+        // Ciberseguridad o Noticias Virales (En desarrollo)
+        if (nicho === "Ciberseguridad") {
+          if (radioCyber) radioCyber.checked = true;
+          if (cardGeo) cardGeo.className = baseInactive + " hover:border-sky-500/40";
+          if (cardCyber) cardCyber.className = "flex items-center gap-3 p-4 rounded-2xl bg-amber-950/30 border-2 border-amber-400 cursor-pointer shadow-lg shadow-amber-500/10 transition";
+          if (cardViral) cardViral.className = baseInactive + " hover:border-amber-500/40";
+          
+          const statusTitle = document.getElementById("checkout-status-title");
+          const statusDesc = document.getElementById("checkout-status-desc");
+          if (statusTitle) statusTitle.innerText = "Ciberseguridad: En Desarrollo";
+          if (statusDesc) statusDesc.innerHTML = "Esta edición se encuentra actualmente en fase final de desarrollo. Por ahora solo está disponible para adquirir la versión completa de <strong>Geopolítica y Geoeconomía ($10 USD)</strong>.";
+        } else {
+          if (radioViral) radioViral.checked = true;
+          if (cardGeo) cardGeo.className = baseInactive + " hover:border-sky-500/40";
+          if (cardCyber) cardCyber.className = baseInactive + " hover:border-amber-500/40";
+          if (cardViral) cardViral.className = "flex items-center gap-3 p-4 rounded-2xl bg-amber-950/30 border-2 border-amber-400 cursor-pointer shadow-lg shadow-amber-500/10 transition";
+          
+          const statusTitle = document.getElementById("checkout-status-title");
+          const statusDesc = document.getElementById("checkout-status-desc");
+          if (statusTitle) statusTitle.innerText = "Noticias Virales: En Desarrollo";
+          if (statusDesc) statusDesc.innerHTML = "Esta edición se encuentra actualmente en desarrollo. Por ahora solo está disponible para adquirir la versión completa de <strong>Geopolítica y Geoeconomía ($10 USD)</strong>.";
+        }
+
+        if (statusBox) statusBox.classList.remove("hidden");
+        if (btnContinuar) {
+          btnContinuar.className = "w-full py-4 rounded-xl bg-slate-800 text-slate-400 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-white/10 cursor-not-allowed opacity-80";
+          btnContinuar.disabled = true;
+        }
+        if (btnText) btnText.innerText = "🔒 Edición en desarrollo (Solo Geopolítica disponible)";
+      }
+
+      if (window.lucide) lucide.createIcons();
     }
 
     function irAPaso2Pago() {
-      const radios = document.getElementsByName("checkout-nicho");
-      for (const r of radios) {
-        if (r.checked) {
-          nichoSeleccionadoPago = r.value;
-          break;
-        }
+      if (nichoSeleccionadoPago !== "Geopolítica" && nichoSeleccionadoPago !== "Geoeconomía" && nichoSeleccionadoPago !== "Geopolítica y Geoeconomía") {
+        seleccionarNichoCheckout("Geopolítica");
+        return;
       }
-      document.getElementById("resumen-nicho-pago").innerText = nichoSeleccionadoPago;
+      
+      const resumen = document.getElementById("resumen-nicho-pago");
+      if (resumen) resumen.innerText = "Geopolítica y Geoeconomía";
+      
       document.getElementById("checkout-paso-1").classList.add("hidden");
       document.getElementById("checkout-paso-2").classList.remove("hidden");
       if (window.lucide) lucide.createIcons();
@@ -1263,70 +1323,85 @@
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
-      <!-- PASO 1: SELECCIÓN DE APP (SOLO GEOECONOMÍA DISPONIBLE, OTRAS EN DESARROLLO) -->
+      <!-- PASO 1: SELECCIÓN DE APP (GEOPOLÍTICA, CIBERSEGURIDAD O NOTICIAS VIRALES) -->
       <div id="checkout-paso-1" class="space-y-5">
         <div class="space-y-1">
           <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-400 text-[10px] font-mono font-bold border border-sky-500/20">
             PASO 1 DE 2 · EDICIÓN DE LA APP
           </div>
-          <h3 class="text-xl sm:text-2xl font-black text-white">Selecciona tu Aplicación ($10 USD)</h3>
-          <p class="text-xs text-slate-400">Por ahora está disponible para adquirir la versión 100% operativa de Geoeconomía.</p>
+          <h3 class="text-xl sm:text-2xl font-black text-white">¿Qué Versión de la App Quieres?</h3>
+          <p class="text-xs text-slate-400">Selecciona entre Geopolítica, Ciberseguridad o Noticias Virales para tu canal.</p>
         </div>
 
         <div class="space-y-3" id="checkout-nicho-selector">
           
-          <!-- GEOECONOMÍA: DISPONIBLE Y ACTIVA -->
-          <label class="flex items-center gap-3 p-4 rounded-2xl bg-sky-950/40 border-2 border-sky-400 cursor-pointer shadow-lg shadow-sky-500/10 transition" onclick="seleccionarNichoCheckout('Geoeconomía')">
-            <input type="radio" name="checkout-nicho" value="Geoeconomía" checked class="accent-sky-400 w-4 h-4" />
+          <!-- 1. GEOPOLÍTICA Y GEOECONOMÍA (DISPONIBLE PARA COMPRA) -->
+          <label id="card-nicho-geo" class="flex items-center gap-3 p-4 rounded-2xl bg-sky-950/40 border-2 border-sky-400 cursor-pointer shadow-lg shadow-sky-500/10 transition" onclick="seleccionarNichoCheckout('Geopolítica')">
+            <input type="radio" name="checkout-nicho" id="radio-nicho-geo" value="Geopolítica" checked class="accent-sky-400 w-4 h-4" />
             <div class="flex-1">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold text-white flex items-center gap-1.5">
-                  🌐 Geoeconomía y Comercio Global
+                  🌐 Geopolítica y Geoeconomía
                 </span>
                 <span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase">
-                  DISPONIBLE AHORA
+                  DISPONIBLE AHORA ($10)
                 </span>
               </div>
-              <div class="text-[11px] text-slate-300 mt-0.5">Rutas marítimas, conflictos, geopolítica y materias primas. Generación y renderizado vertical completo.</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">Comercio marítimo, conflictos, macroeconomía y geopolítica internacional. 100% operativa.</div>
             </div>
           </label>
 
-          <!-- CIBERSEGURIDAD: EN DESARROLLO -->
-          <div class="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.02] border border-white/10 opacity-60 cursor-not-allowed transition" onclick="alertaEnDesarrollo('Ciberseguridad')">
-            <input type="radio" name="checkout-nicho" value="Ciberseguridad" disabled class="accent-slate-500 w-4 h-4 cursor-not-allowed" />
+          <!-- 2. CIBERSEGURIDAD Y AMENAZAS (EN DESARROLLO) -->
+          <label id="card-nicho-cyber" class="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.02] border border-white/10 cursor-pointer hover:border-amber-500/40 transition" onclick="seleccionarNichoCheckout('Ciberseguridad')">
+            <input type="radio" name="checkout-nicho" id="radio-nicho-cyber" value="Ciberseguridad" class="accent-amber-400 w-4 h-4" />
             <div class="flex-1">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-slate-400 flex items-center gap-1.5">
+                <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
                   🛡️ Ciberseguridad y Amenazas OSINT
                 </span>
                 <span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase">
                   EN DESARROLLO
                 </span>
               </div>
-              <div class="text-[11px] text-slate-500 mt-0.5">Espionaje digital y ciberamenazas. Próximamente disponible en la siguiente actualización.</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Espionaje digital, ataques zero-day y filtraciones. En fase final de desarrollo.</div>
             </div>
-          </div>
+          </label>
 
-          <!-- NOTICIAS VIRALES: EN DESARROLLO -->
-          <div class="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.02] border border-white/10 opacity-60 cursor-not-allowed transition" onclick="alertaEnDesarrollo('Noticias Virales')">
-            <input type="radio" name="checkout-nicho" value="Noticias Virales" disabled class="accent-slate-500 w-4 h-4 cursor-not-allowed" />
+          <!-- 3. NOTICIAS VIRALES Y CURIOSIDADES (EN DESARROLLO) -->
+          <label id="card-nicho-viral" class="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.02] border border-white/10 cursor-pointer hover:border-amber-500/40 transition" onclick="seleccionarNichoCheckout('Noticias Virales')">
+            <input type="radio" name="checkout-nicho" id="radio-nicho-viral" value="Noticias Virales" class="accent-amber-400 w-4 h-4" />
             <div class="flex-1">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-slate-400 flex items-center gap-1.5">
+                <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
                   ⚡ Noticias Virales y Curiosidades
                 </span>
                 <span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase">
                   EN DESARROLLO
                 </span>
               </div>
-              <div class="text-[11px] text-slate-500 mt-0.5">Misterios virales e IA. Próximamente disponible en la siguiente actualización.</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Misterios sin resolver, historias impactantes y tecnología SaaS. En fase de desarrollo.</div>
             </div>
-          </div>
+          </label>
 
         </div>
 
-        <button onclick="irAPaso2Pago()" class="w-full py-4 rounded-xl bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-95 shadow-xl transition">
-          <span>Continuar al Pago ($10 USD)</span>
+        <!-- CAJA DE ESTADO / AVISO CUANDO SE ELIGE CIBERSEGURIDAD O VIRALES -->
+        <div id="checkout-nicho-status-box" class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs space-y-1.5 hidden animate-fadeIn">
+          <div class="flex items-center gap-2 text-amber-300 font-bold">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 shrink-0"></i>
+            <span id="checkout-status-title">Versión en Desarrollo</span>
+          </div>
+          <p id="checkout-status-desc" class="text-slate-300 text-[11px] leading-relaxed">
+            Esta edición está en fase final de optimización. Actualmente solo es posible adquirir la aplicación de <strong>Geopolítica y Geoeconomía ($10 USD)</strong>.
+          </p>
+          <button onclick="seleccionarNichoCheckout('Geopolítica')" class="text-[11px] font-bold text-sky-400 hover:text-sky-300 underline flex items-center gap-1 pt-1">
+            <span>Cambiar a Geopolítica para comprar ahora</span> →
+          </button>
+        </div>
+
+        <!-- BOTÓN DE CONTINUAR -->
+        <button id="btn-continuar-pago" onclick="irAPaso2Pago()" class="w-full py-4 rounded-xl bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-95 shadow-xl transition">
+          <span id="btn-continuar-pago-text">Continuar al Pago ($10 USD)</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </button>
       </div>
