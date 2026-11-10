@@ -1290,6 +1290,10 @@
     }
 
     function ejecutarPagoDirecto(e, metodo) {
+      if (metodo === 'tarjeta') {
+        window.open('https://buy.stripe.com/00w5kF2GM0YlaORfZQ0oM03', '_blank');
+        return;
+      }
       if (e && e.preventDefault) e.preventDefault();
       
       const btn = document.getElementById('btn-pagar-tarjeta');
@@ -1462,44 +1466,36 @@
           </button>
         </div>
 
-        <!-- FORMULARIO DIRECTO: TARJETA DE CRÉDITO/DÉBITO -->
-        <div id="vista-pago-tarjeta" class="p-4 rounded-2xl bg-black/40 border border-white/10 space-y-3.5">
-          <div class="flex items-center justify-between text-xs border-b border-white/10 pb-2.5">
-            <span class="text-slate-300 font-bold flex items-center gap-1.5">
-              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Pasarela Segura SSL 256-bit
+        <!-- PASARELA OFICIAL STRIPE CHECKOUT -->
+        <div id="vista-pago-tarjeta" class="p-5 rounded-2xl bg-[#060a12] border-2 border-sky-400/80 space-y-4 shadow-2xl">
+          <div class="flex items-center justify-between text-xs border-b border-white/10 pb-3">
+            <span class="text-slate-200 font-bold flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Pasarela Oficial Stripe SSL
             </span>
-            <span class="font-mono text-emerald-400 font-black">$10.00 USD</span>
+            <span class="font-mono text-emerald-400 font-black text-sm">$10.00 USD</span>
           </div>
 
-          <form onsubmit="ejecutarPagoDirecto(event, 'tarjeta')" class="space-y-3">
-            <div>
-              <label class="block text-[10px] font-mono uppercase text-slate-400 mb-1">Número de Tarjeta</label>
-              <div class="relative">
-                <i data-lucide="credit-card" class="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
-                <input type="text" id="card-number" required placeholder="4242  ••••  ••••  4242" maxlength="19" oninput="formatearTarjeta(this)" class="w-full pl-9 pr-3 py-2.5 rounded-xl bg-[#030509] border border-white/10 text-xs text-white font-mono focus:border-sky-400 focus:outline-none" />
-              </div>
+          <div class="space-y-2">
+            <div class="text-xs font-bold text-white flex items-center gap-1.5">
+              <span>💳 Acepta Visa, Mastercard, Maestro, Apple Pay y Google Pay</span>
             </div>
+            <p class="text-[11px] text-slate-400 leading-relaxed">
+              Pago 100% seguro y encriptado directamente a través de Stripe. Tras completar el pago recibirás acceso instantáneo a la aplicación y a tu clave de licencia.
+            </p>
+          </div>
 
-            <div class="grid grid-cols-2 gap-2.5">
-              <div>
-                <label class="block text-[10px] font-mono uppercase text-slate-400 mb-1">Caducidad</label>
-                <input type="text" id="card-exp" required placeholder="MM / AA" maxlength="5" oninput="formatearCaducidad(this)" class="w-full px-3 py-2.5 rounded-xl bg-[#030509] border border-white/10 text-xs text-white font-mono text-center focus:border-sky-400 focus:outline-none" />
-              </div>
-              <div>
-                <label class="block text-[10px] font-mono uppercase text-slate-400 mb-1">CVC / CVV</label>
-                <input type="password" id="card-cvc" required placeholder="•••" maxlength="4" class="w-full px-3 py-2.5 rounded-xl bg-[#030509] border border-white/10 text-xs text-white font-mono text-center focus:border-sky-400 focus:outline-none" />
-              </div>
-            </div>
+          <!-- BOTÓN DIRECTO AL CHECKOUT OFICIAL DE STRIPE -->
+          <a href="https://buy.stripe.com/00w5kF2GM0YlaORfZQ0oM03" target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-95 shadow-xl shadow-emerald-500/20 transition transform hover:scale-[1.01]">
+            <i data-lucide="lock" class="w-4 h-4"></i> Pagar $10.00 USD con Stripe
+          </a>
 
-            <div>
-              <label class="block text-[10px] font-mono uppercase text-slate-400 mb-1">Correo para recibir la licencia</label>
-              <input type="email" id="card-email" required placeholder="tu-email@gmail.com" class="w-full px-3 py-2.5 rounded-xl bg-[#030509] border border-white/10 text-xs text-white focus:border-sky-400 focus:outline-none" />
-            </div>
-
-            <button type="submit" id="btn-pagar-tarjeta" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-95 shadow-xl shadow-emerald-500/20 transition">
-              <i data-lucide="lock" class="w-4 h-4"></i> Pagar $10.00 USD y Activar
-            </button>
-          </form>
+          <div class="flex items-center justify-center gap-2 text-[10px] text-slate-500 font-mono pt-1">
+            <span>🔒 Encriptación 256 bits</span>
+            <span>·</span>
+            <span>Acceso de por vida</span>
+            <span>·</span>
+            <span>Sin suscripciones</span>
+          </div>
         </div>
 
         <!-- FORMULARIO DIRECTO: BIZUM -->
