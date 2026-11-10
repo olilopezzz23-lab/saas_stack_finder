@@ -131,6 +131,7 @@
 
       <!-- NAV ACTIONS -->
       <div class="flex items-center gap-3">
+        <a href="#demostracion" class="text-xs font-bold text-slate-300 hover:text-white px-3 py-1.5 rounded-lg hover:bg-white/5 transition flex items-center gap-1.5"><i data-lucide="play-circle" class="w-3.5 h-3.5 text-sky-400"></i> Demostración</a>
         <a href="#prueba-gratis" class="text-xs font-bold text-slate-300 hover:text-white px-3 py-1.5 rounded-lg hover:bg-white/5 transition flex items-center gap-1.5">
           <i data-lucide="gift" class="w-3.5 h-3.5 text-emerald-400"></i> Prueba Gratis
         </a>
@@ -362,6 +363,283 @@
         </div>
       </div>
     </section>
+
+    
+    <!-- SECCIÓN: DEMOSTRACIÓN INTERACTIVA DEL FLUJO COMPLETO -->
+    <section id="demostracion" class="sv-glass rounded-3xl p-6 sm:p-12 border-sky-500/30 relative overflow-hidden space-y-8">
+      <!-- Glow superior -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Cabecera de la demostración -->
+      <div class="text-center space-y-3 max-w-2xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-mono font-bold">
+          <i data-lucide="play-circle" class="w-4 h-4 text-sky-400"></i> DEMOSTRACIÓN EN VIVO
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          Cómo Funciona la App: <br>
+          <span class="gradient-text-cyan">De Noticia Viral a Vídeo Listo</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Mira el proceso paso a paso que realiza el estudio automatizado: desde el rastreo de la noticia hasta la descarga del archivo MP4 en 1080x1920.
+        </p>
+      </div>
+
+      <!-- SELECTOR DE PASOS INTERACTIVOS (Pestañas 1, 2, 3, 4) -->
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-3xl mx-auto">
+        <button onclick="mostrarPasoDemo(1)" id="tab-step-1" class="demo-step-tab px-4 py-2.5 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center gap-2 transition shadow-lg shadow-sky-500/20">
+          <span class="w-5 h-5 rounded-full bg-sky-400 text-slate-950 flex items-center justify-center text-[10px] font-black">1</span>
+          <span>1. Elegir Noticia</span>
+        </button>
+
+        <button onclick="mostrarPasoDemo(2)" id="tab-step-2" class="demo-step-tab px-4 py-2.5 rounded-xl border border-white/10 bg-[#030509] hover:border-sky-500/40 text-slate-400 font-bold text-xs flex items-center gap-2 transition">
+          <span class="w-5 h-5 rounded-full bg-white/10 text-slate-300 flex items-center justify-center text-[10px] font-black">2</span>
+          <span>2. Generar Guion IA</span>
+        </button>
+
+        <button onclick="mostrarPasoDemo(3)" id="tab-step-3" class="demo-step-tab px-4 py-2.5 rounded-xl border border-white/10 bg-[#030509] hover:border-sky-500/40 text-slate-400 font-bold text-xs flex items-center gap-2 transition">
+          <span class="w-5 h-5 rounded-full bg-white/10 text-slate-300 flex items-center justify-center text-[10px] font-black">3</span>
+          <span>3. Montaje y Subtítulos</span>
+        </button>
+
+        <button onclick="mostrarPasoDemo(4)" id="tab-step-4" class="demo-step-tab px-4 py-2.5 rounded-xl border border-white/10 bg-[#030509] hover:border-emerald-500/40 text-slate-400 font-bold text-xs flex items-center gap-2 transition">
+          <span class="w-5 h-5 rounded-full bg-white/10 text-slate-300 flex items-center justify-center text-[10px] font-black">4</span>
+          <span>4. Previsualizar y Descargar</span>
+        </button>
+
+        <!-- Botón Autoplay Simulación -->
+        <button onclick="iniciarDemoAutoplay()" id="btn-demo-autoplay" class="px-3.5 py-2.5 rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 text-xs font-mono font-bold flex items-center gap-1.5 transition">
+          <i data-lucide="play" class="w-3.5 h-3.5 fill-emerald-400"></i> Simular Todo
+        </button>
+      </div>
+
+      <!-- PANTALLA VISUAL DEL SIMULADOR (Card con estilo de la app) -->
+      <div class="bg-[#050811] border border-sky-500/30 rounded-2xl p-5 sm:p-8 max-w-4xl mx-auto shadow-2xl relative min-h-[460px] flex flex-col justify-center">
+
+        <!-- PASO 1 EN VIVO: ELECCIÓN DE NOTICIA -->
+        <div id="demo-content-step-1" class="demo-pane space-y-6 animate-fadeIn">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+            <div>
+              <div class="text-[11px] font-mono text-sky-400 uppercase font-bold flex items-center gap-1.5">
+                <i data-lucide="radio" class="w-3.5 h-3.5 text-red-400 animate-pulse"></i> RASTREADOR DE NOTICIAS VIRALES (EN TIEMPO REAL)
+              </div>
+              <h3 class="text-lg font-bold text-white mt-0.5">1. Búsqueda y Selección de Noticia Viral</h3>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
+              34 Noticias Analizadas
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- NOTICIA SELECCIONADA -->
+            <div class="p-4 rounded-xl bg-sky-950/40 border-2 border-sky-400 space-y-3 relative shadow-lg shadow-sky-500/10">
+              <div class="flex items-center justify-between text-[11px] font-mono">
+                <span class="text-sky-300 font-bold">🌐 GEOECONOMÍA</span>
+                <span class="text-slate-400">Hace 42 min · Lloyd's List</span>
+              </div>
+              <h4 class="text-sm font-bold text-white leading-snug">
+                El nuevo bloqueo del Estrecho de Malaca pone en riesgo el 40% del comercio marítimo mundial
+              </h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Más de 90.000 buques petroleros y portacontenedores dependen de este paso estratégico diario.
+              </p>
+              <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                <span class="text-[11px] text-emerald-400 font-mono font-bold flex items-center gap-1">
+                  <i data-lucide="check-circle-2" class="w-4 h-4"></i> Fuente Verificada
+                </span>
+                <button onclick="mostrarPasoDemo(2)" class="px-3.5 py-1.5 rounded-lg bg-sky-400 text-slate-950 font-black text-xs uppercase flex items-center gap-1 hover:opacity-95 transition">
+                  <span>Seleccionada</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- OTRA NOTICIA DISPONIBLE -->
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3 opacity-75 hover:opacity-100 transition">
+              <div class="flex items-center justify-between text-[11px] font-mono">
+                <span class="text-emerald-400 font-bold">🛡️ CIBERSEGURIDAD</span>
+                <span class="text-slate-400">Hace 1h · BleepingComputer</span>
+              </div>
+              <h4 class="text-sm font-bold text-white leading-snug">
+                Ataque de día cero a infraestructura portuaria paraliza el tráfico de contenedores
+              </h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Vulnerabilidad crítica en software de control logístico expone sistemas de más de 30 países.
+              </p>
+              <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                <span class="text-[11px] text-slate-400 font-mono">Reuters / CTI</span>
+                <button onclick="mostrarPasoDemo(2)" class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition">
+                  Seleccionar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 2 EN VIVO: GENERACIÓN DEL GUION IA -->
+        <div id="demo-content-step-2" class="demo-pane space-y-6 hidden animate-fadeIn">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+            <div>
+              <div class="text-[11px] font-mono text-purple-400 uppercase font-bold flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-purple-400"></i> EDITOR INTELIGENTE DE GUIONES VIRALES
+              </div>
+              <h3 class="text-lg font-bold text-white mt-0.5">2. Generación de Guion con Gancho Anti-Swipe</h3>
+            </div>
+            <button onclick="mostrarPasoDemo(3)" class="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-400 to-sky-400 text-slate-950 font-black text-xs uppercase flex items-center gap-1.5 shadow-lg">
+              <span>Continuar al Montaje</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <div class="space-y-4">
+            <!-- TÍTULO OPTIMIZADO -->
+            <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
+              <span class="text-[10px] font-mono font-bold text-purple-400 uppercase">Título del Short (Optimizado para Click)</span>
+              <div class="text-sm font-bold text-white">¿El fin del estrecho más transitado del planeta?</div>
+            </div>
+
+            <!-- GANCHO (0-2s) -->
+            <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-1">
+              <span class="text-[10px] font-mono font-bold text-amber-300 uppercase flex items-center gap-1">
+                <i data-lucide="zap" class="w-3 h-3 text-amber-400"></i> Gancho Inicial de 0 a 2 Segundos (Detiene el Swipe)
+              </span>
+              <div class="text-xs sm:text-sm font-extrabold text-amber-200">
+                "¿Sabías que si este estrecho se bloquea, el planeta pierde 10 mil millones de dólares al día?"
+              </div>
+            </div>
+
+            <!-- GUION NARRATIVO -->
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-2">
+              <span class="text-[10px] font-mono font-bold text-slate-400 uppercase">Guion Narrativo (45 segundos)</span>
+              <p class="text-xs text-slate-300 leading-relaxed font-mono">
+                Por este estrecho navegan 90.000 buques al año transportando el petróleo de medio planeta. Si un incidente corta este paso, los precios en los supermercados se dispararían en menos de 48 horas. Las superpotencias ya vigilan cada milla náutica...
+              </p>
+              <div class="flex items-center justify-between text-[11px] text-slate-400 pt-2 border-t border-white/5">
+                <span>Dato clave: 90.000 buques anuales</span>
+                <span class="text-emerald-400 font-bold">128 palabras · 44.5s estimados</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 3 EN VIVO: MONTAJE Y SUBTÍTULOS -->
+        <div id="demo-content-step-3" class="demo-pane space-y-6 hidden animate-fadeIn">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+            <div>
+              <div class="text-[11px] font-mono text-teal-400 uppercase font-bold flex items-center gap-1.5">
+                <i data-lucide="cpu" class="w-3.5 h-3.5 text-teal-400"></i> MOTOR AUDIOVISUAL NEURAL Y FFMPEG
+              </div>
+              <h3 class="text-lg font-bold text-white mt-0.5">3. Locución Neural, 4 Diapositivas y Subtítulos Karaoke</h3>
+            </div>
+            <button onclick="mostrarPasoDemo(4)" class="px-4 py-2 rounded-xl bg-gradient-to-r from-teal-400 to-emerald-400 text-slate-950 font-black text-xs uppercase flex items-center gap-1.5 shadow-lg">
+              <span>Ver Vídeo Final</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- 1. LOCUCIÓN NEURAL -->
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
+              <div class="w-8 h-8 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center">
+                <i data-lucide="mic" class="w-4 h-4"></i>
+              </div>
+              <h4 class="text-xs font-bold text-white">Voz Neural en Español</h4>
+              <p class="text-[11px] text-slate-400">Locución natural con entonación dinámica sin pagar licencias de voz.</p>
+              <div class="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-teal-300">
+                Álvaro Neural (España) · 100% Sincronizado
+              </div>
+            </div>
+
+            <!-- 2. RECURSOS FOTOGRÁFICOS -->
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
+              <div class="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center">
+                <i data-lucide="image" class="w-4 h-4"></i>
+              </div>
+              <h4 class="text-xs font-bold text-white">4 Imágenes con Ken Burns</h4>
+              <p class="text-[11px] text-slate-400">Búsqueda automática en Wikimedia / Pexels con zoom y paneo suave continuo.</p>
+              <div class="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-sky-300">
+                1080x1920 HD · Licencias comerciales
+              </div>
+            </div>
+
+            <!-- 3. SUBTÍTULOS KARAOKE -->
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                <i data-lucide="subtitles" class="w-4 h-4"></i>
+              </div>
+              <h4 class="text-xs font-bold text-white">Subtítulos Karaoke Dinámicos</h4>
+              <p class="text-[11px] text-slate-400">Resalte amarillo neón en cada palabra exacta mientras se pronuncia en el audio.</p>
+              <div class="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-amber-300">
+                Frases de 2-3 palabras · Cero lag
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 4 EN VIVO: PREVISUALIZACIÓN Y DESCARGA -->
+        <div id="demo-content-step-4" class="demo-pane space-y-6 hidden animate-fadeIn">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+            <div>
+              <div class="text-[11px] font-mono text-emerald-400 uppercase font-bold flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> PRODUCCIÓN AUDIOVISUAL COMPLETADA
+              </div>
+              <h3 class="text-lg font-bold text-white mt-0.5">4. Previsualización y Descarga Directa del MP4</h3>
+            </div>
+            <a href="./demos/geo_short_1.mp4" download="Viral_Short_Geoeconomia.mp4" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 text-slate-950 font-black text-xs uppercase flex items-center gap-2 hover:opacity-95 shadow-xl shadow-emerald-500/20 transition">
+              <i data-lucide="download" class="w-4 h-4"></i> Descargar Vídeo MP4 (17.4 MB)
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <!-- REPRODUCTOR VERTICAL -->
+            <div class="md:col-span-5 flex justify-center">
+              <div class="w-[200px] aspect-[9/16] rounded-2xl overflow-hidden bg-black border-2 border-emerald-400/50 shadow-2xl relative group">
+                <video id="demo-player-video" controls preload="metadata" playsinline poster="./demos/geo_short_1_poster.jpg" class="w-full h-full object-cover" src="./demos/geo_short_1.mp4">
+                  Tu navegador no soporta vídeo.
+                </video>
+              </div>
+            </div>
+
+            <!-- DETALLES Y ACCIONES DE PUBLICACIÓN -->
+            <div class="md:col-span-7 space-y-4 text-left">
+              <div class="space-y-1">
+                <span class="text-[10px] font-mono font-bold text-sky-400 uppercase">Archivo Generado Listo para Publicar</span>
+                <h4 class="text-base font-extrabold text-white">Guerra de Ferrocarriles y Rutas Estratégicas</h4>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Vídeo vertical montado automáticamente con música de fondo con ducking, subtítulos sincronizados milimétricamente y cabecera con fuente verificada.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-300">
+                <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/5">
+                  <span class="text-slate-500 block text-[10px]">RESOLUCIÓN</span>
+                  <span class="text-white font-bold">1080x1920 (9:16)</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/5">
+                  <span class="text-slate-500 block text-[10px]">FORMATO</span>
+                  <span class="text-emerald-400 font-bold">MP4 Universal (H.264)</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/5">
+                  <span class="text-slate-500 block text-[10px]">DESTINOS</span>
+                  <span class="text-sky-300 font-bold">Shorts · TikTok · Reels</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/5">
+                  <span class="text-slate-500 block text-[10px]">TIEMPO DE MONTAJE</span>
+                  <span class="text-amber-400 font-bold">14.8 segundos</span>
+                </div>
+              </div>
+
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <a href="./demos/geo_short_1.mp4" download="Viral_Short_Geoeconomia.mp4" class="px-4 py-2.5 rounded-xl bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-slate-950 font-bold text-xs flex items-center gap-2 border border-emerald-500/30 transition">
+                  <i data-lucide="download" class="w-4 h-4"></i> Descargar MP4 Directo
+                </a>
+                <button onclick="comprarApp10()" class="px-4 py-2.5 rounded-xl bg-sky-500/20 text-sky-300 hover:bg-sky-500 hover:text-slate-950 font-bold text-xs flex items-center gap-2 border border-sky-500/30 transition">
+                  <i data-lucide="zap" class="w-4 h-4"></i> Conseguir la App ($10)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
 
     <!-- SECCIÓN: PRUEBA GRATIS (ACCESO MEDIANTE CORREO) -->
     <section id="prueba-gratis" class="sv-glass rounded-3xl p-8 sm:p-12 border-emerald-500/30 relative overflow-hidden">
@@ -770,6 +1048,66 @@
       setTimeout(() => {
         document.getElementById("demo-unlocked-card").scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    
+    let demoStepActual = 1;
+    let demoAutoplayInterval = null;
+
+    function mostrarPasoDemo(step) {
+      demoStepActual = step;
+      if (demoAutoplayInterval) {
+        clearInterval(demoAutoplayInterval);
+        demoAutoplayInterval = null;
+        const btnAuto = document.getElementById("btn-demo-autoplay");
+        if (btnAuto) btnAuto.innerHTML = '<i data-lucide="play" class="w-3.5 h-3.5 fill-emerald-400"></i> Simular Todo';
+      }
+
+      for (let i = 1; i <= 4; i++) {
+        const pane = document.getElementById(`demo-content-step-${i}`);
+        const tab = document.getElementById(`tab-step-${i}`);
+        if (pane) {
+          if (i === step) pane.classList.remove("hidden");
+          else pane.classList.add("hidden");
+        }
+        if (tab) {
+          if (i === step) {
+            tab.className = "demo-step-tab px-4 py-2.5 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center gap-2 transition shadow-lg shadow-sky-500/20";
+            const num = tab.querySelector("span:first-child");
+            if (num) num.className = "w-5 h-5 rounded-full bg-sky-400 text-slate-950 flex items-center justify-center text-[10px] font-black";
+          } else {
+            tab.className = "demo-step-tab px-4 py-2.5 rounded-xl border border-white/10 bg-[#030509] hover:border-sky-500/40 text-slate-400 font-bold text-xs flex items-center gap-2 transition";
+            const num = tab.querySelector("span:first-child");
+            if (num) num.className = "w-5 h-5 rounded-full bg-white/10 text-slate-300 flex items-center justify-center text-[10px] font-black";
+          }
+        }
+      }
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function iniciarDemoAutoplay() {
+      const btnAuto = document.getElementById("btn-demo-autoplay");
+      if (demoAutoplayInterval) {
+        clearInterval(demoAutoplayInterval);
+        demoAutoplayInterval = null;
+        if (btnAuto) btnAuto.innerHTML = '<i data-lucide="play" class="w-3.5 h-3.5 fill-emerald-400"></i> Simular Todo';
+        return;
+      }
+
+      if (btnAuto) btnAuto.innerHTML = '<i data-lucide="pause" class="w-3.5 h-3.5 fill-emerald-400"></i> Pausar Simulación';
+      demoStepActual = 1;
+      mostrarPasoDemo(1);
+
+      demoAutoplayInterval = setInterval(() => {
+        demoStepActual++;
+        if (demoStepActual > 4) {
+          demoStepActual = 1;
+        }
+        mostrarPasoDemo(demoStepActual);
+      }, 4200);
 
       if (window.lucide) lucide.createIcons();
     }
