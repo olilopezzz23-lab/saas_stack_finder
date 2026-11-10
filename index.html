@@ -349,9 +349,6 @@
                 <div class="text-xs font-black text-white px-1 leading-snug">
                   "El monopolio ferroviario en EE.UU. está a punto de explotar"
                 </div>
-                <div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-black font-mono">
-                  🔥 92.4% Retención
-                </div>
               </div>
 
               <div class="space-y-1.5 text-[10px] text-slate-400 border-t border-white/10 pt-3">
@@ -397,13 +394,24 @@
           </div>
 
           <div>
-            <label class="block text-[11px] font-mono font-bold text-slate-300 uppercase mb-1.5 flex items-center justify-between">
-              <span>Temática o Nicho de tu canal</span>
-              <span class="text-slate-500 text-[10px] lowercase">(opcional)</span>
+            <label class="block text-[11px] font-mono font-bold text-slate-300 uppercase mb-2 flex items-center justify-between">
+              <span>Elige la Temática de tu canal</span>
+              <span class="text-emerald-400 text-[10px]">1 clic para seleccionar</span>
             </label>
-            <div class="relative">
-              <i data-lucide="layers" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-              <input type="text" id="demo-nicho" placeholder="Ej: Geopolítica, SaaS, finanzas, ciberseguridad, ecommerce..." class="w-full pl-10 pr-4 py-3 rounded-xl bg-[#030509] border border-white/10 text-xs sm:text-sm text-white focus:border-emerald-400 focus:outline-none transition" />
+            <input type="hidden" id="demo-nicho" value="Geoeconomía" />
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <button type="button" onclick="seleccionarNichoBoton('Geoeconomía')" id="btn-nicho-geo" class="py-3 px-3 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-sky-500/20">
+                <i data-lucide="globe" class="w-4 h-4 text-sky-400"></i>
+                <span>Geoeconomía</span>
+              </button>
+              <button type="button" onclick="seleccionarNichoBoton('Ciberseguridad')" id="btn-nicho-cyber" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-emerald-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+                <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-400"></i>
+                <span>Ciberseguridad</span>
+              </button>
+              <button type="button" onclick="seleccionarNichoBoton('Noticias Virales')" id="btn-nicho-viral" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-amber-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+                <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
+                <span>Noticias Virales</span>
+              </button>
             </div>
           </div>
 
@@ -448,7 +456,6 @@
                   <i data-lucide="globe" class="w-4 h-4"></i>
                 </div>
                 <h3 class="text-base font-bold text-white">Nicho 1: Geoeconomía y Comercio Global (2 Vídeos)</h3>
-                <span class="text-[10px] font-mono text-sky-400 px-2 py-0.5 rounded bg-sky-500/10">Retención 92%</span>
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -487,7 +494,6 @@
                   <i data-lucide="shield-alert" class="w-4 h-4"></i>
                 </div>
                 <h3 class="text-base font-bold text-white">Nicho 2: Ciberseguridad y Amenazas OSINT (2 Vídeos)</h3>
-                <span class="text-[10px] font-mono text-emerald-400 px-2 py-0.5 rounded bg-emerald-500/10">Retención 94%</span>
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -526,7 +532,6 @@
                   <i data-lucide="zap" class="w-4 h-4"></i>
                 </div>
                 <h3 class="text-base font-bold text-white">Nicho 3: Virales, SaaS y Curiosidades (2 Vídeos)</h3>
-                <span class="text-[10px] font-mono text-amber-400 px-2 py-0.5 rounded bg-amber-500/10">Alto Swipe-Rate</span>
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -727,6 +732,27 @@
       activarAccesoGratuito(email, "General");
     }
 
+    function seleccionarNichoBoton(nicho) {
+      document.getElementById("demo-nicho").value = nicho;
+      const btnGeo = document.getElementById("btn-nicho-geo");
+      const btnCyber = document.getElementById("btn-nicho-cyber");
+      const btnViral = document.getElementById("btn-nicho-viral");
+
+      const baseInactive = "py-3 px-3 rounded-xl border border-white/10 bg-[#030509] text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition";
+      btnGeo.className = baseInactive + " hover:border-sky-500/50";
+      btnCyber.className = baseInactive + " hover:border-emerald-500/50";
+      btnViral.className = baseInactive + " hover:border-amber-500/50";
+
+      if (nicho === "Geoeconomía") {
+        btnGeo.className = "py-3 px-3 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-sky-500/20";
+      } else if (nicho === "Ciberseguridad") {
+        btnCyber.className = "py-3 px-3 rounded-xl border border-emerald-400 bg-emerald-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-emerald-500/20";
+      } else if (nicho === "Noticias Virales") {
+        btnViral.className = "py-3 px-3 rounded-xl border border-amber-400 bg-amber-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-amber-500/20";
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
     function solicitarPruebaGratis(e) {
       e.preventDefault();
       const email = document.getElementById("demo-email").value.trim();
@@ -749,10 +775,208 @@
     }
 
     function comprarApp10() {
-      const mensaje = `Hola! Quiero comprar la aplicación completa de generación de Shorts para YouTube, TikTok e Instagram Reels por $10 USD de por vida.%0A%0A¿Cómo realizo el pago para recibir el acceso?`;
-      window.open(`https://wa.me/?text=${mensaje}`, "_blank");
+      abrirModalCheckout();
+    }
+
+    let nichoSeleccionadoPago = "Geopolítica y Comercio Internacional";
+
+    function abrirModalCheckout() {
+      const modal = document.getElementById("modal-checkout");
+      if (modal) {
+        modal.classList.remove("hidden");
+        volverAPaso1();
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function cerrarModalCheckout() {
+      const modal = document.getElementById("modal-checkout");
+      if (modal) modal.classList.add("hidden");
+    }
+
+    function seleccionarNichoCheckout(nicho) {
+      nichoSeleccionadoPago = nicho;
+    }
+
+    function irAPaso2Pago() {
+      const radios = document.getElementsByName("checkout-nicho");
+      for (const r of radios) {
+        if (r.checked) {
+          nichoSeleccionadoPago = r.value;
+          break;
+        }
+      }
+      document.getElementById("resumen-nicho-pago").innerText = nichoSeleccionadoPago;
+      document.getElementById("checkout-paso-1").classList.add("hidden");
+      document.getElementById("checkout-paso-2").classList.remove("hidden");
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function volverAPaso1() {
+      document.getElementById("checkout-paso-1").classList.remove("hidden");
+      document.getElementById("checkout-paso-2").classList.add("hidden");
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function procesarPagoMetodo(metodo) {
+      const nicho = nichoSeleccionadoPago || "Geopolítica y Comercio Internacional";
+      const texto = `Hola! Quiero adquirir la licencia de por vida de la aplicación ($10 USD).%0A%0A📌 Temática elegida: ${encodeURIComponent(nicho)}%0A💳 Método de pago preferido: ${encodeURIComponent(metodo)}%0A%0A¿Me facilitas los datos para completar la activación inmediata?`;
+      window.open(`https://wa.me/?text=${texto}`, "_blank");
     }
   </script>
+
+  <!-- MODAL DE CHECKOUT Y OPCIONES DE PAGO ($10 USD) -->
+  <div id="modal-checkout" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden animate-fadeIn">
+    <div class="bg-[#060a12] border border-sky-500/30 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl relative">
+      <!-- BOTÓN CERRAR -->
+      <button onclick="cerrarModalCheckout()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg bg-white/5 hover:bg-white/10 transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- PASO 1: SELECCIÓN DE TEMÁTICA PREVIA AL PAGO -->
+      <div id="checkout-paso-1" class="space-y-5">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-400 text-[10px] font-mono font-bold border border-sky-500/20">
+            PASO 1 DE 2 · TEMÁTICA
+          </div>
+          <h3 class="text-xl sm:text-2xl font-black text-white">Elige la Temática de tu Canal</h3>
+          <p class="text-xs text-slate-400">Antes de pagar, selecciona la temática principal para configurar tu estudio.</p>
+        </div>
+
+        <div class="space-y-3" id="checkout-nicho-selector">
+          <label class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-sky-500/40 cursor-pointer hover:border-sky-400 transition" onclick="seleccionarNichoCheckout('Geoeconomía')">
+            <input type="radio" name="checkout-nicho" value="Geoeconomía" checked class="accent-sky-400 w-4 h-4" />
+            <div class="flex-1">
+              <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                🌐 Geoeconomía y Comercio Global
+              </div>
+              <div class="text-[11px] text-slate-400">Conflictos internacionales, rutas marítimas y macroeconomía</div>
+            </div>
+          </label>
+
+          <label class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 cursor-pointer hover:border-emerald-400 transition" onclick="seleccionarNichoCheckout('Ciberseguridad')">
+            <input type="radio" name="checkout-nicho" value="Ciberseguridad" class="accent-emerald-400 w-4 h-4" />
+            <div class="flex-1">
+              <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                🛡️ Ciberseguridad y Amenazas Digitales
+              </div>
+              <div class="text-[11px] text-slate-400">Espionaje digital, ciberataques, OSINT y filtraciones</div>
+            </div>
+          </label>
+
+          <label class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 cursor-pointer hover:border-amber-400 transition" onclick="seleccionarNichoCheckout('Noticias Virales')">
+            <input type="radio" name="checkout-nicho" value="Noticias Virales" class="accent-amber-400 w-4 h-4" />
+            <div class="flex-1">
+              <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                ⚡ Noticias Virales y Tecnología SaaS
+              </div>
+              <div class="text-[11px] text-slate-400">Misterios virales, herramientas de IA y productividad</div>
+            </div>
+          </label>
+        </div>
+
+        <button onclick="irAPaso2Pago()" class="w-full py-4 rounded-xl bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-95 shadow-xl transition">
+          <span>Continuar al Pago ($10 USD)</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- PASO 2: MÉTODOS DE PAGO DISPONIBLES -->
+      <div id="checkout-paso-2" class="space-y-5 hidden">
+        <div class="space-y-1">
+          <div class="flex items-center justify-between">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-mono font-bold border border-emerald-500/20">
+              PASO 2 DE 2 · OPCIONES DE PAGO
+            </div>
+            <button onclick="volverAPaso1()" class="text-[11px] text-sky-400 hover:underline flex items-center gap-1">
+              <i data-lucide="arrow-left" class="w-3 h-3"></i> Cambiar temática
+            </button>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-black text-white">Opciones de Pago Disponibles</h3>
+          <p class="text-xs text-slate-400">
+            Temática configurada: <strong id="resumen-nicho-pago" class="text-emerald-400">Geopolítica y Comercio Internacional</strong>
+          </p>
+        </div>
+
+        <!-- LISTA DE OPCIONES DE PAGO -->
+        <div class="space-y-2.5">
+          <!-- TARJETA STRIPE -->
+          <button onclick="procesarPagoMetodo('Tarjeta Bancaria (Stripe)')" class="w-full p-3.5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-sky-400 flex items-center justify-between group transition">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center shrink-0">
+                <i data-lucide="credit-card" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover:text-sky-300 transition">Tarjeta de Crédito / Débito</div>
+                <div class="text-[10px] text-slate-400">Visa, Mastercard, Apple Pay</div>
+              </div>
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-300">$10 USD</span>
+          </button>
+
+          <!-- PAYPAL -->
+          <button onclick="procesarPagoMetodo('PayPal')" class="w-full p-3.5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-sky-400 flex items-center justify-between group transition">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0">
+                <i data-lucide="wallet" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover:text-blue-300 transition">PayPal</div>
+                <div class="text-[10px] text-slate-400">Pago inmediato con saldo o tarjeta</div>
+              </div>
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-300">$10 USD</span>
+          </button>
+
+          <!-- BIZUM / TRANSFERENCIA DIRECTA -->
+          <button onclick="procesarPagoMetodo('Bizum / Transferencia Instantánea')" class="w-full p-3.5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-teal-400 flex items-center justify-between group transition">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0">
+                <i data-lucide="smartphone" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover:text-teal-300 transition">Bizum / Transferencia Instantánea</div>
+                <div class="text-[10px] text-slate-400">Bizum inmediato o transferencia bancaria SEPA</div>
+              </div>
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-300">9.50 €</span>
+          </button>
+
+          <!-- CRIPTOMONEDAS -->
+          <button onclick="procesarPagoMetodo('Criptomonedas (USDT / BTC)')" class="w-full p-3.5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-amber-400 flex items-center justify-between group transition">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
+                <i data-lucide="coins" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover:text-amber-300 transition">Criptomonedas (USDT / BTC)</div>
+                <div class="text-[10px] text-slate-400">USDT (TRC20 / BEP20) o Binance Pay</div>
+              </div>
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-300">10 USDT</span>
+          </button>
+
+          <!-- WHATSAPP ASISTIDO -->
+          <button onclick="procesarPagoMetodo('WhatsApp Directo')" class="w-full p-3.5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-emerald-400 flex items-center justify-between group transition">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover:text-emerald-300 transition">Asistencia Directa por WhatsApp</div>
+                <div class="text-[10px] text-slate-400">Atención personalizada y activación manual</div>
+              </div>
+            </div>
+            <i data-lucide="external-link" class="w-4 h-4 text-emerald-400"></i>
+          </button>
+        </div>
+
+        <p class="text-[10px] text-center text-slate-500 font-mono">
+          🔒 Pago seguro con encriptación SSL · Entrega instantánea de acceso
+        </p>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
