@@ -365,7 +365,7 @@
     </section>
 
     
-    <!-- SECCIÓN: DEMOSTRACIÓN INTERACTIVA DEL FLUJO COMPLETO -->
+        <!-- SECCIÓN: DEMOSTRACIÓN INTERACTIVA DEL FLUJO COMPLETO -->
     <section id="demostracion" class="sv-glass rounded-3xl p-6 sm:p-12 border-sky-500/30 relative overflow-hidden space-y-8">
       <!-- Glow superior -->
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
@@ -380,11 +380,36 @@
           <span class="gradient-text-cyan">De Noticia Viral a Vídeo Listo</span>
         </h2>
         <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-          Mira el proceso paso a paso que realiza el estudio automatizado: desde el rastreo de la noticia hasta la descarga del archivo MP4 en 1080x1920.
+          Selecciona primero la temática que quieres explorar y comprueba cómo el motor adapta la búsqueda, el guion, el montaje y el vídeo final:
         </p>
       </div>
 
-      <!-- SELECTOR DE PASOS INTERACTIVOS (Pestañas 1, 2, 3, 4) -->
+      <!-- SELECTOR PREVIO DE NICHO PARA LA DEMOSTRACIÓN -->
+      <div class="max-w-2xl mx-auto p-4 rounded-2xl bg-[#060a12] border border-sky-500/30 space-y-3">
+        <div class="flex items-center justify-between text-xs font-mono">
+          <span class="font-bold text-slate-300 uppercase flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+            1. Elige el Nicho para la Demostración:
+          </span>
+          <span class="text-sky-400 text-[11px]" id="demo-nicho-selected-label">Nicho activo: Geoeconomía</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <button type="button" onclick="cambiarNichoDemo('geoeconomia')" id="demo-btn-geo" class="py-3 px-3 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-sky-500/20">
+            <i data-lucide="globe" class="w-4 h-4 text-sky-400"></i>
+            <span>Geoeconomía</span>
+          </button>
+          <button type="button" onclick="cambiarNichoDemo('ciberseguridad')" id="demo-btn-cyber" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-emerald-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+            <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-400"></i>
+            <span>Ciberseguridad</span>
+          </button>
+          <button type="button" onclick="cambiarNichoDemo('viral')" id="demo-btn-viral" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-amber-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+            <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
+            <span>Noticias Virales</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SELECTOR DE PASOS INTERACTIVOS (Pestañas 1, 2, 3, 4) - SIN BOTÓN SIMULAR TODO -->
       <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-3xl mx-auto">
         <button onclick="mostrarPasoDemo(1)" id="tab-step-1" class="demo-step-tab px-4 py-2.5 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center gap-2 transition shadow-lg shadow-sky-500/20">
           <span class="w-5 h-5 rounded-full bg-sky-400 text-slate-950 flex items-center justify-center text-[10px] font-black">1</span>
@@ -405,41 +430,36 @@
           <span class="w-5 h-5 rounded-full bg-white/10 text-slate-300 flex items-center justify-center text-[10px] font-black">4</span>
           <span>4. Previsualizar y Descargar</span>
         </button>
-
-        <!-- Botón Autoplay Simulación -->
-        <button onclick="iniciarDemoAutoplay()" id="btn-demo-autoplay" class="px-3.5 py-2.5 rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 text-xs font-mono font-bold flex items-center gap-1.5 transition">
-          <i data-lucide="play" class="w-3.5 h-3.5 fill-emerald-400"></i> Simular Todo
-        </button>
       </div>
 
-      <!-- PANTALLA VISUAL DEL SIMULADOR (Card con estilo de la app) -->
+      <!-- PANTALLA VISUAL DEL SIMULADOR -->
       <div class="bg-[#050811] border border-sky-500/30 rounded-2xl p-5 sm:p-8 max-w-4xl mx-auto shadow-2xl relative min-h-[460px] flex flex-col justify-center">
 
         <!-- PASO 1 EN VIVO: ELECCIÓN DE NOTICIA -->
         <div id="demo-content-step-1" class="demo-pane space-y-6 animate-fadeIn">
           <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
             <div>
-              <div class="text-[11px] font-mono text-sky-400 uppercase font-bold flex items-center gap-1.5">
-                <i data-lucide="radio" class="w-3.5 h-3.5 text-red-400 animate-pulse"></i> RASTREADOR DE NOTICIAS VIRALES (EN TIEMPO REAL)
+              <div class="text-[11px] font-mono text-sky-400 uppercase font-bold flex items-center gap-1.5" id="step1-header-badge">
+                <i data-lucide="radio" class="w-3.5 h-3.5 text-red-400 animate-pulse"></i> RASTREADOR DE NOTICIAS DE GEOECONOMÍA
               </div>
               <h3 class="text-lg font-bold text-white mt-0.5">1. Búsqueda y Selección de Noticia Viral</h3>
             </div>
-            <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold" id="step1-count-badge">
               34 Noticias Analizadas
             </span>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="step1-news-container">
             <!-- NOTICIA SELECCIONADA -->
             <div class="p-4 rounded-xl bg-sky-950/40 border-2 border-sky-400 space-y-3 relative shadow-lg shadow-sky-500/10">
               <div class="flex items-center justify-between text-[11px] font-mono">
-                <span class="text-sky-300 font-bold">🌐 GEOECONOMÍA</span>
-                <span class="text-slate-400">Hace 42 min · Lloyd's List</span>
+                <span class="text-sky-300 font-bold" id="step1-card1-tag">🌐 GEOECONOMÍA</span>
+                <span class="text-slate-400" id="step1-card1-time">Hace 42 min · Lloyd's List</span>
               </div>
-              <h4 class="text-sm font-bold text-white leading-snug">
+              <h4 class="text-sm font-bold text-white leading-snug" id="step1-card1-title">
                 El nuevo bloqueo del Estrecho de Malaca pone en riesgo el 40% del comercio marítimo mundial
               </h4>
-              <p class="text-xs text-slate-300 leading-relaxed">
+              <p class="text-xs text-slate-300 leading-relaxed" id="step1-card1-desc">
                 Más de 90.000 buques petroleros y portacontenedores dependen de este paso estratégico diario.
               </p>
               <div class="flex items-center justify-between pt-2 border-t border-white/10">
@@ -453,19 +473,19 @@
             </div>
 
             <!-- OTRA NOTICIA DISPONIBLE -->
-            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3 opacity-75 hover:opacity-100 transition">
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3 opacity-80 hover:opacity-100 transition">
               <div class="flex items-center justify-between text-[11px] font-mono">
-                <span class="text-emerald-400 font-bold">🛡️ CIBERSEGURIDAD</span>
-                <span class="text-slate-400">Hace 1h · BleepingComputer</span>
+                <span class="text-slate-400 font-bold" id="step1-card2-tag">🌐 BRICS & DIVISAS</span>
+                <span class="text-slate-400" id="step1-card2-time">Hace 1h · Bloomberg</span>
               </div>
-              <h4 class="text-sm font-bold text-white leading-snug">
-                Ataque de día cero a infraestructura portuaria paraliza el tráfico de contenedores
+              <h4 class="text-sm font-bold text-white leading-snug" id="step1-card2-title">
+                Los bancos centrales aceleran la acumulación de reservas de oro físico al ritmo más alto desde 1967
               </h4>
-              <p class="text-xs text-slate-400 leading-relaxed">
-                Vulnerabilidad crítica en software de control logístico expone sistemas de más de 30 países.
+              <p class="text-xs text-slate-400 leading-relaxed" id="step1-card2-desc">
+                Movimientos masivos de desdolarización generan tensión en los mercados de bonos soberanos.
               </p>
               <div class="flex items-center justify-between pt-2 border-t border-white/10">
-                <span class="text-[11px] text-slate-400 font-mono">Reuters / CTI</span>
+                <span class="text-[11px] text-slate-400 font-mono">Reuters / Financial Times</span>
                 <button onclick="mostrarPasoDemo(2)" class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition">
                   Seleccionar
                 </button>
@@ -492,7 +512,7 @@
             <!-- TÍTULO OPTIMIZADO -->
             <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
               <span class="text-[10px] font-mono font-bold text-purple-400 uppercase">Título del Short (Optimizado para Click)</span>
-              <div class="text-sm font-bold text-white">¿El fin del estrecho más transitado del planeta?</div>
+              <div class="text-sm font-bold text-white" id="step2-title">¿El fin del estrecho más transitado del planeta? #Shorts</div>
             </div>
 
             <!-- GANCHO (0-2s) -->
@@ -500,7 +520,7 @@
               <span class="text-[10px] font-mono font-bold text-amber-300 uppercase flex items-center gap-1">
                 <i data-lucide="zap" class="w-3 h-3 text-amber-400"></i> Gancho Inicial de 0 a 2 Segundos (Detiene el Swipe)
               </span>
-              <div class="text-xs sm:text-sm font-extrabold text-amber-200">
+              <div class="text-xs sm:text-sm font-extrabold text-amber-200" id="step2-hook">
                 "¿Sabías que si este estrecho se bloquea, el planeta pierde 10 mil millones de dólares al día?"
               </div>
             </div>
@@ -508,12 +528,12 @@
             <!-- GUION NARRATIVO -->
             <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-2">
               <span class="text-[10px] font-mono font-bold text-slate-400 uppercase">Guion Narrativo (45 segundos)</span>
-              <p class="text-xs text-slate-300 leading-relaxed font-mono">
+              <p class="text-xs text-slate-300 leading-relaxed font-mono" id="step2-body">
                 Por este estrecho navegan 90.000 buques al año transportando el petróleo de medio planeta. Si un incidente corta este paso, los precios en los supermercados se dispararían en menos de 48 horas. Las superpotencias ya vigilan cada milla náutica...
               </p>
               <div class="flex items-center justify-between text-[11px] text-slate-400 pt-2 border-t border-white/5">
-                <span>Dato clave: 90.000 buques anuales</span>
-                <span class="text-emerald-400 font-bold">128 palabras · 44.5s estimados</span>
+                <span id="step2-keypoint">Dato clave: 90.000 buques anuales</span>
+                <span class="text-emerald-400 font-bold" id="step2-stats">128 palabras · 44.5s estimados</span>
               </div>
             </div>
           </div>
@@ -540,9 +560,9 @@
                 <i data-lucide="mic" class="w-4 h-4"></i>
               </div>
               <h4 class="text-xs font-bold text-white">Voz Neural en Español</h4>
-              <p class="text-[11px] text-slate-400">Locución natural con entonación dinámica sin pagar licencias de voz.</p>
-              <div class="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-teal-300">
-                Álvaro Neural (España) · 100% Sincronizado
+              <p class="text-[11px] text-slate-400" id="step3-voice-desc">Locución natural pausada, analítica y con entonación de autoridad.</p>
+              <div class="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-teal-300" id="step3-voice-badge">
+                Álvaro Neural (España) · Sincronización Word-by-Word
               </div>
             </div>
 
@@ -552,8 +572,8 @@
                 <i data-lucide="image" class="w-4 h-4"></i>
               </div>
               <h4 class="text-xs font-bold text-white">4 Imágenes con Ken Burns</h4>
-              <p class="text-[11px] text-slate-400">Búsqueda automática en Wikimedia / Pexels con zoom y paneo suave continuo.</p>
-              <div class="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-sky-300">
+              <p class="text-[11px] text-slate-400" id="step3-visual-desc">Mapas estratégicos 3D, buques y gráficos satelitales con zoom dinámico.</p>
+              <div class="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-sky-300" id="step3-visual-badge">
                 1080x1920 HD · Licencias comerciales
               </div>
             </div>
@@ -564,9 +584,9 @@
                 <i data-lucide="subtitles" class="w-4 h-4"></i>
               </div>
               <h4 class="text-xs font-bold text-white">Subtítulos Karaoke Dinámicos</h4>
-              <p class="text-[11px] text-slate-400">Resalte amarillo neón en cada palabra exacta mientras se pronuncia en el audio.</p>
-              <div class="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-amber-300">
-                Frases de 2-3 palabras · Cero lag
+              <p class="text-[11px] text-slate-400">Resalte palabra por palabra con estilo tipográfico de retención máxima.</p>
+              <div class="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-amber-300" id="step3-subs-badge">
+                Frases de 2-3 palabras · Amarillo neón (#00E6FF)
               </div>
             </div>
           </div>
@@ -581,8 +601,8 @@
               </div>
               <h3 class="text-lg font-bold text-white mt-0.5">4. Previsualización y Descarga Directa del MP4</h3>
             </div>
-            <a href="./demos/geo_short_1.mp4" download="Viral_Short_Geoeconomia.mp4" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 text-slate-950 font-black text-xs uppercase flex items-center gap-2 hover:opacity-95 shadow-xl shadow-emerald-500/20 transition">
-              <i data-lucide="download" class="w-4 h-4"></i> Descargar Vídeo MP4 (17.4 MB)
+            <a id="demo-download-top-btn" href="./demos/geo_short_1.mp4" download="Viral_Short_Geoeconomia.mp4" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 text-slate-950 font-black text-xs uppercase flex items-center gap-2 hover:opacity-95 shadow-xl shadow-emerald-500/20 transition">
+              <i data-lucide="download" class="w-4 h-4"></i> <span id="demo-download-top-text">Descargar Vídeo MP4 (17.4 MB)</span>
             </a>
           </div>
 
@@ -599,9 +619,9 @@
             <!-- DETALLES Y ACCIONES DE PUBLICACIÓN -->
             <div class="md:col-span-7 space-y-4 text-left">
               <div class="space-y-1">
-                <span class="text-[10px] font-mono font-bold text-sky-400 uppercase">Archivo Generado Listo para Publicar</span>
-                <h4 class="text-base font-extrabold text-white">Guerra de Ferrocarriles y Rutas Estratégicas</h4>
-                <p class="text-xs text-slate-400 leading-relaxed">
+                <span class="text-[10px] font-mono font-bold text-sky-400 uppercase" id="demo-player-tag">Archivo Generado Listo para Publicar</span>
+                <h4 class="text-base font-extrabold text-white" id="demo-player-title">Guerra de Ferrocarriles y Rutas Estratégicas</h4>
+                <p class="text-xs text-slate-400 leading-relaxed" id="demo-player-desc">
                   Vídeo vertical montado automáticamente con música de fondo con ducking, subtítulos sincronizados milimétricamente y cabecera con fuente verificada.
                 </p>
               </div>
@@ -626,7 +646,7 @@
               </div>
 
               <div class="pt-2 flex flex-wrap items-center gap-3">
-                <a href="./demos/geo_short_1.mp4" download="Viral_Short_Geoeconomia.mp4" class="px-4 py-2.5 rounded-xl bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-slate-950 font-bold text-xs flex items-center gap-2 border border-emerald-500/30 transition">
+                <a id="demo-download-bottom-btn" href="./demos/geo_short_1.mp4" download="Viral_Short_Geoeconomia.mp4" class="px-4 py-2.5 rounded-xl bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-slate-950 font-bold text-xs flex items-center gap-2 border border-emerald-500/30 transition">
                   <i data-lucide="download" class="w-4 h-4"></i> Descargar MP4 Directo
                 </a>
                 <button onclick="comprarApp10()" class="px-4 py-2.5 rounded-xl bg-sky-500/20 text-sky-300 hover:bg-sky-500 hover:text-slate-950 font-bold text-xs flex items-center gap-2 border border-sky-500/30 transition">
@@ -640,6 +660,208 @@
       </div>
     </section>
 
+    <!-- NUEVA SECCIÓN: CARACTERÍSTICAS Y RENTABILIDAD POR NICHO -->
+    <section id="caracteristicas-nichos" class="space-y-8">
+      <div class="text-center space-y-3 max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold tracking-wider">
+          <i data-lucide="bar-chart-3" class="w-4 h-4"></i> COMPARATIVA ESTRATÉGICA
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          Características de Cada Nicho: <br>
+          <span class="gradient-text-cyan">Audiencia, RPM y Formato Visual</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Cada temática tiene un comportamiento algorítmico diferente. Descubre cuál encaja mejor con tus objetivos de crecimiento o monetización publicitaria:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- NICHO 1: GEOECONOMÍA Y GEOPOLÍTICA -->
+        <div class="sv-glass rounded-3xl p-6 sm:p-8 space-y-6 border-sky-400/40 relative sv-glow-card flex flex-col justify-between">
+          <div class="space-y-5">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400">
+                <i data-lucide="globe" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                DISPONIBLE AHORA ($10)
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white">Geoeconomía & Geopolítica</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Conflictos de divisas, rutas comerciales marítimas, reservas de oro, sanciones internacionales y maniobras energéticas mundiales.
+              </p>
+            </div>
+
+            <!-- MÉTRICAS CLAVE -->
+            <div class="grid grid-cols-2 gap-2 text-left font-mono">
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="text-[10px] text-slate-400 uppercase">RPM Estimado</div>
+                <div class="text-base font-black text-sky-400">$3.50 – $8.00</div>
+                <div class="text-[9px] text-slate-500">Por 1k reproducciones</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="text-[10px] text-slate-400 uppercase">Audiencia</div>
+                <div class="text-base font-black text-white">25 – 55 años</div>
+                <div class="text-[9px] text-slate-500">Inversores / Analistas</div>
+              </div>
+            </div>
+
+            <!-- CARACTERÍSTICAS TÉCNICAS -->
+            <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-white/5 pt-4">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                <span><strong>Estilo Visual:</strong> Mapas satelitales 3D, estrechos marítimos y estética sobria tipo Bloomberg.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                <span><strong>Tono Neuronal:</strong> Voz pausada, grave y autoritaria de analista geopolítico.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                <span><strong>Retención:</strong> Muy alta por curiosidad histórica y tensión internacional en directo.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                <span><strong>Monetización:</strong> Alta suscripción de miembros de canal, patrocinios de brokers y oro físico.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-white/5">
+            <button onclick="comprarApp10()" class="w-full py-3 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-black text-xs uppercase flex items-center justify-center gap-1.5 transition">
+              <i data-lucide="zap" class="w-3.5 h-3.5"></i> Conseguir Edición Geopolítica ($10)
+            </button>
+          </div>
+        </div>
+
+        <!-- NICHO 2: CIBERSEGURIDAD E INTELIGENCIA -->
+        <div class="sv-glass rounded-3xl p-6 sm:p-8 space-y-6 border-emerald-500/20 relative sv-glow-card flex flex-col justify-between">
+          <div class="space-y-5">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                <i data-lucide="shield-alert" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30">
+                EN DESARROLLO
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white">Ciberseguridad & OSINT</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Vulnerabilidades Zero-Day, fugas de API keys, filtraciones en la Dark Web, malware de estado y privacidad digital.
+              </p>
+            </div>
+
+            <!-- MÉTRICAS CLAVE -->
+            <div class="grid grid-cols-2 gap-2 text-left font-mono">
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="text-[10px] text-slate-400 uppercase">RPM Estimado</div>
+                <div class="text-base font-black text-emerald-400">$4.00 – $9.50</div>
+                <div class="text-[9px] text-slate-500">Sponsors B2B tech</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="text-[10px] text-slate-400 uppercase">Audiencia</div>
+                <div class="text-base font-black text-white">18 – 45 años</div>
+                <div class="text-[9px] text-slate-500">Devs / SysAdmins / IT</div>
+              </div>
+            </div>
+
+            <!-- CARACTERÍSTICAS TÉCNICAS -->
+            <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-white/5 pt-4">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Estilo Visual:</strong> Terminales Kali Linux, logs de servidor en vivo y alertas rojas críticas.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Tono Neuronal:</strong> Ritmo dinámico, tensión y advertencia técnica urgente.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Retención:</strong> Gancho inmediato de alerta ("Tu contraseña ha sido filtrada").</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong>Monetización:</strong> Patrocinios directos de VPNs, gestores de contraseñas y cursos de certificación.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-white/5">
+            <button onclick="solicitarPruebaGratisDirecta('Ciberseguridad')" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase flex items-center justify-center gap-1.5 transition">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i> Probar Gratis Muestra Ciber
+            </button>
+          </div>
+        </div>
+
+        <!-- NICHO 3: NOTICIAS VIRALES Y TECH -->
+        <div class="sv-glass rounded-3xl p-6 sm:p-8 space-y-6 border-amber-500/20 relative sv-glow-card flex flex-col justify-between">
+          <div class="space-y-5">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                <i data-lucide="zap" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30">
+                EN DESARROLLO
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white">Noticias Virales & IA</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Agentes autónomos de IA, robótica humanoide, novedades de OpenAI y revoluciones tecnológicas exponenciales.
+              </p>
+            </div>
+
+            <!-- MÉTRICAS CLAVE -->
+            <div class="grid grid-cols-2 gap-2 text-left font-mono">
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="text-[10px] text-slate-400 uppercase">RPM Estimado</div>
+                <div class="text-base font-black text-amber-400">$1.50 – $4.00</div>
+                <div class="text-[9px] text-slate-500">Volumen masivo millones</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="text-[10px] text-slate-400 uppercase">Audiencia</div>
+                <div class="text-base font-black text-white">16 – 45 años</div>
+                <div class="text-[9px] text-slate-500">Audiencia masiva viral</div>
+              </div>
+            </div>
+
+            <!-- CARACTERÍSTICAS TÉCNICAS -->
+            <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-white/5 pt-4">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                <span><strong>Estilo Visual:</strong> Animaciones Notion glitch, zoom continuo cada 1.5s y colores contrastados.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                <span><strong>Tono Neuronal:</strong> Locución enérgica, ritmo ultra acelerado y gancho de 0 a 1 segundo.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                <span><strong>Retención:</strong> Diseñado para superar el 85% de visionado en TikTok y YouTube Shorts.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                <span><strong>Monetización:</strong> Ingresos por volumen masivo de AdSense, afiliados de SaaS y software IA.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-white/5">
+            <button onclick="solicitarPruebaGratisDirecta('Noticias Virales')" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase flex items-center justify-center gap-1.5 transition">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i> Probar Gratis Muestra Viral
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- SECCIÓN: PRUEBA GRATIS (ACCESO MEDIANTE CORREO) -->
     <section id="prueba-gratis" class="sv-glass rounded-3xl p-8 sm:p-12 border-emerald-500/30 relative overflow-hidden">
@@ -1079,16 +1301,239 @@
 
     
     let demoStepActual = 1;
-    let demoAutoplayInterval = null;
+    let demoNichoActual = 'geoeconomia';
+
+    const datosNichosDemo = {
+      geoeconomia: {
+        nombre: 'Geoeconomía',
+        headerBadge: '<i data-lucide="radio" class="w-3.5 h-3.5 text-red-400 animate-pulse"></i> RASTREADOR DE NOTICIAS DE GEOECONOMÍA',
+        countBadge: '34 Noticias Analizadas',
+        card1: {
+          tag: '🌐 GEOECONOMÍA',
+          time: 'Hace 42 min · Lloyd\'s List',
+          title: 'El nuevo bloqueo del Estrecho de Malaca pone en riesgo el 40% del comercio marítimo mundial',
+          desc: 'Más de 90.000 buques petroleros y portacontenedores dependen de este paso estratégico diario.'
+        },
+        card2: {
+          tag: '🌐 BRICS & DIVISAS',
+          time: 'Hace 1h · Bloomberg',
+          title: 'Los bancos centrales aceleran la acumulación de reservas de oro físico al ritmo más alto desde 1967',
+          desc: 'Movimientos masivos de desdolarización generan tensión en los mercados de bonos soberanos.'
+        },
+        step2: {
+          title: '¿El fin del estrecho más transitado del planeta? #Shorts',
+          hook: '«¿Sabías que si este estrecho se bloquea, el planeta pierde 10 mil millones de dólares al día?»',
+          body: 'Por este estrecho navegan 90.000 buques al año transportando el petróleo de medio planeta. Si un incidente corta este paso, los precios en los supermercados se dispararían en menos de 48 horas. Las superpotencias ya vigilan cada milla náutica...',
+          keypoint: 'Dato clave: 90.000 buques anuales',
+          stats: '128 palabras · 44.5s estimados'
+        },
+        step3: {
+          voiceDesc: 'Locución natural pausada, analítica y con entonación de autoridad.',
+          voiceBadge: 'Álvaro Neural (España) · Sincronización Word-by-Word',
+          visualDesc: 'Mapas estratégicos 3D, buques y gráficos satelitales con zoom dinámico.',
+          visualBadge: '1080x1920 HD · Licencias comerciales',
+          subsBadge: 'Frases de 2-3 palabras · Amarillo neón (#00E6FF)'
+        },
+        step4: {
+          videoSrc: './demos/geo_short_1.mp4',
+          poster: './demos/geo_short_1_poster.jpg',
+          tag: 'Archivo Generado Listo para Publicar',
+          title: 'Guerra de Ferrocarriles y Rutas Estratégicas',
+          desc: 'Vídeo vertical montado automáticamente con música de fondo con ducking, subtítulos sincronizados milimétricamente y cabecera con fuente verificada.',
+          downloadName: 'Viral_Short_Geoeconomia.mp4',
+          downloadSize: 'Descargar Vídeo MP4 (17.4 MB)'
+        }
+      },
+      ciberseguridad: {
+        nombre: 'Ciberseguridad',
+        headerBadge: '<i data-lucide="shield-alert" class="w-3.5 h-3.5 text-emerald-400 animate-pulse"></i> MONITOR CTI & EXPLOITS ZERO-DAY',
+        countBadge: '19 Amenazas Críticas',
+        card1: {
+          tag: '🛡️ CIBERSEGURIDAD',
+          time: 'Hace 28 min · BleepingComputer',
+          title: 'Fallo crítico Zero-Day en infraestructuras portuarias expone sistemas de control en 30 países',
+          desc: 'Vulnerabilidad crítica en software SCADA permite bypass de autenticación sin credenciales previas.'
+        },
+        card2: {
+          tag: '🛡️ DARK WEB LEAKS',
+          time: 'Hace 45 min · The Hacker News',
+          title: 'Filtración masiva de 2.000 millones de credenciales bancarias y tokens de sesión activa',
+          desc: 'Base de datos expuesta sin cifrar compromete accesos corporativos en múltiples nubes.'
+        },
+        step2: {
+          title: 'Tus API Keys y Servidores están en PELIGRO #Shorts',
+          hook: '«Si tienes tus API keys en este archivo por defecto, cualquier hacker puede vaciar tu cuenta en 4 segundos.»',
+          body: 'Un equipo de analistas de seguridad acaba de descubrir un botnet que escanea repositorios en milisegundos. No necesitan tu contraseña; solo aprovechan una fuga silenciosa en el protocolo de conexión para tomar el control de tu infraestructura...',
+          keypoint: 'Vector de ataque: Exposición de claves en crudo',
+          stats: '115 palabras · 38.2s estimados'
+        },
+        step3: {
+          voiceDesc: 'Locución ágil, tensa y técnica con tono de alerta y llamada a la acción.',
+          voiceBadge: 'Elena Neural · Énfasis en términos técnicos',
+          visualDesc: 'Terminales Kali Linux, captura Wireshark y diagramas de red en tiempo real.',
+          visualBadge: '1080x1920 HD · Gráficos OSINT',
+          subsBadge: 'Frases de 2 palabras · Verde Matrix y Cian (#00FF66)'
+        },
+        step4: {
+          videoSrc: './demos/cyber_short_1.mp4',
+          poster: './demos/cyber_short_1_poster.jpg',
+          tag: 'Archivo Generado Listo para Publicar',
+          title: 'Infiltración Zero-Day y Fuga de Claves',
+          desc: 'Montaje de ciberseguridad con música de sintetizador oscuro, alertas visuales rojas y subtítulos de alta velocidad.',
+          downloadName: 'Viral_Short_Ciberseguridad.mp4',
+          downloadSize: 'Descargar Vídeo MP4 (6.5 MB)'
+        }
+      },
+      viral: {
+        nombre: 'Noticias Virales',
+        headerBadge: '<i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400 animate-pulse"></i> RADAR DE TENDENCIAS EXPONENCIALES IA',
+        countBadge: '52 Tendencias Virales',
+        card1: {
+          tag: '⚡ NOTICIAS VIRALES & IA',
+          time: 'Hace 18 min · TechCrunch',
+          title: 'OpenAI despliega agentes autónomos capaces de usar ordenadores y programar apps sin humanos',
+          desc: 'El nuevo modelo reemplaza flujos enteros de trabajo ejecutando miles de tareas por céntimos de dólar.'
+        },
+        card2: {
+          tag: '⚡ ROBÓTICA & TECH',
+          time: 'Hace 35 min · The Verge',
+          title: 'Los nuevos robots humanoides de Boston Dynamics entran en producción masiva para almacenes',
+          desc: 'Turnos continuos de 24 horas sin descanso cambian para siempre la industria de la logística.'
+        },
+        step2: {
+          title: 'El Fin del SaaS como lo conocemos #Shorts',
+          hook: '«Tu ordenador va a empezar a trabajar y ganar dinero mientras duermes antes de que acabe este año.»',
+          body: 'Las mayores empresas tecnológicas acaban de eliminar los softwares tradicionales. Ya no quieren pantallas con botones, quieren agentes de inteligencia artificial que hacen el trabajo sucio en milisegundos. Quien no se adapte hoy quedará completamente fuera...',
+          keypoint: 'Transformación: Agentes autónomos 24/7',
+          stats: '120 palabras · 39.5s estimados'
+        },
+        step3: {
+          voiceDesc: 'Locución enérgica, ritmo ultra acelerado y gancho de choque en el segundo 0.',
+          voiceBadge: 'Jorge Neural · Entonación viral para Shorts',
+          visualDesc: 'Estética minimalista Notion, animaciones glitch y transiciones ultra rápidas.',
+          visualBadge: '1080x1920 HD · Estilo Hormozi / Notion',
+          subsBadge: 'Resalte palabra por palabra · Amarillo Neón vibrante'
+        },
+        step4: {
+          videoSrc: './demos/viral_short_1.mp4',
+          poster: './demos/viral_short_1_poster.jpg',
+          tag: 'Archivo Generado Listo para Publicar',
+          title: 'Revolución de Agentes de Inteligencia Artificial',
+          desc: 'Vídeo viral de alto dinamismo con cortes rápidos de 1.5 segundos, subtítulos fluorescentes y música de retención.',
+          downloadName: 'Viral_Short_Noticias_Virales.mp4',
+          downloadSize: 'Descargar Vídeo MP4 (2.3 MB)'
+        }
+      }
+    };
+
+    function cambiarNichoDemo(nichoKey) {
+      demoNichoActual = nichoKey;
+      const data = datosNichosDemo[nichoKey];
+      if (!data) return;
+
+      // Actualizar botones de nicho
+      const btnGeo = document.getElementById('demo-btn-geo');
+      const btnCyber = document.getElementById('demo-btn-cyber');
+      const btnViral = document.getElementById('demo-btn-viral');
+      const labelNicho = document.getElementById('demo-nicho-selected-label');
+
+      const baseInactive = 'py-3 px-3 rounded-xl border border-white/10 bg-[#030509] text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition';
+      if (btnGeo) btnGeo.className = baseInactive + ' hover:border-sky-500/50';
+      if (btnCyber) btnCyber.className = baseInactive + ' hover:border-emerald-500/50';
+      if (btnViral) btnViral.className = baseInactive + ' hover:border-amber-500/50';
+
+      if (nichoKey === 'geoeconomia' && btnGeo) {
+        btnGeo.className = 'py-3 px-3 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-sky-500/20';
+        if (labelNicho) labelNicho.innerText = 'Nicho activo: Geoeconomía';
+      } else if (nichoKey === 'ciberseguridad' && btnCyber) {
+        btnCyber.className = 'py-3 px-3 rounded-xl border border-emerald-400 bg-emerald-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-emerald-500/20';
+        if (labelNicho) labelNicho.innerText = 'Nicho activo: Ciberseguridad';
+      } else if (nichoKey === 'viral' && btnViral) {
+        btnViral.className = 'py-3 px-3 rounded-xl border border-amber-400 bg-amber-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-amber-500/20';
+        if (labelNicho) labelNicho.innerText = 'Nicho activo: Noticias Virales';
+      }
+
+      // Actualizar Paso 1
+      const headerBadge = document.getElementById('step1-header-badge');
+      if (headerBadge) headerBadge.innerHTML = data.headerBadge;
+      const countBadge = document.getElementById('step1-count-badge');
+      if (countBadge) countBadge.innerText = data.countBadge;
+
+      const c1Tag = document.getElementById('step1-card1-tag');
+      if (c1Tag) c1Tag.innerText = data.card1.tag;
+      const c1Time = document.getElementById('step1-card1-time');
+      if (c1Time) c1Time.innerText = data.card1.time;
+      const c1Title = document.getElementById('step1-card1-title');
+      if (c1Title) c1Title.innerText = data.card1.title;
+      const c1Desc = document.getElementById('step1-card1-desc');
+      if (c1Desc) c1Desc.innerText = data.card1.desc;
+
+      const c2Tag = document.getElementById('step1-card2-tag');
+      if (c2Tag) c2Tag.innerText = data.card2.tag;
+      const c2Time = document.getElementById('step1-card2-time');
+      if (c2Time) c2Time.innerText = data.card2.time;
+      const c2Title = document.getElementById('step1-card2-title');
+      if (c2Title) c2Title.innerText = data.card2.title;
+      const c2Desc = document.getElementById('step1-card2-desc');
+      if (c2Desc) c2Desc.innerText = data.card2.desc;
+
+      // Actualizar Paso 2
+      const s2Title = document.getElementById('step2-title');
+      if (s2Title) s2Title.innerText = data.step2.title;
+      const s2Hook = document.getElementById('step2-hook');
+      if (s2Hook) s2Hook.innerText = data.step2.hook;
+      const s2Body = document.getElementById('step2-body');
+      if (s2Body) s2Body.innerText = data.step2.body;
+      const s2Keypoint = document.getElementById('step2-keypoint');
+      if (s2Keypoint) s2Keypoint.innerText = data.step2.keypoint;
+      const s2Stats = document.getElementById('step2-stats');
+      if (s2Stats) s2Stats.innerText = data.step2.stats;
+
+      // Actualizar Paso 3
+      const s3VoiceDesc = document.getElementById('step3-voice-desc');
+      if (s3VoiceDesc) s3VoiceDesc.innerText = data.step3.voiceDesc;
+      const s3VoiceBadge = document.getElementById('step3-voice-badge');
+      if (s3VoiceBadge) s3VoiceBadge.innerText = data.step3.voiceBadge;
+      const s3VisualDesc = document.getElementById('step3-visual-desc');
+      if (s3VisualDesc) s3VisualDesc.innerText = data.step3.visualDesc;
+      const s3VisualBadge = document.getElementById('step3-visual-badge');
+      if (s3VisualBadge) s3VisualBadge.innerText = data.step3.visualBadge;
+      const s3SubsBadge = document.getElementById('step3-subs-badge');
+      if (s3SubsBadge) s3SubsBadge.innerText = data.step3.subsBadge;
+
+      // Actualizar Paso 4
+      const videoPlayer = document.getElementById('demo-player-video');
+      if (videoPlayer) {
+        videoPlayer.src = data.step4.videoSrc;
+        videoPlayer.poster = data.step4.poster;
+        videoPlayer.load();
+      }
+      const pTag = document.getElementById('demo-player-tag');
+      if (pTag) pTag.innerText = data.step4.tag;
+      const pTitle = document.getElementById('demo-player-title');
+      if (pTitle) pTitle.innerText = data.step4.title;
+      const pDesc = document.getElementById('demo-player-desc');
+      if (pDesc) pDesc.innerText = data.step4.desc;
+
+      const topBtn = document.getElementById('demo-download-top-btn');
+      if (topBtn) {
+        topBtn.href = data.step4.videoSrc;
+        topBtn.download = data.step4.downloadName;
+      }
+      const topBtnText = document.getElementById('demo-download-top-text');
+      if (topBtnText) topBtnText.innerText = data.step4.downloadSize;
+
+      const botBtn = document.getElementById('demo-download-bottom-btn');
+      if (botBtn) {
+        botBtn.href = data.step4.videoSrc;
+        botBtn.download = data.step4.downloadName;
+      }
+
+      if (window.lucide) lucide.createIcons();
+    }
 
     function mostrarPasoDemo(step) {
       demoStepActual = step;
-      if (demoAutoplayInterval) {
-        clearInterval(demoAutoplayInterval);
-        demoAutoplayInterval = null;
-        const btnAuto = document.getElementById("btn-demo-autoplay");
-        if (btnAuto) btnAuto.innerHTML = '<i data-lucide="play" class="w-3.5 h-3.5 fill-emerald-400"></i> Simular Todo';
-      }
 
       for (let i = 1; i <= 4; i++) {
         const pane = document.getElementById(`demo-content-step-${i}`);
@@ -1113,28 +1558,13 @@
       if (window.lucide) lucide.createIcons();
     }
 
-    function iniciarDemoAutoplay() {
-      const btnAuto = document.getElementById("btn-demo-autoplay");
-      if (demoAutoplayInterval) {
-        clearInterval(demoAutoplayInterval);
-        demoAutoplayInterval = null;
-        if (btnAuto) btnAuto.innerHTML = '<i data-lucide="play" class="w-3.5 h-3.5 fill-emerald-400"></i> Simular Todo';
-        return;
+    function solicitarPruebaGratisDirecta(nicho) {
+      const emailForm = document.getElementById("demo-email");
+      if (emailForm) {
+        seleccionarNichoBoton(nicho);
+        document.getElementById("prueba-gratis").scrollIntoView({ behavior: "smooth" });
+        emailForm.focus();
       }
-
-      if (btnAuto) btnAuto.innerHTML = '<i data-lucide="pause" class="w-3.5 h-3.5 fill-emerald-400"></i> Pausar Simulación';
-      demoStepActual = 1;
-      mostrarPasoDemo(1);
-
-      demoAutoplayInterval = setInterval(() => {
-        demoStepActual++;
-        if (demoStepActual > 4) {
-          demoStepActual = 1;
-        }
-        mostrarPasoDemo(demoStepActual);
-      }, 4200);
-
-      if (window.lucide) lucide.createIcons();
     }
 
     function comprarApp10() {
