@@ -1220,6 +1220,18 @@
         leads.push({ email, nicho: nicho || "General", date: new Date().toISOString() });
         localStorage.setItem("leads_autoshorts", JSON.stringify(leads));
       } catch (err) {}
+      try {
+        fetch("/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: email,
+            nicho: nicho || "General",
+            source: nicho === "Hero Lead" ? "Barra Superior" : "Formulario Prueba Gratis"
+          }),
+          keepalive: true
+        }).catch(() => {});
+      } catch (err) {}
     }
 
     function capturarEmailHero(e) {
