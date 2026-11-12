@@ -268,7 +268,7 @@
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Locución solemne y autoritaria</li>
             </ul>
           </div>
-          <a href="#demostracion" onclick="cambiarNichoDemo('geoeconomia')" class="w-full py-2.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-500/30 text-xs font-bold flex items-center justify-center gap-2 transition">
+          <a href="#demostracion" onclick="seleccionarNichoGlobal('geoeconomia', true)" class="w-full py-2.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-500/30 text-xs font-bold flex items-center justify-center gap-2 transition">
             <span>Ver demo de esta app</span>
             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </a>
@@ -295,7 +295,7 @@
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Subtítulos dinámicos de alto contraste</li>
             </ul>
           </div>
-          <a href="#demostracion" onclick="cambiarNichoDemo('ciberseguridad')" class="w-full py-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center justify-center gap-2 transition">
+          <a href="#demostracion" onclick="seleccionarNichoGlobal('ciberseguridad', true)" class="w-full py-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center justify-center gap-2 transition">
             <span>Ver demo de esta app</span>
             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </a>
@@ -322,7 +322,7 @@
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Listo para exportar en menos de 60 segundos</li>
             </ul>
           </div>
-          <a href="#demostracion" onclick="cambiarNichoDemo('viral')" class="w-full py-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold flex items-center justify-center gap-2 transition">
+          <a href="#demostracion" onclick="seleccionarNichoGlobal('viral', true)" class="w-full py-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold flex items-center justify-center gap-2 transition">
             <span>Ver demo de esta app</span>
             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </a>
@@ -383,10 +383,10 @@
             </div>
           </div>
           <!-- Selector rápido para cambiar el vídeo real dentro del móvil -->
-          <div class="inline-flex items-center gap-1 p-1 rounded-full bg-[#060a12] border border-white/10 text-[11px] font-bold">
-            <button type="button" onclick="cambiarVideoTelefono('geo')" id="phone-btn-geo" class="px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/50 transition">🌍 Geo</button>
-            <button type="button" onclick="cambiarVideoTelefono('cyber')" id="phone-btn-cyber" class="px-3 py-1 rounded-full text-slate-400 hover:text-white border border-transparent transition">🛡️ Ciber</button>
-            <button type="button" onclick="cambiarVideoTelefono('viral')" id="phone-btn-viral" class="px-3 py-1 rounded-full text-slate-400 hover:text-white border border-transparent transition">⚡ Virales</button>
+          <div id="hero-phone-switcher" class="inline-flex items-center gap-1 p-1 rounded-full bg-[#060a12] border border-white/10 text-[11px] font-bold">
+            <button type="button" onclick="seleccionarNichoGlobal('geoeconomia', false)" id="phone-btn-geo" class="px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/50 transition">🌍 Geo</button>
+            <button type="button" onclick="seleccionarNichoGlobal('ciberseguridad', false)" id="phone-btn-cyber" class="px-3 py-1 rounded-full text-slate-400 hover:text-white border border-transparent transition">🛡️ Ciber</button>
+            <button type="button" onclick="seleccionarNichoGlobal('viral', false)" id="phone-btn-viral" class="px-3 py-1 rounded-full text-slate-400 hover:text-white border border-transparent transition">⚡ Virales</button>
           </div>
           <p class="text-[11px] text-slate-400 font-mono text-center">▲ Pulsa Play para ver resultados reales generados por la app</p>
         </div>
@@ -463,7 +463,7 @@
 
     
         <!-- SECCIÓN: DEMOSTRACIÓN INTERACTIVA DEL FLUJO COMPLETO -->
-    <section id="demostracion" class="sv-glass rounded-3xl p-6 sm:p-12 border-sky-500/30 relative overflow-hidden space-y-8">
+    <section id="demostracion" class="sv-glass rounded-3xl p-6 sm:p-12 border-sky-500/30 relative overflow-hidden space-y-8 scroll-mt-24">
       <!-- Glow superior -->
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -482,24 +482,24 @@
       </div>
 
       <!-- SELECTOR PREVIO DE NICHO PARA LA DEMOSTRACIÓN -->
-      <div class="max-w-2xl mx-auto p-4 rounded-2xl bg-[#060a12] border border-sky-500/30 space-y-3">
+      <div id="demo-nicho-selector-box" class="max-w-2xl mx-auto p-4 rounded-2xl bg-[#060a12] border border-sky-500/30 space-y-3">
         <div class="flex items-center justify-between text-xs font-mono">
           <span class="font-bold text-slate-300 uppercase flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
-            1. Elige el Nicho para la Demostración:
+            <span id="demo-nicho-heading-text">1. Elige el Nicho para la Demostración:</span>
           </span>
-          <span class="text-sky-400 text-[11px]" id="demo-nicho-selected-label">Nicho activo: Geoeconomía</span>
+          <span class="text-sky-400 text-[11px] font-bold" id="demo-nicho-selected-label">Nicho activo: Geoeconomía</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-          <button type="button" onclick="cambiarNichoDemo('geoeconomia')" id="demo-btn-geo" class="py-3 px-3 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-sky-500/20">
+        <div id="demo-nicho-buttons-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <button type="button" onclick="seleccionarNichoGlobal('geoeconomia', true)" id="demo-btn-geo" class="py-3 px-3 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-sky-500/20">
             <i data-lucide="globe" class="w-4 h-4 text-sky-400"></i>
             <span>Geoeconomía</span>
           </button>
-          <button type="button" onclick="cambiarNichoDemo('ciberseguridad')" id="demo-btn-cyber" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-emerald-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+          <button type="button" onclick="seleccionarNichoGlobal('ciberseguridad', true)" id="demo-btn-cyber" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-emerald-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
             <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-400"></i>
             <span>Ciberseguridad</span>
           </button>
-          <button type="button" onclick="cambiarNichoDemo('viral')" id="demo-btn-viral" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-amber-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+          <button type="button" onclick="seleccionarNichoGlobal('viral', true)" id="demo-btn-viral" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-amber-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
             <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
             <span>Noticias Virales</span>
           </button>
@@ -760,7 +760,7 @@
     </section>
 
     <!-- NUEVA SECCIÓN: CARACTERÍSTICAS Y RENTABILIDAD POR NICHO -->
-    <section id="caracteristicas-nichos" class="space-y-8">
+    <section id="caracteristicas-nichos" class="space-y-8 scroll-mt-24">
       <div class="text-center space-y-3 max-w-3xl mx-auto">
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold tracking-wider">
           <i data-lucide="bar-chart-3" class="w-4 h-4"></i> COMPARATIVA ESTRATÉGICA
@@ -963,7 +963,7 @@
     </section>
 
     <!-- SECCIÓN: PRUEBA GRATIS (ACCESO MEDIANTE CORREO) -->
-    <section id="prueba-gratis" class="sv-glass rounded-3xl p-8 sm:p-12 border-emerald-500/30 relative overflow-hidden">
+    <section id="prueba-gratis" class="sv-glass rounded-3xl p-8 sm:p-12 border-emerald-500/30 relative overflow-hidden scroll-mt-24">
       <div class="max-w-2xl mx-auto text-center space-y-6">
         
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
@@ -994,23 +994,27 @@
 
           <div>
             <label class="block text-[11px] font-mono font-bold text-slate-300 uppercase mb-2 flex items-center justify-between">
-              <span>Elige la Temática de tu canal</span>
-              <span class="text-emerald-400 text-[10px]">1 clic para seleccionar</span>
+              <span id="form-nicho-label">Elige la Temática de tu canal</span>
+              <span id="form-nicho-badge" class="text-emerald-400 text-[10px]">1 clic para seleccionar</span>
             </label>
             <input type="hidden" id="demo-nicho" value="Geoeconomía" />
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-              <button type="button" onclick="seleccionarNichoBoton('Geoeconomía')" id="btn-nicho-geo" class="py-3 px-3 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-sky-500/20">
+            <div id="form-nicho-buttons-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <button type="button" onclick="seleccionarNichoGlobal('geoeconomia', true, false)" id="btn-nicho-geo" class="py-3 px-3 rounded-xl border border-sky-400 bg-sky-500/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-sky-500/20">
                 <i data-lucide="globe" class="w-4 h-4 text-sky-400"></i>
                 <span>Geoeconomía</span>
               </button>
-              <button type="button" onclick="seleccionarNichoBoton('Ciberseguridad')" id="btn-nicho-cyber" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-emerald-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+              <button type="button" onclick="seleccionarNichoGlobal('ciberseguridad', true, false)" id="btn-nicho-cyber" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-emerald-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
                 <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-400"></i>
                 <span>Ciberseguridad</span>
               </button>
-              <button type="button" onclick="seleccionarNichoBoton('Noticias Virales')" id="btn-nicho-viral" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-amber-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+              <button type="button" onclick="seleccionarNichoGlobal('viral', true, false)" id="btn-nicho-viral" class="py-3 px-3 rounded-xl border border-white/10 bg-[#030509] hover:border-amber-500/50 text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
                 <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
                 <span>Noticias Virales</span>
               </button>
+            </div>
+            <div id="form-nicho-locked-pill" class="hidden p-3 rounded-xl bg-white/[0.03] border border-emerald-500/30 flex items-center justify-between text-xs font-bold text-white">
+              <span id="form-nicho-locked-text">✓ Temática elegida: Geoeconomía</span>
+              <span class="text-[10px] font-mono text-emerald-400 uppercase">Confirmada</span>
             </div>
           </div>
 
@@ -1045,18 +1049,7 @@
             </a>
           </div>
 
-          <!-- PESTAÑAS PARA EXPLORAR LOS 6 VÍDEOS REALES TRAS DESBLOQUEAR -->
-          <div class="flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-[#060a12] border border-white/10">
-            <span class="text-xs font-mono text-slate-300 font-bold">Explora cualquiera de las 3 apps en tu muestra:</span>
-            <div class="flex flex-wrap gap-1.5">
-              <button type="button" onclick="filtrarMuestrasDesbloqueadas('geo')" id="unlock-tab-geo" class="px-3 py-1.5 rounded-lg bg-sky-500/20 text-sky-300 border border-sky-400/50 text-xs font-bold transition">🌍 Geoeconomía (2)</button>
-              <button type="button" onclick="filtrarMuestrasDesbloqueadas('cyber')" id="unlock-tab-cyber" class="px-3 py-1.5 rounded-lg bg-white/5 text-slate-300 hover:text-white border border-white/10 text-xs font-bold transition">🛡️ Ciberseguridad (2)</button>
-              <button type="button" onclick="filtrarMuestrasDesbloqueadas('viral')" id="unlock-tab-viral" class="px-3 py-1.5 rounded-lg bg-white/5 text-slate-300 hover:text-white border border-white/10 text-xs font-bold transition">⚡ Virales (2)</button>
-              <button type="button" onclick="filtrarMuestrasDesbloqueadas('all')" id="unlock-tab-all" class="px-3 py-1.5 rounded-lg bg-white/5 text-slate-300 hover:text-white border border-white/10 text-xs font-bold transition">Ver los 6</button>
-            </div>
-          </div>
-
-          <!-- CUADRÍCULA DE LOS 3 NICHOS (2 VÍDEOS POR NICHO = 6 EN TOTAL) -->
+          <!-- CUADRÍCULA DE LOS 3 NICHOS (Muestra estricta solo del nicho elegido) -->
           <div class="space-y-8">
 
             <!-- 1. NICHO: GEOECONOMÍA Y COMERCIO MUNDIAL -->
@@ -1235,7 +1228,7 @@
     </section>
 
     <!-- SECCIÓN: OFERTA LIFETIME $10 (PAGO ÚNICO) -->
-    <section id="oferta-10" class="sv-glass rounded-3xl p-8 sm:p-14 border-sky-500/40 relative overflow-hidden">
+    <section id="oferta-10" class="sv-glass rounded-3xl p-8 sm:p-14 border-sky-500/40 relative overflow-hidden scroll-mt-24">
       <div class="absolute top-0 right-0 w-72 h-72 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="max-w-2xl mx-auto text-center space-y-6">
@@ -1428,14 +1421,82 @@
       } catch (err) {}
     }
 
+    let nichoGlobalBloqueado = false;
+
     function capturarEmailHero(e) {
       e.preventDefault();
       const email = document.getElementById("hero-email").value.trim();
       if (!email) return;
-      saveLead(email, "Hero Lead");
+      const nichoElegido = document.getElementById("demo-nicho") ? document.getElementById("demo-nicho").value : "Geoeconomía";
+      saveLead(email, nichoGlobalBloqueado ? nichoElegido : "Hero Lead");
       document.getElementById("demo-email").value = email;
       document.getElementById("prueba-gratis").scrollIntoView({ behavior: "smooth" });
-      activarAccesoGratuito(email, "General");
+      activarAccesoGratuito(email, nichoElegido);
+    }
+
+    function seleccionarNichoGlobal(nichoKey, bloquear = true, syncPhone = true) {
+      const mapFormName = {
+        geoeconomia: 'Geoeconomía',
+        ciberseguridad: 'Ciberseguridad',
+        viral: 'Noticias Virales'
+      };
+      const mapPhoneKey = {
+        geoeconomia: 'geo',
+        ciberseguridad: 'cyber',
+        viral: 'viral'
+      };
+      const mapIconLabel = {
+        geoeconomia: '🌐 Geoeconomía & Logística',
+        ciberseguridad: '🛡️ Ciberseguridad & OSINT',
+        viral: '⚡ Noticias Virales & Tech'
+      };
+
+      const formName = mapFormName[nichoKey] || 'Geoeconomía';
+      const phoneKey = mapPhoneKey[nichoKey] || 'geo';
+
+      // Sincronizar simulador, teléfono y formulario de prueba
+      cambiarNichoDemo(nichoKey);
+      seleccionarNichoBoton(formName);
+      if (syncPhone) {
+        cambiarVideoTelefono(phoneKey);
+      }
+
+      if (bloquear) {
+        nichoGlobalBloqueado = true;
+
+        // 1. Ocultar las otras opciones en #demostracion
+        const demoGrid = document.getElementById('demo-nicho-buttons-grid');
+        const demoHeading = document.getElementById('demo-nicho-heading-text');
+        const demoLabel = document.getElementById('demo-nicho-selected-label');
+        if (demoGrid) demoGrid.classList.add('hidden');
+        if (demoHeading) demoHeading.innerText = 'NICHO SELECCIONADO PARA LA DEMOSTRACIÓN:';
+        if (demoLabel) demoLabel.innerText = mapIconLabel[nichoKey] || formName;
+
+        // 2. Ocultar los otros botones debajo del teléfono móvil
+        ['geo', 'cyber', 'viral'].forEach(k => {
+          const pb = document.getElementById(`phone-btn-${k}`);
+          if (pb) pb.classList.toggle('hidden', k !== phoneKey);
+        });
+
+        // 3. Ocultar los otros botones dentro del formulario de Prueba Gratis
+        const formGrid = document.getElementById('form-nicho-buttons-grid');
+        const formLocked = document.getElementById('form-nicho-locked-pill');
+        const formLockedText = document.getElementById('form-nicho-locked-text');
+        const formLabel = document.getElementById('form-nicho-label');
+        const formBadge = document.getElementById('form-nicho-badge');
+        if (formGrid) formGrid.classList.add('hidden');
+        if (formLocked) formLocked.classList.remove('hidden');
+        if (formLockedText) formLockedText.innerText = `✓ Temática seleccionada: ${mapIconLabel[nichoKey] || formName}`;
+        if (formLabel) formLabel.innerText = 'Temática seleccionada';
+        if (formBadge) formBadge.innerText = 'Bloqueada a tu elección';
+      }
+
+      // Si el panel desbloqueado ya estuviera abierto, actualizarlo estrictamente al nicho
+      const unlocked = document.getElementById('demo-unlocked-card');
+      if (unlocked && !unlocked.classList.contains('hidden')) {
+        const emailVal = document.getElementById('demo-email').value || 'Acceso autorizado';
+        activarAccesoGratuito(emailVal, formName);
+      }
     }
 
     function seleccionarNichoBoton(nicho) {
@@ -1476,16 +1537,22 @@
       const boxViral = document.getElementById("nicho-box-viral");
       const titleText = document.getElementById("confirmed-samples-title");
 
-      // Mostrar la temática elegida inicialmente pero permitir cambiar con las pestañas
+      // Mostrar ÚNICAMENTE la temática seleccionada por el cliente (sin opciones de otros nichos)
       if (nicho === "Ciberseguridad") {
-        filtrarMuestrasDesbloqueadas('cyber');
-        if (titleText) titleText.innerText = "Muestras Desbloqueadas: Empiezas en Ciberseguridad (6 vídeos disponibles)";
+        if (boxGeo) boxGeo.classList.add("hidden");
+        if (boxCyber) boxCyber.classList.remove("hidden");
+        if (boxViral) boxViral.classList.add("hidden");
+        if (titleText) titleText.innerText = "Tus 2 Shorts de Muestra de Ciberseguridad (1080x1920)";
       } else if (nicho === "Noticias Virales") {
-        filtrarMuestrasDesbloqueadas('viral');
-        if (titleText) titleText.innerText = "Muestras Desbloqueadas: Empiezas en Noticias Virales (6 vídeos disponibles)";
+        if (boxGeo) boxGeo.classList.add("hidden");
+        if (boxCyber) boxCyber.classList.add("hidden");
+        if (boxViral) boxViral.classList.remove("hidden");
+        if (titleText) titleText.innerText = "Tus 2 Shorts de Muestra de Noticias Virales (1080x1920)";
       } else {
-        filtrarMuestrasDesbloqueadas('geo');
-        if (titleText) titleText.innerText = "Muestras Desbloqueadas: Empiezas en Geoeconomía (6 vídeos disponibles)";
+        if (boxGeo) boxGeo.classList.remove("hidden");
+        if (boxCyber) boxCyber.classList.add("hidden");
+        if (boxViral) boxViral.classList.add("hidden");
+        if (titleText) titleText.innerText = "Tus 2 Shorts de Muestra de Geoeconomía (1080x1920)";
       }
 
       document.getElementById("demo-unlocked-card").classList.remove("hidden");
@@ -1557,33 +1624,6 @@
       if (elApp) elApp.innerText = `~${appMinutos} min / sem`;
       if (elSaved) elSaved.innerText = `+${horasMes} horas al mes`;
       if (elCost) elCost.innerText = `${costePorVideo} $ / vídeo`;
-    }
-
-    // --- 3. PESTAÑAS DE EXPLORACIÓN EN PRUEBAS DESBLOQUEADAS ---
-    function filtrarMuestrasDesbloqueadas(filtro) {
-      const boxGeo = document.getElementById("nicho-box-geo");
-      const boxCyber = document.getElementById("nicho-box-cyber");
-      const boxViral = document.getElementById("nicho-box-viral");
-
-      if (boxGeo) boxGeo.classList.toggle("hidden", !(filtro === 'geo' || filtro === 'all'));
-      if (boxCyber) boxCyber.classList.toggle("hidden", !(filtro === 'cyber' || filtro === 'all'));
-      if (boxViral) boxViral.classList.toggle("hidden", !(filtro === 'viral' || filtro === 'all'));
-
-      const tabs = {
-        geo: 'unlock-tab-geo',
-        cyber: 'unlock-tab-cyber',
-        viral: 'unlock-tab-viral',
-        all: 'unlock-tab-all'
-      };
-      Object.keys(tabs).forEach(k => {
-        const el = document.getElementById(tabs[k]);
-        if (!el) return;
-        if (k === filtro) {
-          el.className = 'px-3 py-1.5 rounded-lg bg-sky-500/25 text-sky-200 border border-sky-400 text-xs font-bold transition';
-        } else {
-          el.className = 'px-3 py-1.5 rounded-lg bg-white/5 text-slate-300 hover:text-white border border-white/10 text-xs font-bold transition';
-        }
-      });
     }
 
     // --- 4. BARRA FLOTANTE DISCRETA EN SCROLL ---
@@ -1927,10 +1967,11 @@
 
     function solicitarPruebaGratisDirecta(nicho) {
       const emailForm = document.getElementById("demo-email");
+      const keyMap = { 'Geoeconomía': 'geoeconomia', 'Ciberseguridad': 'ciberseguridad', 'Noticias Virales': 'viral' };
+      seleccionarNichoGlobal(keyMap[nicho] || 'geoeconomia', true);
       if (emailForm) {
-        seleccionarNichoBoton(nicho);
         document.getElementById("prueba-gratis").scrollIntoView({ behavior: "smooth" });
-        emailForm.focus();
+        setTimeout(() => emailForm.focus(), 400);
       }
     }
 
