@@ -89,6 +89,18 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
   </style>
 </head>
 <body class="sv-grid min-h-screen flex flex-col selection:bg-sky-500 selection:text-slate-950 antialiased relative">
@@ -116,28 +128,22 @@
         </div>
       </a>
 
-      <!-- PLATFORM PILLS -->
-      <div class="hidden md:flex items-center gap-2 text-[11px] font-mono font-bold text-slate-300 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/5">
-        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-red-500/10 text-red-400 border border-red-500/20">
-          <i data-lucide="youtube" class="w-3.5 h-3.5"></i> YouTube Shorts
-        </span>
-        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-pink-500/10 text-pink-400 border border-pink-500/20">
-          <i data-lucide="music-2" class="w-3.5 h-3.5"></i> TikTok
-        </span>
-        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">
-          <i data-lucide="instagram" class="w-3.5 h-3.5"></i> Instagram Reels
-        </span>
-      </div>
+      <!-- CLEAN NAVIGATION LINKS -->
+      <nav class="hidden md:flex items-center gap-1 text-xs font-semibold text-slate-300 bg-white/[0.03] px-2 py-1 rounded-full border border-white/5">
+        <a href="#apps" class="px-3 py-1.5 rounded-full hover:bg-white/5 hover:text-white transition">3 Apps</a>
+        <a href="#calculadora" class="px-3 py-1.5 rounded-full hover:bg-white/5 hover:text-white transition">Ahorro Diario</a>
+        <a href="#demostracion" class="px-3 py-1.5 rounded-full hover:bg-white/5 hover:text-white transition">Simulador</a>
+        <a href="#caracteristicas-nichos" class="px-3 py-1.5 rounded-full hover:bg-white/5 hover:text-white transition">Comparativa</a>
+      </nav>
 
       <!-- NAV ACTIONS -->
-      <div class="flex items-center gap-3">
-        <a href="#demostracion" class="text-xs font-bold text-slate-300 hover:text-white px-3 py-1.5 rounded-lg hover:bg-white/5 transition flex items-center gap-1.5"><i data-lucide="play-circle" class="w-3.5 h-3.5 text-sky-400"></i> Demostración</a>
+      <div class="flex items-center gap-2 sm:gap-3">
         <a href="#prueba-gratis" class="text-xs font-bold text-slate-300 hover:text-white px-3 py-1.5 rounded-lg hover:bg-white/5 transition flex items-center gap-1.5">
-          <i data-lucide="gift" class="w-3.5 h-3.5 text-emerald-400"></i> Prueba Gratis
+          <i data-lucide="gift" class="w-3.5 h-3.5 text-emerald-400"></i> <span>Prueba Gratis</span>
         </a>
-        <a href="#oferta-10" class="text-xs font-black px-4 py-2 rounded-xl bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400 text-slate-950 sv-glow-button flex items-center gap-1.5">
+        <a href="#oferta-10" class="text-xs font-black px-3.5 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400 text-slate-950 sv-glow-button flex items-center gap-1.5">
           <span>Comprar App</span>
-          <span class="px-1.5 py-0.5 bg-slate-950/20 rounded font-mono text-[10px]">$10 USD</span>
+          <span class="px-1.5 py-0.5 bg-slate-950/20 rounded font-mono text-[10px]">$10</span>
         </a>
       </div>
     </div>
@@ -219,7 +225,7 @@
     </section>
 
         <!-- LAS 3 APLICACIONES ESPECIALIZADAS POR NICHO -->
-    <section class="space-y-6">
+    <section id="apps" class="space-y-6 scroll-mt-24">
       <div class="text-center space-y-2">
         <div class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest">3 APLICACIONES ESPECIALIZADAS</div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Elige tu temática. Genera contenido diario al instante.</h2>
@@ -363,31 +369,93 @@
           </div>
         </div>
 
-        <!-- VISUAL DEL MÓVIL 9:16 -->
-        <div class="lg:col-span-5 flex justify-center">
-          <div class="w-[260px] aspect-[9/16] rounded-[36px] p-3.5 bg-gradient-to-b from-slate-700 via-slate-900 to-black border-4 border-slate-700 shadow-2xl relative">
-            <div class="w-full h-full rounded-[26px] bg-[#030509] overflow-hidden flex flex-col justify-between p-4 border border-white/10 relative">
-              <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
-                <span class="flex items-center gap-1 text-emerald-400 font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> LIVE DEMO</span>
-                <span>9:16 HD</span>
-              </div>
-
-              <div class="text-center space-y-3 py-6">
-                <div class="w-14 h-14 rounded-2xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center mx-auto text-sky-400 shadow-lg shadow-sky-500/20">
-                  <i data-lucide="play" class="w-7 h-7 fill-sky-400"></i>
-                </div>
-                <div class="text-xs font-black text-white px-1 leading-snug">
-                  "El monopolio ferroviario en EE.UU. está a punto de explotar"
-                </div>
-              </div>
-
-              <div class="space-y-1.5 text-[10px] text-slate-400 border-t border-white/10 pt-3">
-                <div class="flex justify-between font-mono">
-                  <span>YouTube · TikTok · Reels</span>
-                  <span class="text-sky-400 font-bold">1080p MP4</span>
-                </div>
+        <!-- VISUAL REAL DEL MÓVIL 9:16 INTERACTIVO -->
+        <div class="lg:col-span-5 flex flex-col items-center space-y-3">
+          <div class="w-[260px] aspect-[9/16] rounded-[36px] p-3 bg-gradient-to-b from-slate-700 via-slate-900 to-black border-4 border-slate-700 shadow-2xl shadow-sky-500/10 relative">
+            <div class="w-full h-full rounded-[26px] bg-black overflow-hidden flex flex-col justify-between border border-white/10 relative">
+              <video id="hero-phone-video" controls playsinline preload="metadata" poster="./demos/geo_short_1_poster.jpg" class="w-full h-full object-cover" src="./demos/geo_short_1.mp4">
+                Tu navegador no soporta vídeo directo.
+              </video>
+              <div class="pointer-events-none absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between text-[9px] font-mono text-white/95 bg-black/65 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+                <span class="flex items-center gap-1 text-emerald-400 font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> VÍDEO REAL</span>
+                <span id="hero-phone-label">Geoeconomía · 9:16</span>
               </div>
             </div>
+          </div>
+          <!-- Selector rápido para cambiar el vídeo real dentro del móvil -->
+          <div class="inline-flex items-center gap-1 p-1 rounded-full bg-[#060a12] border border-white/10 text-[11px] font-bold">
+            <button type="button" onclick="cambiarVideoTelefono('geo')" id="phone-btn-geo" class="px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/50 transition">🌍 Geo</button>
+            <button type="button" onclick="cambiarVideoTelefono('cyber')" id="phone-btn-cyber" class="px-3 py-1 rounded-full text-slate-400 hover:text-white border border-transparent transition">🛡️ Ciber</button>
+            <button type="button" onclick="cambiarVideoTelefono('viral')" id="phone-btn-viral" class="px-3 py-1 rounded-full text-slate-400 hover:text-white border border-transparent transition">⚡ Virales</button>
+          </div>
+          <p class="text-[11px] text-slate-400 font-mono text-center">▲ Pulsa Play para ver resultados reales generados por la app</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: CALCULADORA INTERACTIVA DE TIEMPO AHORRADO -->
+    <section id="calculadora" class="sv-glass rounded-3xl p-6 sm:p-10 border-emerald-500/25 relative overflow-hidden scroll-mt-24">
+      <div class="absolute -bottom-16 -right-16 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
+            <i data-lucide="clock" class="w-3.5 h-3.5"></i> CALCULADORA DE CONSISTENCIA DIARIA
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+            ¿Cuánto tiempo ahorras al mes publicando sin parar?
+          </h2>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Selecciona cuántos vídeos quieres publicar a la semana y comprueba por qué la automatización hace posible mantener tus canales activos todo el año:
+          </p>
+
+          <div class="space-y-2 pt-1">
+            <span class="text-[11px] font-mono font-bold text-slate-300 uppercase">Elige tu ritmo de publicación semanal:</span>
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" onclick="actualizarCalculadoraTiempo(3)" id="calc-btn-3" class="py-3 px-2 rounded-xl border border-white/10 bg-[#060a12] hover:border-sky-400/50 text-slate-300 font-bold text-xs transition text-center">
+                3 vídeos<br><span class="text-[10px] font-normal text-slate-400">Constante</span>
+              </button>
+              <button type="button" onclick="actualizarCalculadoraTiempo(7)" id="calc-btn-7" class="py-3 px-2 rounded-xl border-2 border-emerald-400 bg-emerald-500/15 text-white font-bold text-xs transition text-center shadow-lg shadow-emerald-500/15">
+                7 vídeos<br><span class="text-[10px] font-normal text-emerald-300">1 cada día</span>
+              </button>
+              <button type="button" onclick="actualizarCalculadoraTiempo(14)" id="calc-btn-14" class="py-3 px-2 rounded-xl border border-white/10 bg-[#060a12] hover:border-sky-400/50 text-slate-300 font-bold text-xs transition text-center">
+                14 vídeos<br><span class="text-[10px] font-normal text-slate-400">2 al día</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 bg-[#060a12] border border-white/10 rounded-2xl p-6 space-y-5 shadow-2xl">
+          <div class="grid grid-cols-2 gap-3 font-mono">
+            <div class="p-4 rounded-xl bg-red-500/5 border border-red-500/20">
+              <div class="text-[10px] text-slate-400 uppercase">Haciéndolo a mano</div>
+              <div class="text-xl sm:text-2xl font-black text-red-400 mt-1" id="calc-manual-hours">~17.5 h / sem</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">~2.5 h por vídeo editado</div>
+            </div>
+            <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+              <div class="text-[10px] text-emerald-300 uppercase font-bold">Con AutoShorts.ai</div>
+              <div class="text-xl sm:text-2xl font-black text-emerald-400 mt-1" id="calc-app-mins">~14 min / sem</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">~2 min por vídeo en 1 clic</div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-between gap-4">
+            <div>
+              <div class="text-[11px] font-mono text-sky-400 uppercase font-bold">Tiempo libre recuperado</div>
+              <div class="text-2xl sm:text-3xl font-black text-white" id="calc-saved-month">+69 horas al mes</div>
+            </div>
+            <div class="text-right">
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Licencia $10 / año</div>
+              <div class="text-sm font-black text-amber-400 font-mono" id="calc-cost-per-video">0,03 $ / vídeo</div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-2.5">
+            <a href="#prueba-gratis" class="flex-1 py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs text-center flex items-center justify-center gap-1.5 transition">
+              <i data-lucide="gift" class="w-4 h-4 text-emerald-400"></i> Probar Muestra Gratis
+            </a>
+            <button type="button" onclick="comprarApp10()" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-400 to-sky-400 text-slate-950 font-black text-xs uppercase text-center flex items-center justify-center gap-1.5 hover:opacity-95 transition">
+              <i data-lucide="zap" class="w-4 h-4"></i> Conseguir App ($10)
+            </button>
           </div>
         </div>
       </div>
@@ -406,7 +474,7 @@
         </div>
         <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
           Cómo Funciona la App: <br>
-          <span class="gradient-text-cyan">De Noticia Viral a Vídeo Listo</span>
+          <span class="gradient-text-cyan">De Noticia del Día a Vídeo Listo</span>
         </h2>
         <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
           Selecciona primero la temática que quieres explorar y comprueba cómo el motor adapta la búsqueda, el guion, el montaje y el vídeo final:
@@ -471,16 +539,18 @@
               <div class="text-[11px] font-mono text-sky-400 uppercase font-bold flex items-center gap-1.5" id="step1-header-badge">
                 <i data-lucide="radio" class="w-3.5 h-3.5 text-red-400 animate-pulse"></i> RASTREADOR DE NOTICIAS DE GEOECONOMÍA
               </div>
-              <h3 class="text-lg font-bold text-white mt-0.5">1. Búsqueda y Selección de Noticia Viral</h3>
+              <h3 class="text-lg font-bold text-white mt-0.5">1. Búsqueda Automática de Noticias del Día</h3>
             </div>
             <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold" id="step1-count-badge">
               34 Noticias Analizadas
             </span>
           </div>
 
+          <p class="text-xs text-slate-400">Haz clic sobre cualquiera de las dos noticias detectadas hoy para ver cómo cambia el guion del Paso 2:</p>
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="step1-news-container">
-            <!-- NOTICIA SELECCIONADA -->
-            <div class="p-4 rounded-xl bg-sky-950/40 border-2 border-sky-400 space-y-3 relative shadow-lg shadow-sky-500/10">
+            <!-- NOTICIA 1 -->
+            <div id="step1-card-1" onclick="seleccionarNoticiaDemo(1)" class="p-4 rounded-xl bg-sky-950/40 border-2 border-sky-400 space-y-3 relative shadow-lg shadow-sky-500/10 cursor-pointer transition">
               <div class="flex items-center justify-between text-[11px] font-mono">
                 <span class="text-sky-300 font-bold" id="step1-card1-tag">🌐 GEOECONOMÍA</span>
                 <span class="text-slate-400" id="step1-card1-time">Hace 42 min · Lloyd's List</span>
@@ -495,14 +565,14 @@
                 <span class="text-[11px] text-emerald-400 font-mono font-bold flex items-center gap-1">
                   <i data-lucide="check-circle-2" class="w-4 h-4"></i> Fuente Verificada
                 </span>
-                <button onclick="mostrarPasoDemo(2)" class="px-3.5 py-1.5 rounded-lg bg-sky-400 text-slate-950 font-black text-xs uppercase flex items-center gap-1 hover:opacity-95 transition">
-                  <span>Seleccionada</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                <button type="button" onclick="event.stopPropagation(); seleccionarNoticiaDemo(1); mostrarPasoDemo(2);" id="step1-btn-1" class="px-3.5 py-1.5 rounded-lg bg-sky-400 text-slate-950 font-black text-xs uppercase flex items-center gap-1 hover:opacity-95 transition">
+                  <span>Crear Guion</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
                 </button>
               </div>
             </div>
 
-            <!-- OTRA NOTICIA DISPONIBLE -->
-            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3 opacity-80 hover:opacity-100 transition">
+            <!-- NOTICIA 2 -->
+            <div id="step1-card-2" onclick="seleccionarNoticiaDemo(2)" class="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3 opacity-85 hover:opacity-100 hover:border-sky-400/50 cursor-pointer transition">
               <div class="flex items-center justify-between text-[11px] font-mono">
                 <span class="text-slate-400 font-bold" id="step1-card2-tag">🌐 BRICS & DIVISAS</span>
                 <span class="text-slate-400" id="step1-card2-time">Hace 1h · Bloomberg</span>
@@ -514,9 +584,9 @@
                 Movimientos masivos de desdolarización generan tensión en los mercados de bonos soberanos.
               </p>
               <div class="flex items-center justify-between pt-2 border-t border-white/10">
-                <span class="text-[11px] text-slate-400 font-mono">Reuters / Financial Times</span>
-                <button onclick="mostrarPasoDemo(2)" class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition">
-                  Seleccionar
+                <span class="text-[11px] text-slate-400 font-mono">Fuente Verificada</span>
+                <button type="button" onclick="event.stopPropagation(); seleccionarNoticiaDemo(2); mostrarPasoDemo(2);" id="step1-btn-2" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition flex items-center gap-1">
+                  <span>Usar esta noticia</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
                 </button>
               </div>
             </div>
@@ -530,7 +600,7 @@
               <div class="text-[11px] font-mono text-purple-400 uppercase font-bold flex items-center gap-1.5">
                 <i data-lucide="sparkles" class="w-3.5 h-3.5 text-purple-400"></i> EDITOR INTELIGENTE DE GUIONES VIRALES
               </div>
-              <h3 class="text-lg font-bold text-white mt-0.5">2. Generación de Guion con Gancho Anti-Swipe</h3>
+              <h3 class="text-lg font-bold text-white mt-0.5">2. Guion Narrativo Listo en Segundos</h3>
             </div>
             <button onclick="mostrarPasoDemo(3)" class="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-400 to-sky-400 text-slate-950 font-black text-xs uppercase flex items-center gap-1.5 shadow-lg">
               <span>Continuar al Montaje</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -547,7 +617,7 @@
             <!-- GANCHO (0-2s) -->
             <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-1">
               <span class="text-[10px] font-mono font-bold text-amber-300 uppercase flex items-center gap-1">
-                <i data-lucide="zap" class="w-3 h-3 text-amber-400"></i> Gancho Inicial de 0 a 2 Segundos (Detiene el Swipe)
+                <i data-lucide="zap" class="w-3 h-3 text-amber-400"></i> Apertura Directa e Interesante (Primeros 3 segundos)
               </span>
               <div class="text-xs sm:text-sm font-extrabold text-amber-200" id="step2-hook">
                 "¿Sabías que si este estrecho se bloquea, el planeta pierde 10 mil millones de dólares al día?"
@@ -613,7 +683,7 @@
                 <i data-lucide="subtitles" class="w-4 h-4"></i>
               </div>
               <h4 class="text-xs font-bold text-white">Subtítulos Karaoke Dinámicos</h4>
-              <p class="text-[11px] text-slate-400">Resalte palabra por palabra con estilo tipográfico de retención máxima.</p>
+              <p class="text-[11px] text-slate-400">Resalte palabra por palabra claro, nítido y fácil de leer sin esfuerzo.</p>
               <div class="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-amber-300" id="step3-subs-badge">
                 Frases de 2-3 palabras · Amarillo neón (#00E6FF)
               </div>
@@ -700,7 +770,7 @@
           <span class="gradient-text-cyan">Audiencia, RPM y Formato Visual</span>
         </h2>
         <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-          Cada temática tiene un comportamiento algorítmico diferente. Descubre cuál encaja mejor con tus objetivos de crecimiento o monetización publicitaria:
+          Cada temática cuenta con su propio estilo visual, tono de voz y tipo de audiencia. Elige la que mejor encaja contigo:
         </p>
       </div>
 
@@ -751,7 +821,7 @@
               </li>
               <li class="flex items-start gap-2">
                 <i data-lucide="check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
-                <span><strong>Retención:</strong> Muy alta por curiosidad histórica y tensión internacional en directo.</span>
+                <span><strong>Consistencia:</strong> Actualidad diaria inagotable para resumir en 45 segundos sin quedarte sin temas.</span>
               </li>
               <li class="flex items-start gap-2">
                 <i data-lucide="check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
@@ -812,7 +882,7 @@
               </li>
               <li class="flex items-start gap-2">
                 <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                <span><strong>Retención:</strong> Gancho inmediato de alerta ("Tu contraseña ha sido filtrada").</span>
+                <span><strong>Claridad Técnica:</strong> Explica alertas complejas con ejemplos sencillos y visuales claros.</span>
               </li>
               <li class="flex items-start gap-2">
                 <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
@@ -852,12 +922,12 @@
               <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
                 <div class="text-[10px] text-slate-400 uppercase">RPM Estimado</div>
                 <div class="text-base font-black text-amber-400">$1.50 – $4.00</div>
-                <div class="text-[9px] text-slate-500">Volumen masivo millones</div>
+                <div class="text-[9px] text-slate-500">Temas de actualidad</div>
               </div>
               <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
                 <div class="text-[10px] text-slate-400 uppercase">Audiencia</div>
                 <div class="text-base font-black text-white">16 – 45 años</div>
-                <div class="text-[9px] text-slate-500">Audiencia masiva viral</div>
+                <div class="text-[9px] text-slate-500">Público general tech</div>
               </div>
             </div>
 
@@ -906,7 +976,7 @@
         </h2>
 
         <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-          Recibe acceso instantáneo a <strong>Shorts y Reels de muestra completamente gratis</strong> adaptados a tu nicho para que compruebes la retención y calidad visual antes de decidir nada.
+          Recibe acceso instantáneo a <strong>vídeos de muestra completamente gratis</strong> para que compruebes la facilidad del formato, la naturalidad de la voz y la calidad final sin compromiso.
         </p>
 
         <!-- FORMULARIO DE ACCESO POR EMAIL -->
@@ -973,6 +1043,17 @@
             <a href="#oferta-10" class="shrink-0 px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-400 to-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider hover:opacity-95 transition">
               Comprar App ($10)
             </a>
+          </div>
+
+          <!-- PESTAÑAS PARA EXPLORAR LOS 6 VÍDEOS REALES TRAS DESBLOQUEAR -->
+          <div class="flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-[#060a12] border border-white/10">
+            <span class="text-xs font-mono text-slate-300 font-bold">Explora cualquiera de las 3 apps en tu muestra:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <button type="button" onclick="filtrarMuestrasDesbloqueadas('geo')" id="unlock-tab-geo" class="px-3 py-1.5 rounded-lg bg-sky-500/20 text-sky-300 border border-sky-400/50 text-xs font-bold transition">🌍 Geoeconomía (2)</button>
+              <button type="button" onclick="filtrarMuestrasDesbloqueadas('cyber')" id="unlock-tab-cyber" class="px-3 py-1.5 rounded-lg bg-white/5 text-slate-300 hover:text-white border border-white/10 text-xs font-bold transition">🛡️ Ciberseguridad (2)</button>
+              <button type="button" onclick="filtrarMuestrasDesbloqueadas('viral')" id="unlock-tab-viral" class="px-3 py-1.5 rounded-lg bg-white/5 text-slate-300 hover:text-white border border-white/10 text-xs font-bold transition">⚡ Virales (2)</button>
+              <button type="button" onclick="filtrarMuestrasDesbloqueadas('all')" id="unlock-tab-all" class="px-3 py-1.5 rounded-lg bg-white/5 text-slate-300 hover:text-white border border-white/10 text-xs font-bold transition">Ver los 6</button>
+            </div>
           </div>
 
           <!-- CUADRÍCULA DE LOS 3 NICHOS (2 VÍDEOS POR NICHO = 6 EN TOTAL) -->
@@ -1079,7 +1160,7 @@
 
                 <!-- VIRAL VIDEO 2 -->
                 <div class="sv-glass rounded-2xl p-4 space-y-3 border-white/10 hover:border-amber-500/40 transition">
-                  <div class="text-xs font-bold text-white line-clamp-1">Curiosidad Viral Cinematográfica de Alta Retención</div>
+                  <div class="text-xs font-bold text-white line-clamp-1">Curiosidad Tecnológica Cinematográfica</div>
                   <div class="w-full max-w-[220px] aspect-[9/16] mx-auto rounded-xl overflow-hidden bg-black border border-white/10 shadow-lg relative group">
                     <video controls preload="metadata" playsinline poster="./demos/viral_short_2_poster.jpg" class="w-full h-full object-cover" src="./demos/viral_short_2.mp4">
                       Tu navegador no soporta vídeo directo.
@@ -1107,6 +1188,49 @@
 
         </div>
 
+      </div>
+    </section>
+
+    <!-- COMPARATIVA DE VALOR: MANUAL VS SUSCRIPCIONES VS AUTOSHORTS -->
+    <section class="space-y-6">
+      <div class="text-center space-y-2 max-w-2xl mx-auto">
+        <div class="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest">AHORRO REAL SIN CUOTAS</div>
+        <h2 class="text-2xl sm:text-4xl font-black text-white">Crear a mano vs. Suscripciones vs. AutoShorts.ai</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="sv-glass rounded-2xl p-6 border-white/5 space-y-3 opacity-80">
+          <div class="text-xs font-mono font-bold text-slate-400 uppercase">Hacerlo Todo a Mano</div>
+          <div class="text-xl font-black text-white">2 – 3 horas / vídeo</div>
+          <ul class="text-xs text-slate-400 space-y-2 pt-2 border-t border-white/5">
+            <li>• Buscar noticias cada día desde cero</li>
+            <li>• Escribir guion y grabarse con micrófono</li>
+            <li>• Editar clips y subtítulos en CapCut/Premiere</li>
+            <li class="text-red-400 font-semibold">• Abandono habitual a las 2 semanas</li>
+          </ul>
+        </div>
+        <div class="sv-glass rounded-2xl p-6 border-white/5 space-y-3 opacity-85">
+          <div class="text-xs font-mono font-bold text-slate-400 uppercase">Otras Apps con Suscripción</div>
+          <div class="text-xl font-black text-white">$49 – $99 / cada mes</div>
+          <ul class="text-xs text-slate-400 space-y-2 pt-2 border-t border-white/5">
+            <li>• Cuotas recurrentes todos los meses</li>
+            <li>• Límites de minutos mensuales estrictos</li>
+            <li>• Costes extra por voces o exportaciones HD</li>
+            <li class="text-amber-400 font-semibold">• Más de $600 USD al año</li>
+          </ul>
+        </div>
+        <div class="sv-glass rounded-2xl p-6 border-emerald-400/50 bg-emerald-950/15 space-y-3 relative shadow-lg shadow-emerald-500/10">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-emerald-400 uppercase">AutoShorts.ai</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold">MÁS FÁCIL</span>
+          </div>
+          <div class="text-xl font-black text-white">&lt; 2 min / día · $10 Único</div>
+          <ul class="text-xs text-slate-200 space-y-2 pt-2 border-t border-white/10">
+            <li>✓ Noticias buscadas automáticamente</li>
+            <li>✓ Guion, voz realista y subtítulos en 1 clic</li>
+            <li>✓ 0 suscripciones ni cobros mensuales</li>
+            <li class="text-emerald-400 font-bold">✓ Publica todos los días sin quemarte</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -1163,7 +1287,7 @@
             </li>
             <li class="flex items-center gap-3">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span><strong>Guiones virales con IA</strong> con ganchos anti-swipe</span>
+              <span><strong>Guiones diarios con IA</strong> redactados en segundos</span>
             </li>
             <li class="flex items-center gap-3">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
@@ -1220,10 +1344,51 @@
             No. Pagas $10 USD una sola vez y recibes la aplicación para usarla de por vida sin recurrencias ni cobros sorpresa.
           </p>
         </details>
+
+        <details class="sv-glass rounded-2xl p-5 text-xs group cursor-pointer border border-white/5">
+          <summary class="font-bold text-white flex items-center justify-between">
+            ¿Necesito saber editar vídeo o tener un ordenador potente?
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-slate-400 mt-2.5 leading-relaxed">
+            Para nada. Todo funciona mediante botones claros paso a paso desde un panel web sencillo. No tienes que tocar líneas de tiempo, cortes ni capas de subtítulos manualmente.
+          </p>
+        </details>
+
+        <details class="sv-glass rounded-2xl p-5 text-xs group cursor-pointer border border-white/5">
+          <summary class="font-bold text-white flex items-center justify-between">
+            ¿Cuánto tiempo tardo en tener el vídeo listo cada día?
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-slate-400 mt-2.5 leading-relaxed">
+            Entre elegir la noticia sugerida, generar el guion y renderizar el MP4 vertical final con voz y subtítulos tardas menos de 2 minutos en total.
+          </p>
+        </details>
       </div>
     </section>
 
   </main>
+
+  <!-- BARRA FLOTANTE DISCRETA TRAS HACER SCROLL -->
+  <div id="sticky-cta-bar" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-2xl sv-glass rounded-2xl px-4 py-3 border border-sky-500/40 shadow-2xl shadow-black/80 hidden transition-all duration-300">
+    <div class="flex items-center justify-between gap-3">
+      <div class="hidden sm:block">
+        <div class="text-xs font-black text-white">AutoShorts.ai · Crea Shorts diarios en 2 min</div>
+        <div class="text-[10px] text-slate-400 font-mono">Prueba gratis sin tarjeta o licencia lifetime por $10</div>
+      </div>
+      <div class="flex items-center gap-2 flex-1 sm:flex-initial justify-end">
+        <a href="#prueba-gratis" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs whitespace-nowrap transition flex items-center gap-1.5">
+          <i data-lucide="gift" class="w-3.5 h-3.5 text-emerald-400"></i> Probar Gratis
+        </a>
+        <button type="button" onclick="comprarApp10()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-sky-400 to-emerald-400 text-slate-950 font-black text-xs whitespace-nowrap hover:opacity-95 transition flex items-center gap-1.5">
+          <i data-lucide="zap" class="w-3.5 h-3.5"></i> Comprar ($10)
+        </button>
+        <button type="button" onclick="cerrarStickyBar()" title="Ocultar barra" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER SILICON VALLEY -->
   <footer class="border-t border-white/[0.07] bg-[#030509]/90 py-10 text-center text-xs text-slate-400">
@@ -1311,23 +1476,16 @@
       const boxViral = document.getElementById("nicho-box-viral");
       const titleText = document.getElementById("confirmed-samples-title");
 
-      // Filtrar y mostrar ÚNICAMENTE la temática seleccionada por el cliente
+      // Mostrar la temática elegida inicialmente pero permitir cambiar con las pestañas
       if (nicho === "Ciberseguridad") {
-        if (boxGeo) boxGeo.classList.add("hidden");
-        if (boxCyber) boxCyber.classList.remove("hidden");
-        if (boxViral) boxViral.classList.add("hidden");
-        if (titleText) titleText.innerText = "Tus 2 Shorts de Muestra de Ciberseguridad (1080x1920)";
+        filtrarMuestrasDesbloqueadas('cyber');
+        if (titleText) titleText.innerText = "Muestras Desbloqueadas: Empiezas en Ciberseguridad (6 vídeos disponibles)";
       } else if (nicho === "Noticias Virales") {
-        if (boxGeo) boxGeo.classList.add("hidden");
-        if (boxCyber) boxCyber.classList.add("hidden");
-        if (boxViral) boxViral.classList.remove("hidden");
-        if (titleText) titleText.innerText = "Tus 2 Shorts de Muestra de Noticias Virales (1080x1920)";
+        filtrarMuestrasDesbloqueadas('viral');
+        if (titleText) titleText.innerText = "Muestras Desbloqueadas: Empiezas en Noticias Virales (6 vídeos disponibles)";
       } else {
-        // Geoeconomía por defecto
-        if (boxGeo) boxGeo.classList.remove("hidden");
-        if (boxCyber) boxCyber.classList.add("hidden");
-        if (boxViral) boxViral.classList.add("hidden");
-        if (titleText) titleText.innerText = "Tus 2 Shorts de Muestra de Geoeconomía (1080x1920)";
+        filtrarMuestrasDesbloqueadas('geo');
+        if (titleText) titleText.innerText = "Muestras Desbloqueadas: Empiezas en Geoeconomía (6 vídeos disponibles)";
       }
 
       document.getElementById("demo-unlocked-card").classList.remove("hidden");
@@ -1341,6 +1499,173 @@
     }
 
     
+    // --- 1. REPRODUCTOR REAL EN EL MÓVIL DEL SHOWCASE ---
+    function cambiarVideoTelefono(nicho) {
+      const video = document.getElementById('hero-phone-video');
+      const label = document.getElementById('hero-phone-label');
+      const btns = {
+        geo: document.getElementById('phone-btn-geo'),
+        cyber: document.getElementById('phone-btn-cyber'),
+        viral: document.getElementById('phone-btn-viral')
+      };
+
+      const info = {
+        geo: { src: './demos/geo_short_1.mp4', poster: './demos/geo_short_1_poster.jpg', text: 'Geoeconomía · 9:16', activeClass: 'px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/50 transition' },
+        cyber: { src: './demos/cyber_short_1.mp4', poster: './demos/cyber_short_1_poster.jpg', text: 'Ciberseguridad · 9:16', activeClass: 'px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/50 transition' },
+        viral: { src: './demos/viral_short_1.mp4', poster: './demos/viral_short_1_poster.jpg', text: 'Virales & Tech · 9:16', activeClass: 'px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/50 transition' }
+      };
+
+      const item = info[nicho];
+      if (!item || !video) return;
+
+      video.pause();
+      video.src = item.src;
+      video.poster = item.poster;
+      video.load();
+      if (label) label.innerText = item.text;
+
+      Object.keys(btns).forEach(k => {
+        if (!btns[k]) return;
+        btns[k].className = (k === nicho) ? item.activeClass : 'px-3 py-1 rounded-full text-slate-400 hover:text-white border border-transparent transition';
+      });
+    }
+
+    // --- 2. CALCULADORA INTERACTIVA DE TIEMPO AHORRADO ---
+    function actualizarCalculadoraTiempo(videosSemana) {
+      const btnIds = [3, 7, 14];
+      btnIds.forEach(n => {
+        const b = document.getElementById(`calc-btn-${n}`);
+        if (!b) return;
+        if (n === videosSemana) {
+          b.className = 'py-3 px-2 rounded-xl border-2 border-emerald-400 bg-emerald-500/15 text-white font-bold text-xs transition text-center shadow-lg shadow-emerald-500/15';
+        } else {
+          b.className = 'py-3 px-2 rounded-xl border border-white/10 bg-[#060a12] hover:border-sky-400/50 text-slate-300 font-bold text-xs transition text-center';
+        }
+      });
+
+      const manualHoras = (videosSemana * 2.5).toFixed(1).replace('.0', '');
+      const appMinutos = videosSemana * 2;
+      const horasMes = Math.round(((videosSemana * 2.5) - (appMinutos / 60)) * 4);
+      const costePorVideo = (10 / (videosSemana * 52)).toFixed(2).replace('.', ',');
+
+      const elManual = document.getElementById('calc-manual-hours');
+      const elApp = document.getElementById('calc-app-mins');
+      const elSaved = document.getElementById('calc-saved-month');
+      const elCost = document.getElementById('calc-cost-per-video');
+
+      if (elManual) elManual.innerText = `~${manualHoras} h / sem`;
+      if (elApp) elApp.innerText = `~${appMinutos} min / sem`;
+      if (elSaved) elSaved.innerText = `+${horasMes} horas al mes`;
+      if (elCost) elCost.innerText = `${costePorVideo} $ / vídeo`;
+    }
+
+    // --- 3. PESTAÑAS DE EXPLORACIÓN EN PRUEBAS DESBLOQUEADAS ---
+    function filtrarMuestrasDesbloqueadas(filtro) {
+      const boxGeo = document.getElementById("nicho-box-geo");
+      const boxCyber = document.getElementById("nicho-box-cyber");
+      const boxViral = document.getElementById("nicho-box-viral");
+
+      if (boxGeo) boxGeo.classList.toggle("hidden", !(filtro === 'geo' || filtro === 'all'));
+      if (boxCyber) boxCyber.classList.toggle("hidden", !(filtro === 'cyber' || filtro === 'all'));
+      if (boxViral) boxViral.classList.toggle("hidden", !(filtro === 'viral' || filtro === 'all'));
+
+      const tabs = {
+        geo: 'unlock-tab-geo',
+        cyber: 'unlock-tab-cyber',
+        viral: 'unlock-tab-viral',
+        all: 'unlock-tab-all'
+      };
+      Object.keys(tabs).forEach(k => {
+        const el = document.getElementById(tabs[k]);
+        if (!el) return;
+        if (k === filtro) {
+          el.className = 'px-3 py-1.5 rounded-lg bg-sky-500/25 text-sky-200 border border-sky-400 text-xs font-bold transition';
+        } else {
+          el.className = 'px-3 py-1.5 rounded-lg bg-white/5 text-slate-300 hover:text-white border border-white/10 text-xs font-bold transition';
+        }
+      });
+    }
+
+    // --- 4. BARRA FLOTANTE DISCRETA EN SCROLL ---
+    let stickyCerrada = false;
+    function cerrarStickyBar() {
+      stickyCerrada = true;
+      const bar = document.getElementById('sticky-cta-bar');
+      if (bar) bar.classList.add('hidden');
+    }
+    window.addEventListener('scroll', () => {
+      if (stickyCerrada) return;
+      const bar = document.getElementById('sticky-cta-bar');
+      if (!bar) return;
+      if (window.scrollY > 560) {
+        bar.classList.remove('hidden');
+      } else {
+        bar.classList.add('hidden');
+      }
+    });
+
+    // --- 5. SELECCIÓN DE NOTICIA 1 O 2 EN EL SIMULADOR ---
+    let noticiaDemoSeleccionada = 1;
+    const guionesNoticia2 = {
+      geoeconomia: {
+        title: '¿Por qué los bancos centrales están comprando toneladas de oro físico? #Shorts',
+        hook: '«Los bancos centrales acaban de batir el récord histórico de compra de oro desde 1967.»',
+        body: 'Mientras las divisas tradicionales sufren presión inflacionaria, varias potencias están repatriando lingotes físicos a sus bóvedas nacionales para blindar su comercio exterior y reducir la dependencia de bonos extranjeros...',
+        keypoint: 'Dato clave: Récord desde 1967',
+        stats: '112 palabras · 41.0s estimados'
+      },
+      ciberseguridad: {
+        title: '2.000 millones de credenciales expuestas en la red #Shorts',
+        hook: '«Una base de datos sin contraseña acaba de dejar al descubierto millones de tokens corporativos.»',
+        body: 'El error más frecuente ya no es un ataque complejo, sino dejar buckets y archivos de configuración abiertos en la nube. En segundos, scripts automatizados recolectan estas sesiones activas sin disparar alertas...',
+        keypoint: 'Vector de ataque: Buckets sin cifrado',
+        stats: '108 palabras · 39.0s estimados'
+      },
+      viral: {
+        title: 'Robots humanoides ya trabajan turnos de 24 horas en almacenes #Shorts',
+        hook: '«La nueva generación de robots industriales ya opera turnos completos sin parar en logística.»',
+        body: 'Lo que hace dos años parecía ciencia ficción ya se prueba en naves logísticas reales. Estos modelos aprenden tareas repetitivas observando operarios humanos y multiplican la capacidad diaria de empaquetado...',
+        keypoint: 'Novedad: Producción en cadena 24h',
+        stats: '115 palabras · 40.5s estimados'
+      }
+    };
+
+    function seleccionarNoticiaDemo(num) {
+      noticiaDemoSeleccionada = num;
+      const c1 = document.getElementById('step1-card-1');
+      const c2 = document.getElementById('step1-card-2');
+      const b1 = document.getElementById('step1-btn-1');
+      const b2 = document.getElementById('step1-btn-2');
+
+      const activeCard = 'p-4 rounded-xl bg-sky-950/40 border-2 border-sky-400 space-y-3 relative shadow-lg shadow-sky-500/10 cursor-pointer transition';
+      const inactiveCard = 'p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3 opacity-85 hover:opacity-100 hover:border-sky-400/50 cursor-pointer transition';
+
+      if (c1 && c2) {
+        c1.className = num === 1 ? activeCard : inactiveCard;
+        c2.className = num === 2 ? activeCard : inactiveCard;
+      }
+      if (b1 && b2) {
+        b1.className = num === 1 ? 'px-3.5 py-1.5 rounded-lg bg-sky-400 text-slate-950 font-black text-xs uppercase flex items-center gap-1 hover:opacity-95 transition' : 'px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition flex items-center gap-1';
+        b2.className = num === 2 ? 'px-3.5 py-1.5 rounded-lg bg-sky-400 text-slate-950 font-black text-xs uppercase flex items-center gap-1 hover:opacity-95 transition' : 'px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition flex items-center gap-1';
+      }
+
+      const data = datosNichosDemo[demoNichoActual];
+      const step2Data = (num === 2 && guionesNoticia2[demoNichoActual]) ? guionesNoticia2[demoNichoActual] : (data ? data.step2 : null);
+      if (step2Data) {
+        const s2Title = document.getElementById('step2-title');
+        if (s2Title) s2Title.innerText = step2Data.title;
+        const s2Hook = document.getElementById('step2-hook');
+        if (s2Hook) s2Hook.innerText = step2Data.hook;
+        const s2Body = document.getElementById('step2-body');
+        if (s2Body) s2Body.innerText = step2Data.body;
+        const s2Keypoint = document.getElementById('step2-keypoint');
+        if (s2Keypoint) s2Keypoint.innerText = step2Data.keypoint;
+        const s2Stats = document.getElementById('step2-stats');
+        if (s2Stats) s2Stats.innerText = step2Data.stats;
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
     let demoStepActual = 1;
     let demoNichoActual = 'geoeconomia';
 
@@ -1570,6 +1895,7 @@
         botBtn.download = data.step4.downloadName;
       }
 
+      seleccionarNoticiaDemo(1);
       if (window.lucide) lucide.createIcons();
     }
 
