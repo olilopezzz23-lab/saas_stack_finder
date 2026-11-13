@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /exito.html
+Sitemap: https://saasstackfinder.vercel.app/sitemap.xml
